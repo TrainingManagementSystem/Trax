@@ -3,8 +3,8 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      //SPLASH SCREEN
+      //home SCREEN
       .state('home', {
         url: '/',
-        templateUrl: 'splash.html'
+        templateUrl: './home/splash.html'
       });
