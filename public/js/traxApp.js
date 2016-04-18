@@ -8,3 +8,4 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         url: '/',
         templateUrl: './home/splash.html'
       });
+};
