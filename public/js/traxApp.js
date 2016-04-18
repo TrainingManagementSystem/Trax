@@ -1,4 +1,4 @@
-angular.module('traxApp', ['ui.router', 'angularMoment'])
+angular.module('traxApp', ['ui.router'])
   .config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
@@ -6,6 +6,6 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       //home SCREEN
       .state('home', {
         url: '/',
-        templateUrl: './home/splash.html'
+        templateUrl: '/js/home/home.html'
       });
-};
+});
