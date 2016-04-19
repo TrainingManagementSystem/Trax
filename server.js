@@ -1,13 +1,11 @@
-var express = require('express'),
-     app = express(),
-     mongoose = require('mongoose'),
-     mongoUri = 'mongodb://localhost:27017/database',
-     bodyParser = require('body-parser'),
-     cors = require('cors'),
-     corsOptions = {
-       origin: 'http://localhost:8030'
-     },
-     port = 8030;
+const express = require('express'),
+      app = express(),
+      mongoose = require('mongoose'),
+      mongoUri = require('./config/session').mongoUri,
+      bodyParser = require('body-parser'),
+      cors = require('cors'),
+      corsOptions = require('./config/session').corsOptions,
+      port = require('./config/session').port;
 
 
 // var session = require('express-session'),
@@ -18,12 +16,13 @@ app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 mongoose.connect(mongoUri);
-mongoose.connection.once('open', function(){
+mongoose.connection.once('open', () => {
   console.log('Connected to mongo at ' + mongoUri);
 });
 
-// require('./routes/routes')( app );
+// require('./ServerAssets/trainee/trainee_routes')( app );
+require('./ServerAssets/trainer/trainer_routes')( app );
 
-app.listen(port, function(){
+app.listen(port, () => {
   console.log('listening on ' + port);
 });
