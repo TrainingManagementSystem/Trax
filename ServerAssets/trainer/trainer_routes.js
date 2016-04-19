@@ -1,6 +1,6 @@
-var ctrl = require('./trainer_ctrl');
+import ctrl from './trainer_ctrl';
 
-module.exports = function(app){
+export default function(app){
   app.route('/api/trainer/login')
       .get(ctrl.checkLogin);
   app.route('/api/trainer/newTrainer')
@@ -11,4 +11,4 @@ module.exports = function(app){
       .patch(ctrl.addTrainee);
   app.route('/api/trainer/removeTrainee')
       .patch(ctrl.removeTrainee);
-};
+}

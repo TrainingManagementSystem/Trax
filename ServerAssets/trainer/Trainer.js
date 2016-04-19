@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 var Trainer = new mongoose.Schema({
   firstName: {type:String, required: true},
@@ -9,4 +9,4 @@ var Trainer = new mongoose.Schema({
   trainees: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trainee'}]
 });
 
-module.exports = Trainer;
+export default Trainer;

@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Trainer = mongoose.model('Trainer', require('./Trainer'));
+import mongoose from 'mongoose';
+import trainer from './Trainer';
+const Trainer = mongoose.model('Trainer', trainer);
 
-module.exports = {
+export default {
   checkLogin: function(req, res){
     Trainer.findOne({
       email: req.query.email,
