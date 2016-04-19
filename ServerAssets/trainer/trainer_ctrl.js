@@ -14,8 +14,8 @@ module.exports = {
     });
   },
   newTrainer: function(req, res){
-    console.log(req.body);
-    new Teacher(req.body).save(function(err, trainer){
+    console.log('req.body ',req.body);
+    new Trainer(req.body).save(function(err, trainer){
       if(err){
         return res.status(401).send(err);
       }

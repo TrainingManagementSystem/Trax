@@ -20,7 +20,7 @@ mongoose.connection.once('open', () => {
   console.log('Connected to mongo at ' + mongoUri);
 });
 
-require('./ServerAssets/trainee/trainee_routes')( app );
+// require('./ServerAssets/trainee/trainee_routes')( app );
 require('./ServerAssets/trainer/trainer_routes')( app );
 
 app.listen(port, () => {
