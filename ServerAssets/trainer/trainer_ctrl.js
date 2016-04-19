@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Trainer = mongoose.model('Trainer', require('./Trainer'));
-var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 module.exports = {
   checkLogin: function(req, res){
