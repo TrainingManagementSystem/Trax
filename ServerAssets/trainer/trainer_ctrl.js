@@ -24,7 +24,7 @@ module.exports = {
   },
   getTrainer: function(req, res){
     Trainer.findOne({
-      // stuCode: req.query.stuCode
+      _id: req.query.trainerId
     }).populate('trainees').exec(function(error, response) {
         console.log(222, response);
         if(error){
@@ -34,10 +34,10 @@ module.exports = {
       });
   },
   addTrainee: function(req, res){
-    Trainer.findOne({stuCode:req.query.stuCode}, function(err, trainer){
+    Trainer.findOne({_id: req.query.trainerId}, function(err, trainer){
       if ( err ) return res.status(500).send(err);
-      var currentList = trainer.students;
-      currentList.push(req.query.sid);
+      var currentList = trainer.trainees;
+      currentList.push(req.query.traineeId);
       trainer.set(trainer.trainees, currentList);
       trainer.save( function( err, updatedTrainer){
         if ( err ) return res.status(500).send(err);
@@ -46,7 +46,7 @@ module.exports = {
     });
   },
   removeTrainee: function(req, res){
-    Trainer.findOne({stuCode:req.query.stuCode}, function(err, trainer){
+    Trainer.findOne({_id: req.query.trainerId}, function(err, trainer){
       if ( err ) return res.status(500).send(err);
       var currentList = trainer.trainees;
       if(currentList.indexOf(req.query.sid) > -1){
