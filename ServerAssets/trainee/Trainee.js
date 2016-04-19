@@ -1,9 +1,15 @@
-// var mongoose = require('mongoose'),
-//     Data = new mongoose.Schema({
-//       // // Build you Scheme here
-//       // title: {type: String, required: true, unique: true, index: true},
-//       // description: {type: String, required: true, default: 'Description...'},
-//       // price: {type: Number, require: true, min: 0}
-//     });
-//
-// module.exports = mongoose.model('Data', Data);
+var mongoose = require('mongoose'),
+    Trainee = new mongoose.Schema({
+      firstName: {type:String, required: true},
+      lastName: {type:String, required: true},
+      email: {type:String, required: true, unique: true, index: true},
+      password: {type: String, required:true},
+      trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer'},
+      active: {type: Boolean, default: true},
+      schedule: {type: Array},
+      measurements: {type: Object},
+      goals: {type: Object},
+      fitBitData: {type: Array}
+    });
+
+module.exports = mongoose.model('Trainee', Trainee);
