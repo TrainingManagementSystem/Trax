@@ -7,5 +7,15 @@ angular.module('traxApp', ['ui.router'])
       .state('home', {
         url: '/',
         templateUrl: '/js/home/home.html'
-      });
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: '/js/login/login.html'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: '/js/dashboard/dashboard.html'
+      })
+   	$urlRouterProvider
+  	.otherwise('/');
 });
