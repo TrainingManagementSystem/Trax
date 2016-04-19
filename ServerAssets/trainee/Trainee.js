@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
       schedule: {type: Array},
       measurements: {type: Object},
       goals: {type: Object},
+      fitBitToken: {type: String},
       fitBitData: {type: Array}
     });
 
