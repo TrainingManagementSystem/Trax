@@ -26,6 +26,4 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         templateUrl: '/js/client/client.html',
         controller: "client_ctrl"
       })
-   	$urlRouterProvider
-  	.otherwise('/');
 });

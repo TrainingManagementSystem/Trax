@@ -1,5 +1,6 @@
-app.controller('LoginControl', ['$scope', '$interval', 'FrontendService', 'moment', function($scope, $interval, FrontendService, moment){
+app.controller('LoginControl', ['$scope', 'LoginService', 'moment', function($scope, LoginService, moment){
 
-$scope.CurrentDate = moment();
+// $scope.CurrentDate = new Date();
+$scope.CurrentDate = moment().format("dddd, MMMM Do");
 
-}
+}]);
