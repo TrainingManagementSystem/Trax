@@ -18,20 +18,20 @@ body {
 	/*font-size: 45px;*/
 }
 
-/*ul li{
+.loginBackground ul li{
 	display: inline;
 	margin: 0;
 	padding: 0;
-}*/
-/*
-input {
+}
+
+.loginBackground input {
 	width: 80%;
 	padding: 5px;
 	text-align: center;
 	font-family: "proxima-nova";
 	height: 50px;
 	font-size: 20px;
-}*/
+}
 
 .inputBox {
 	margin-bottom: 10px;
@@ -48,6 +48,7 @@ input {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
+	font-size: 45px;
 }
 
 .loginHeader {
@@ -70,10 +71,10 @@ input {
 	text-align: center;
 }
 
-/*.fa {
+.fa-logo {
 	padding-top: 55px;
 	color: #f2f2ea;
-}*/
+}
 
 .loginText {
 	color: #91d000;
