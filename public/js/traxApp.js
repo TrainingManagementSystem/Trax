@@ -11,7 +11,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',
-		controller: 'LoginControl'
+		    controller: 'LoginControl'
       })
       .state('dashboard', {
         url: '/dashboard',
@@ -25,6 +25,16 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         url: '/client',
         templateUrl: '/js/client/client.html',
         controller: "client_ctrl"
+      })
+      .state('clientList', {
+        url: '/clientList',
+        templateUrl: '/js/clientList/clientList.html',
+        controller: "clientList_ctrl"
+      })
+      .state('settings', {
+        url: '/me/settings',
+        templateUrl: '/js/settings/settings.html',
+        controller: "settings_ctrl"
       })
    	$urlRouterProvider
   	.otherwise('/');
