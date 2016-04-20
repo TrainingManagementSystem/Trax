@@ -1,11 +1,11 @@
-var ctrl = require('../controllers/backendControl');
+import ctrl from './trainee_ctrl';
 
-module.exports = function( app ){
-  app.route('/api/data')
-     .get(ctrl.getItems)
-     .post(ctrl.postItem);
-  app.route('/api/data/:id')
-     .get(ctrl.getItem)
-     .put(ctrl.editItem)
-     .delete(ctrl.deleteItem);
-};
+export default function( app ){
+  app.route('/api/trainees')
+     .post(ctrl.newTrainee)
+     .get(ctrl.getTrainees);
+  app.route('/api/trainee/:id')
+     .get(ctrl.getTrainee)
+     .put(ctrl.updateTrainee)
+     .delete(ctrl.deleteTrainee);
+}
