@@ -16,6 +16,10 @@ angular.module('traxApp', ['ui.router'])
         url: '/dashboard',
         templateUrl: '/js/dashboard/dashboard.html'
       })
+      .state('nav', {
+        url: '/nav',
+        templateUrl: '/js/directives/navDirective.html'
+      })
       .state('client', {
         url: '/client',
         templateUrl: '/js/client/client.html',
