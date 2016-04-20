@@ -15,15 +15,15 @@
 
 body {
 	font-family: "Dharma-ExLight", helvetica;
-	font-size: 45px;
+	/*font-size: 45px;*/
 }
 
-ul li{
+/*ul li{
 	display: inline;
 	margin: 0;
 	padding: 0;
-}
-
+}*/
+/*
 input {
 	width: 80%;
 	padding: 5px;
@@ -31,7 +31,7 @@ input {
 	font-family: "proxima-nova";
 	height: 50px;
 	font-size: 20px;
-}
+}*/
 
 .inputBox {
 	margin-bottom: 10px;
@@ -70,10 +70,10 @@ input {
 	text-align: center;
 }
 
-.fa {
+/*.fa {
 	padding-top: 55px;
 	color: #f2f2ea;
-}
+}*/
 
 .loginText {
 	color: #91d000;
@@ -121,5 +121,3 @@ input {
 	font-family: "proxima-nova";
 	font-size: 22px;
 }
-
-
