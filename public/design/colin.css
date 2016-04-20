@@ -11,7 +11,7 @@ body{
 .client{
   background-color: #f2f2ea;
   min-height: calc(100vh - 65px);
-  width: 75%;
+  width: calc(100% - 350px);
   position: absolute;
   right: 0px;
   top:65px;
