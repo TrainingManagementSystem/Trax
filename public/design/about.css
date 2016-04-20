@@ -1,0 +1,12 @@
+.ng-view {
+	padding: 0;
+	margin: 0;
+}
+
+.aboutPage {
+	text-align: center;
+}
+
+.aboutPageHeader {
+	background-color: #91d000;
+}
