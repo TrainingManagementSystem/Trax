@@ -1,11 +1,6 @@
 {
   "name": "flextrax",
   "version": "1.0.0",
-  "babel": {
-    "presets": [
-      "babel=preset-es2015"
-    ]
-  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,5 +18,9 @@
     "express": "^4.13.4",
     "mongojs": "^2.3.0",
     "mongoose": "^4.4.12"
-  }
+  },
+  "babel": {
+   "presets": [
+     "es2015"
+  ]}
 }
