@@ -1,0 +1,125 @@
+/*#91d000 green
+#1b2224
+#f2f2ea white
+#0e1112*/
+/* Fonts */
+@font-face { font-family: "Dharma-ExLight-I"; src: url(../fonts/DharmaGothicE_ExLight_I.otf);}
+@font-face { font-family: "Dharma-ExLight"; src: url(../fonts/DharmaGothicE_ExLight_R.otf);}
+@font-face { font-family: "Dharma-Light-I"; src: url(../fonts/DharmaGothicE_Light_I.otf);}
+@font-face { font-family: "Dharma-Light"; src: url(../fonts/DharmaGothicE_Light_R.otf);}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Dharma-ExLight", helvetica;
+	font-size: 45px;
+}
+
+ul li{
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	width: 80%;
+	padding: 5px;
+	text-align: center;
+	font-family: "proxima-nova";
+	height: 50px;
+	font-size: 20px;
+}
+
+.inputBox {
+	margin-bottom: 10px;
+}
+
+.loginWhite {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 18px;
+	font-family: "proxima-nova";
+}
+
+.loginBackground {
+	background-image: url(../img/login-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.loginHeader {
+	padding: 30px;
+	margin-bottom: 15%;
+}
+
+.loginHeaderText {
+	color: #737777;
+}
+
+.loginNav {
+	text-align: right;
+}
+
+.loginBox {
+	background-color: #0e1112;
+	margin: 0 auto;
+	max-width: 500px;
+	text-align: center;
+}
+
+.fa {
+	padding-top: 55px;
+	color: #f2f2ea;
+}
+
+.loginText {
+	color: #91d000;
+	font-size: 80px;
+}
+
+.loginbuttonsContainer {
+	display: flex;
+}
+
+.loginButtons {
+	padding: 1em 2em;
+	width: 150px;
+	height: 65px;
+	color: #f2f2ea;
+	font-family: "proxima-nova";
+	font-size: 18px;
+	margin: 0;
+}
+
+.loginTrainerButton {
+	flex-direction: ;
+	background-color: #91d000;
+}
+
+.loginClientButton {
+	flex-direction: row;
+	border: 2px solid #f2f2ea;
+}
+
+.loginResetPassword {
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+
+.loginButton {
+	width: 100%;
+	background-color: #91d000;
+	height: 65px;
+	padding-bottom: 75px;
+}
+
+.loginButtonText {
+	color: #f2f2ea;
+	font-family: "proxima-nova";
+	font-size: 22px;
+}
+
+

@@ -1,4 +1,4 @@
-angular.module('traxApp', ['ui.router'])
+angular.module('traxApp', ['ui.router', 'angularMoment'])
   .config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
@@ -7,5 +7,16 @@ angular.module('traxApp', ['ui.router'])
       .state('home', {
         url: '/',
         templateUrl: '/js/home/home.html'
-      });
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: '/js/login/login.html',
+        controller: 'FrontendControl'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: '/js/dashboard/dashboard.html'
+      })
+   	$urlRouterProvider
+  	.otherwise('/');
 });
