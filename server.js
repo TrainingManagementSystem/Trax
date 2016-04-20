@@ -1,11 +1,11 @@
-const express = require('express'),
-      app = express(),
-      mongoose = require('mongoose'),
-      mongoUri = require('./config/session').mongoUri,
-      bodyParser = require('body-parser'),
-      cors = require('cors'),
-      corsOptions = require('./config/session').corsOptions,
-      port = require('./config/session').port;
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import routes from './ServerAssets/routes';
+import { mongoUri, corsOptions, port } from './config/session';
+
+const app = express();
 
 
 // var session = require('express-session'),
@@ -20,8 +20,7 @@ mongoose.connection.once('open', () => {
   console.log('Connected to mongo at ' + mongoUri);
 });
 
-// require('./ServerAssets/trainee/trainee_routes')( app );
-require('./ServerAssets/trainer/trainer_routes')( app );
+routes(app);
 
 app.listen(port, () => {
   console.log('listening on ' + port);

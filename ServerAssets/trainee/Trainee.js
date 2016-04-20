@@ -1,16 +1,37 @@
-var mongoose = require('mongoose'),
-    Trainee = new mongoose.Schema({
+import mongoose from 'mongoose';
+
+const Trainee = new mongoose.Schema({
       firstName: {type:String, required: true},
       lastName: {type:String, required: true},
-      email: {type:String, required: true, unique: true, index: true},
+      email: {type:String, required: true, unique: true},
       password: {type: String, required:true},
-      trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer'},
+      phone: {type: String, required:true, index:true},
+      trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
       active: {type: Boolean, default: true},
-      schedule: {type: Array},
-      measurements: {type: Object},
-      goals: {type: Object},
-      fitBitToken: {type: String},
-      fitBitData: {type: Array}
+      schedule: [{
+        lastInstance: String,
+        dayOfWeek: Number,
+        confirmed: Boolean,
+        time: Number,
+        location: String,
+        Duration: Number
+      }],
+      measurements: {
+        neck: Number,
+        waist: Number,
+        thigh: Number,
+        bicep: Number,
+        forearm: Number,
+        shoulders: Number,
+        calf: Number,
+        chest: Number
+      },
+      goals: {
+        calories: Number,
+        steps: Number
+      },
+      fitBitToken: String,
+      fitBitData: []
     });
 
-module.exports = mongoose.model('Trainee', Trainee);
+export default mongoose.model('Trainee', Trainee);

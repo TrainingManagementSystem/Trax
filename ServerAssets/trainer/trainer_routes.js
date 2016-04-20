@@ -1,14 +1,14 @@
-var ctrl = require('./trainer_ctrl');
+import ctrl from './trainer_ctrl';
 
-module.exports = function(app){
+export default function( app ){
   app.route('/api/trainer/login')
       .get(ctrl.checkLogin);
-  app.route('/api/trainer/newTrainer')
-      .post(ctrl.newTrainer);
-  app.route('/api/trainer/getTrainer')
-      .get(ctrl.getTrainer);
-  app.route('/api/trainer/addTrainee')
-      .patch(ctrl.addTrainee);
-  app.route('/api/trainer/removeTrainee')
-      .patch(ctrl.removeTrainee);
-};
+
+  app.route('/api/trainers')
+      .post(ctrl.newTrainer)
+      .get(ctrl.getTrainers);
+  app.route('/api/trainer/:id')
+      .get(ctrl.getTrainer)
+      .put(ctrl.updateTrainer)
+      .delete(ctrl.deleteTrainer);
+}
