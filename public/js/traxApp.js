@@ -11,7 +11,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',
-		controller: 'FrontendControl'
+		controller: 'LoginControl'
       })
       .state('dashboard', {
         url: '/dashboard',
