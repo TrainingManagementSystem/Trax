@@ -2,8 +2,8 @@
   "name": "flextrax",
   "version": "1.0.0",
   "babel": {
-    "presets": [
-      "babel=preset-es2015"
+    "presets": [ 
+      "babel-preset-es2015"
     ]
   },
   "description": "",
