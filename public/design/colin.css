@@ -1,0 +1,262 @@
+@font-face { font-family: "Dharma-ExLight-I"; src: url(../fonts/DharmaGothicE_ExLight_I.otf);}
+@font-face { font-family: "Dharma-ExLight"; src: url(../fonts/DharmaGothicE_ExLight_R.otf);}
+@font-face { font-family: "Dharma-Light-I"; src: url(../fonts/DharmaGothicE_Light_I.otf);}
+@font-face { font-family: "Dharma-Light"; src: url(../fonts/DharmaGothicE_Light_R.otf);}
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #1b2224;
+}
+.client{
+  background-color: #f2f2ea;
+  min-height: calc(100vh - 65px);
+  width: calc(100% - 350px);
+  position: absolute;
+  right: 0px;
+  top:65px;
+  font-family: Dharma-Light;
+}
+.client-header{
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px 40px;
+  border-bottom: 2px solid #c6c7c8;
+  display: flex;
+}
+.client-header-section{
+  width: 50%;
+}
+.client-profileInfo{
+  display: flex;
+  align-items: center;
+}
+.client-profileStats{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.client-profileInfo-Name{
+  padding-left: 10px;
+}
+img.client-profileImage{
+  width: 90px;
+  border-radius: 100%;
+}
+.client-profileInfo-Name h1{
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+.client-profileInfo-Name h2{
+  font-size: 0.85rem;
+  font-weight: 300;
+  font-family: "proxima-nova";
+  margin-bottom: 0px;
+}
+.client-statBlock{
+  width: 33%;
+  border: 2px solid #f2f2ea;
+  padding: 15px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.client-statBlock i{
+  font-size: 2.5rem;
+}
+.client-statBlock h1{
+  font-size: 2rem;
+  color:#91d000;
+  padding-left: 10px;
+  font-weight: 300;
+  margin-bottom: 0px;
+}
+.client-info{
+  display: flex;
+  /*flex-wrap: wrap;*/
+}
+.client-info-section{
+  width: 33%;
+  min-width: 280px;
+  margin: 50px 40px;
+}
+.client-info-section:nth-child(2){
+  margin: 50px 0px;
+}
+
+.info-cal-header{
+  background-image: url('/img/calories-bg.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position:relative;
+}
+i.editGoal{
+  position: absolute;
+  top:10px;
+  right: 10px;
+  color: white;
+  font-size: 20px!important;
+  opacity: 0.3;
+  transition: 1s;
+  cursor: pointer;
+}
+i.editGoal:hover{
+  opacity: 1;
+}
+.editGoalLable{
+  position: absolute;
+  top: 13px;
+  right: 35px;
+  font-family: "proxima-nova";
+  font-size: 10px;
+  opacity: 0;
+  transition: 1s;
+}
+.showGoalLabel{
+  opacity: 1!important;
+}
+.info-header-content{
+  color: white;
+  text-align: center;
+}
+.info-header-content i{
+  color: white;
+  font-size: 4.5rem;
+}
+.info-header-content h2{
+  font-family: "proxima-nova";
+  font-weight: 300;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+.info-header-content h1{
+  font-size: 5rem;
+  margin-bottom:0px;
+}
+.info-cal-header .info-header-content h1 span{
+  color: #91d000;
+}
+.info-step-header{
+  background-image: url('/img/steps-bg.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position:relative;
+}
+.info-step-header .info-header-content h1 span{
+  color: rgb(232,78,27);
+}
+.client-info-section ul{
+  padding: 0px;
+  margin: 0px;
+}
+.client-info-section li{
+  list-style-type: none;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 2px solid #f2f2ea;
+}
+.client-info-section li h1{
+  font-size: 1rem;
+  font-family: "proxima-nova";
+  font-size: 300;
+  margin-bottom: 0px;
+}
+.client-info-section li h1 span{
+  font-weight: 600;
+}
+.cal-list-percent{
+  float: right;
+}
+.status-good{
+  color: #91d000;
+}
+.status-bad{
+  color: rgb(232,78,27);
+}
+.upcoming-sessions h1:nth-child(1){
+  width: 100%;
+  text-align: center;
+  padding: 25px;
+  margin: 0px;
+  background-color: #91d000;
+  font-family: "proxima-nova";
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.upcoming-sessions h2:nth-child(2){
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin: 0px;
+  background-color: #1b2224;
+  font-family: "proxima-nova";
+  color: white;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+}
+li.upcoming-sessions-li{
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dateBlock{
+  width: 33.3%;
+  border-right: 2px solid #f2f2ea;
+  text-align: center;
+  padding: 20px 0px;
+}
+.dateBlock h2{
+  font-size: 0.65rem;
+  margin: 0px;
+  font-family: "proxima-nova";
+  color: #91d000;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.dateBlock h1{
+  font-size: 2.2rem !important;
+  font-family: Dharma-Light !important;
+}
+.dateBlock h1 span{
+  font-size: 1.25rem;
+}
+.session-info{
+  width: calc(100% - 33.3%);
+}
+.session-info h1{
+  background: none !important;
+  color: black !important;
+  font-weight: 600;
+  padding: 0px !important;
+  width: 100% !important;
+}
+.session-info h2{
+  background: none !important;
+  color: black !important;
+  font-weight: 300;
+}
+.measurements{
+  margin-top: 40px;
+}
+.measurements h1.title{
+  width: 100%;
+  text-align: center;
+  padding: 25px;
+  margin: 0px;
+  background-color: #1b2224;
+  font-family: "proxima-nova";
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
