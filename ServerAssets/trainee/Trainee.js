@@ -7,6 +7,7 @@ const Trainee = new mongoose.Schema({
       password: {type: String, required:true},
       phone: {type: String, required:true, index:true},
       trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
+      shareWithTrainer: {type: Boolean, default: false},
       active: {type: Boolean, default: true},
       schedule: [{
         lastInstance: String,

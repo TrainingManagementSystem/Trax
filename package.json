@@ -22,7 +22,10 @@
     "bootstrap": "^4.0.0-alpha.2",
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "mongojs": "^2.3.0",
-    "mongoose": "^4.4.12"
+    "mongoose": "^4.4.12",
+    "passport": "^0.3.2",
+    "passport-fitbit-oauth2": "^1.0.1"
   }
 }
