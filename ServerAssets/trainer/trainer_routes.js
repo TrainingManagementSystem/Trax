@@ -1,9 +1,6 @@
 import ctrl from './trainer_ctrl';
 
 export default function( app ){
-  app.route('/api/trainer/login')
-      .get(ctrl.checkLogin);
-
   app.route('/api/trainers')
       .post(ctrl.newTrainer)
       .get(ctrl.getTrainers);

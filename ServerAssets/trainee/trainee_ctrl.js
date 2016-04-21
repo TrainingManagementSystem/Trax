@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import trainee from './Trainee';
 
 const cb = res => function (error, response) {
