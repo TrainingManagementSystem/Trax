@@ -1,0 +1,122 @@
+/*#91d000 green
+#1b2224
+#f2f2ea white
+#0e1112*/
+/* Fonts */
+@font-face { font-family: "Dharma-ExLight-I"; src: url(../fonts/DharmaGothicE_ExLight_I.otf);}
+@font-face { font-family: "Dharma-ExLight"; src: url(../fonts/DharmaGothicE_ExLight_R.otf);}
+@font-face { font-family: "Dharma-Light-I"; src: url(../fonts/DharmaGothicE_Light_I.otf);}
+@font-face { font-family: "Dharma-Light"; src: url(../fonts/DharmaGothicE_Light_R.otf);}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Dharma-ExLight", helvetica;
+	/*font-size: 45px;*/
+}
+
+.loginContainer ul li{
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.loginContainer input {
+	width: 80%;
+	text-align: center;
+	font-family: "proxima-nova";
+	height: 40px;
+	font-size: 20px;
+}
+
+.inputBox {
+	margin-bottom: 10px;
+}
+
+.loginWhite {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 18px;
+	font-family: "proxima-nova";
+}
+
+.loginContainer {
+	background-image: url(../img/login-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	font-size: 30px;
+}
+
+.loginHeader {
+	padding: 20px;
+	margin-bottom: 10%;
+}
+
+.loginHeaderText {
+	color: #737777;
+}
+
+.loginNav {
+	text-align: right;
+}
+
+.loginBox {
+	background-color: #0e1112;
+	margin: 0 auto;
+	max-width: 340px;
+	text-align: center;
+}
+
+.fa-logo-login {
+	padding-top: 25px;
+	color: #f2f2ea;
+}
+
+.loginText {
+	color: #91d000;
+	font-size: 45px;
+}
+
+.loginbuttonsContainer {
+	display: flex;
+}
+
+.loginButtons {
+	width: 150px;
+	color: #f2f2ea;
+	font-family: "proxima-nova";
+	font-size: 18px;
+	margin: 0;
+}
+
+.loginTrainerButton {
+	padding: .5em 2em;
+	flex-direction: ;
+	background-color: #91d000;
+}
+
+.loginClientButton {
+	padding: .4em 2em;
+	flex-direction: row;
+	border: 2px solid #f2f2ea;
+}
+
+.loginResetPassword {
+	/*margin-top: -20px;*/
+	margin-bottom: 1.5em;
+}
+
+.loginButton {
+	width: 100%;
+	background-color: #91d000;
+	height: 45px;
+}
+
+.loginButtonText {
+	color: #f2f2ea;
+	font-family: "proxima-nova";
+	font-size: 22px;
+}

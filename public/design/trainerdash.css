@@ -1,0 +1,67 @@
+
+dashboard {
+	z-index: 999;
+}
+
+.client {
+	position: absolute;
+	z-index: -999;
+}
+
+.trainer-header{
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-bottom: 2px solid #c6c7c8;
+}
+
+.stats-container {
+display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.trainer-statBlock {
+
+	padding: 20px 0;
+	border-right: 1px solid #DDDEDE;
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+}
+
+.trainer-statBlock i{
+  font-size: 2.5rem;
+}
+
+.trainer-statBlock h1{
+  font-size: 3.625em;
+  color:#91d000;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 7%;
+}
+
+.trainer-statBlock span {
+	display: inline-block;
+	font-family: "proxima-nova", sans-serif;
+	width: 35%;
+	margin-top: -50px;
+	font-weight: 300;
+	font-size: 1.1em;
+	line-height: 1.15;
+	text-align: left;
+}
+
+.test {
+	margin-left: 50px;
+}
+
+@media (max-width: 50em) {
+	.client {
+		width: 100%;
+	}
+}
+

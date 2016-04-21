@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="traxApp">
 <head>
-  <meta charset="UTF-8">
+  <!-- Required Meta Tags  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="description" content="Personal Trainer - Client progress tracking system">
   <meta name="author" content="Liz Bryson, Alex Larson, Colin Lohner,  Spencer Powell">
+
+
+  <script src="https://use.typekit.net/okk6xfp.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <!-- Icon Font -->
+  <script src="https://use.fonticons.com/0660d1e2.js"></script>
+  <!-- Style Sheets  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <link rel="stylesheet" href="./design/animate.css">
   <link rel="stylesheet" href="./design/styles.css">
+  <link rel="stylesheet" href="./design/navigation.css">
+  <link rel="stylesheet" href="./design/client.css">
+  <link rel="stylesheet" href="./design/login.css">
+  <link rel="stylesheet" href="./design/about.css">
+  <link rel="stylesheet" href="./design/clientList.css">
+  <link rel="stylesheet" href="./design/settings.css">
+  <link rel="stylesheet" href="./design/trainerdash.css">
   <title>Trax</title>
 
 </head>
 <body>
   <ui-view></ui-view>
 
-  <!-- Icon Font -->
-  <script src="https://use.fonticons.com/0660d1e2.js"></script>
-
   <!-- Javescript files for our Angular App -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
   <script src="./js/traxApp.js"></script>
+  <script src="./js/directives/navDirective.js"></script>
+  <script src="./js/client/client_ctrl.js"></script>
+  <script src="./js/login/login_ctrl.js"></script>
+  <script src="./js/login/login_service.js"></script>
+  <script src="./js/clientList/clientList_ctrl.js" charset="utf-8"></script>
+  <script src="./js/settings/settings_ctrl.js" charset="utf-8"></script>
+  <script src="./js/directives/currentTime.js"></script>
 </body>
 </html>
