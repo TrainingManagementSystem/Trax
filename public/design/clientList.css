@@ -1,0 +1,61 @@
+@font-face { font-family: "Dharma-ExLight-I"; src: url(../fonts/DharmaGothicE_ExLight_I.otf);}
+@font-face { font-family: "Dharma-ExLight"; src: url(../fonts/DharmaGothicE_ExLight_R.otf);}
+@font-face { font-family: "Dharma-Light-I"; src: url(../fonts/DharmaGothicE_Light_I.otf);}
+@font-face { font-family: "Dharma-Light"; src: url(../fonts/DharmaGothicE_Light_R.otf);}
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #1b2224;
+}
+.clientList{
+  background-color: #f2f2ea;
+  min-height: calc(100vh - 65px);
+  width: calc(100% - 350px);
+  position: absolute;
+  right: 0px;
+  top:65px;
+  font-family: Dharma-Light;
+}
+.clientList-header{
+  background-color: rgb(93,93,93);
+  padding: 15px;
+  color: white;
+  font-family: "proxima-nova";
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  display: flex;
+}
+.clientList-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-family: "proxima-nova";
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid #f2f2ea;
+  background-color: white;
+  cursor: pointer;
+}
+.clientList-s1{
+  width: 33.3%;
+  font-weight: 600;
+}
+.clientList-s2{
+  width: 15%;
+}
+.clientList-s3{
+  width: 15%;
+}
+.clientList-s4{
+  width: 36.7%;
+  text-align: right;
+}
+.clientList-profileImage{
+  width: 30px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.clientList-s4 a{
+  color: #91d000;
+}

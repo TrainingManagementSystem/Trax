@@ -9,15 +9,15 @@
 	<div class="dashboard-nav-links">
 		<div class="dashboard-nav-links-container">
 			<ul>
-				<li class="link"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
-				<li><i class="fa fa-clients fa-lg"></i>Clients</li>
+				<li ng-click="goToState('dashboard')" class="link"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
+				<li ng-click="goToState('clientList')"><i class="fa fa-clients fa-lg"></i>Clients</li>
 				<li><i class="fa fa-calendar fa-lg"></i>Schedule</li>
-				<li><i class="fa fa-settings fa-lg"></i>Settings</li>
+				<li ng-click="goToState('settings')"><i class="fa fa-settings fa-lg"></i>Settings</li>
 			</ul>
 		</div>
 	</div>
 	<div class="logout">
-		
+
 		<img src="../img/users/user-seven.jpg">
 		<span>Josephine Luna<p><a href="#">Logout</a></p></span>
 	</div>
@@ -54,4 +54,3 @@
 });
 
 </script>
-
