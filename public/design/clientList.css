@@ -51,6 +51,11 @@ body{
   width: 36.7%;
   text-align: right;
 }
+.clientList-s5{
+  text-align: right;
+  color: #91d000;
+  display: none;
+}
 .clientList-profileImage{
   width: 30px;
   border-radius: 100%;
@@ -58,4 +63,28 @@ body{
 }
 .clientList-s4 a{
   color: #91d000;
+}
+
+@media (max-width: 1200px) {
+	.clientList {
+		width: 100%;
+	}
+}
+@media (max-width: 605px){
+  .clientList-s4{
+    display: none;
+  }
+  .clientList-s2{
+    display: none;
+  }
+  .clientList-s3{
+    display: none;
+  }
+  .clientList-s1{
+    width: 90%;
+  }
+  .clientList-s5{
+    width: 10%;
+    display: block;
+  }
 }
