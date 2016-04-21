@@ -1,4 +1,3 @@
-<dashboard></dashboard>
 <div class="client">
   <div class="client-header">
     <div class="client-header-section client-profileInfo">
@@ -16,19 +15,40 @@
   <div class="client-info">
     <div class="client-info-section">
       <div class="settings-settingBlock">
-        <i class="fa fa-card"></i>
-        <h1>BILLING INFO</h1>
-        <h2><span>Current Subscription Plan:</span> Basic</h2>
-        <h2><span>Billing Address:</span> 3410 Muirwood Drive</h2>
-        <button type="button" name="button" class="settings-button">EDIT BILLING INFO</button>
+        <i ng-hide="editingBilling" class="fa fa-card"></i>
+        <h1 ng-hide="editingBilling">BILLING INFO</h1>
+        <h2 ng-hide="editingBilling"><span>Current Subscription Plan:</span> Basic</h2>
+        <h2 ng-hide="editingBilling"><span>Billing Address:</span> 3410 Muirwood Drive</h2>
+        <button ng-hide="editingBilling" class="settings-button" ng-click="editBilling()">EDIT BILLING INFO</button>
+        <i ng-show="editingBilling" class="fa fa-card editIcon"></i>
+        <h1 ng-show="editingBilling" class="editH1">BILLING INFO</h1>
+        <form class="editForm" ng-show="editingBilling" ng-submit="editBilling()">
+          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="">
+          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="">
+          <label for="firstAddress">Billing Address</label><input type="textfield" name="firstAddress" value=""><br>
+          <input type="textfield" name="secondAddress" value=""><br>
+          <label for="city">City</label><input type="textfield" name="city" value=""><br>
+          <label for="state">State</label><input type="textfield" name="state" value=""><label for="zip">Zip Code</label><input type="textfield" name="zip" value=""><br>
+          <button type="submit" name="button">SAVE UPDATED BILLING INFO</button>
+        </form>
       </div>
     </div>
     <div class="client-info-section">
       <div class="settings-settingBlock">
-        <i class="fa fa-userupdate"></i>
-        <h1>YOUR PROFILE</h1>
-        <h2>Edit your basic profile details</h2>
-        <button type="button" name="button" class="settings-button">EDIT YOUR PROFILE</button>
+        <i ng-hide="editingProfile" class="fa fa-userupdate"></i>
+        <h1 ng-hide="editingProfile">YOUR PROFILE</h1>
+        <h2 ng-hide="editingProfile">Edit your basic profile details</h2>
+        <button ng-hide="editingProfile" class="settings-button" ng-click="editProfile()">EDIT BILLING INFO</button>
+        <i ng-show="editingProfile" class="fa fa-userupdate editIcon"></i>
+        <h1 ng-show="editingProfile" class="editH1">YOUR PROFILE</h1>
+        <form class="editForm" ng-show="editingProfile" ng-submit="editProfile()">
+          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="">
+          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="">
+          <label for="email">Email</label><input type="textfield" name="email" value=""><br>
+          <label for="password">Password</label><input type="password" name="password" value=""><br>
+          <label for="phone">Phone Number</label><input type="textfield" name="phone" value="">
+          <button type="submit" name="button">SAVE UPDATED PROFILE</button>
+        </form>
       </div>
     </div>
     <div class="client-info-section">
@@ -44,3 +64,4 @@
     <span>QUESTIONS ABOUT YOUR ACCOUNT? </span> Contact FlexTrax Support at <b>1-800-555-5555</b> or <b>support@flextrax.com</b>
   </div>
 </div>
+<dashboard></dashboard>
