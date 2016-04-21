@@ -17,9 +17,12 @@ export default function (app) {
   }));
   // Location Fitbit sends the user to after authentication
   app.get('/auth/fitbit/callback', passport.authenticate( 'fitbit', {
-      failureRedirect: '/login',
-      successRedirect: '/client',
-  }));
+      failureRedirect: '/login'
+      }),
+      // Successful authentication
+      function(req, res) {
+      res.redirect('/client');
+  });
 
   // PASSPORT : LOGOUT //
   app.get('/logout', function(req, res) {
