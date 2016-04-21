@@ -267,18 +267,32 @@ li.upcoming-sessions-li{
 
 
 /*@MEDIA QUERIES*/
-@media (max-width: 52em) {
+@media (max-width: 1200px) {
 
   .client-info{
     display: block;
   }
 
   .client-info-section{
-    width: 90vw;
+    width: 100vw;
   }
 
-  .client-info-section:nth-child(2){
-    margin: 50px 40px;
+  .client-info-section{
+    margin: 0px;
+  }
+
+}
+@media (max-width: 705px) {
+
+  .client-profileStats{
+    display: none;
+  }
+
+  .client-header-section{
+    width: 100vw;
+  }
+  .client-profileInfo{
+    width: 100vw;
   }
 
 }
