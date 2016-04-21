@@ -179,7 +179,7 @@
 
 /* Mobile */
 
-@media (max-width: 50em) {
+@media (max-width: 1200px) {
 
 
 	.dashboard-nav {
@@ -218,7 +218,7 @@
 
 }
 
-@media (max-width: 50em) and (max-height: 40em) {
+@media (max-width: 1200px) and (max-height: 40em) {
 
 	.dashboard-nav-links ul li {
 	padding: 10px 0 10px 22px;
