@@ -16,6 +16,7 @@ body{
   right: 0px;
   top:65px;
   font-family: Dharma-Light;
+  z-index: -1000;
 }
 .clientList-header{
   background-color: rgb(93,93,93);
