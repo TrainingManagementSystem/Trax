@@ -107,8 +107,7 @@
 	letter-spacing: 2px;
 	padding: 20px 0 20px 22px;
 	transition: all ease .25s;
-
-
+	cursor:pointer;
 }
 
 .dashboard-nav-links ul li:hover {
