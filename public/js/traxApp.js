@@ -43,7 +43,5 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
 	    .state('trainer', {
         url: '/trainer',
         templateUrl: '/js/trainerDash/trainerDash.html',
-      })
-   	$urlRouterProvider
-  	.otherwise('/');
+      });
 });
