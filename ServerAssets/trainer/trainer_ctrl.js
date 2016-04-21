@@ -1,63 +1,25 @@
-var mongoose = require('mongoose');
-var Trainer = mongoose.model('Trainer', require('./Trainer'));
-var deepPopulate = require('mongoose-deep-populate')(mongoose);
+// import mongoose from 'mongoose';
+import trainer from './Trainer';
 
-module.exports = {
-  checkLogin: function(req, res){
-    Trainer.findOne({
-      email: req.query.email,
-      password: req.query.password
-    }).then(function(trainer, err){
-      if(err){
-        return res.status(500).send(err);
-      }
-      res.send(trainer);
-    });
+const cb = res => function (error, response) {
+    if(error) res.status(500).json(error);
+    else res.status(200).json(response);
+};
+
+export default {
+  newTrainer( req, res ){
+    trainer.create(req.body, cb(res));
   },
-  newTrainer: function(req, res){
-    console.log(req.body);
-    new Teacher(req.body).save(function(err, trainer){
-      if(err){
-        return res.status(401).send(err);
-      }
-      res.send(trainer);
-    });
+  getTrainers( req, res ){
+    trainer.find(req.query, cb(res)).populate('trainees');
   },
-  getTrainer: function(req, res){
-    Trainer.findOne({
-      // stuCode: req.query.stuCode
-    }).populate('trainees').exec(function(error, response) {
-        console.log(222, response);
-        if(error){
-          return res.status(500).send(err);
-        }
-        res.send(response);
-      });
+  getTrainer( req, res ){
+    trainer.findById(req.params.id, cb(res)).populate('trainees');
   },
-  addTrainee: function(req, res){
-    Trainer.findOne({stuCode:req.query.stuCode}, function(err, trainer){
-      if ( err ) return res.status(500).send(err);
-      var currentList = trainer.students;
-      currentList.push(req.query.sid);
-      trainer.set(trainer.trainees, currentList);
-      trainer.save( function( err, updatedTrainer){
-        if ( err ) return res.status(500).send(err);
-        return res.send(updatedTrainer);
-      });
-    });
+  updateTrainer( req, res ){
+    trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}, cb(res));
   },
-  removeTrainee: function(req, res){
-    Trainer.findOne({stuCode:req.query.stuCode}, function(err, trainer){
-      if ( err ) return res.status(500).send(err);
-      var currentList = trainer.trainees;
-      if(currentList.indexOf(req.query.sid) > -1){
-        currentList.splice(currentList.indexOf(req.query.sid), 1);
-      }
-      trainer.set(trainer.trainees, currentList);
-      trainer.save( function( err, updatedTrainer){
-        if ( err ) return res.status(500).send(err);
-        return res.send(updatedTrainer);
-      });
-    });
+  deleteTrainer( req, res ){
+    trainer.findByIdAndRemove(req.params.id, cb(res));
   }
 };

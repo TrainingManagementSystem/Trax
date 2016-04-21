@@ -11,7 +11,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',
-		  controller: 'LoginControl'
+		    controller: 'LoginControl'
       })
       .state('dashboard', {
         url: '/dashboard',
@@ -40,7 +40,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         templateUrl: '/js/settings/settings.html',
         controller: "settings_ctrl"
       })
-	  .state('trainer', {
+	    .state('trainer', {
         url: '/trainer',
         templateUrl: '/js/trainerDash/trainerDash.html',
       })

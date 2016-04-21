@@ -70,3 +70,41 @@ button.settings-button{
   color: #91d000;
   font-weight: 900;
 }
+.editForm{
+  border-top: 1px solid #9c9b9b;
+}
+.editForm label{
+  display: block;
+  margin-bottom: 2px;
+  margin-top: 15px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.editForm button{
+  width: 100%;
+  background-color: #91d000;
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.editForm input{
+  width: 100%;
+  border: 1px solid #9c9b9b;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+}
+i.editIcon{
+  display: inline-block;
+  margin: 0px;
+}
+h1.editH1{
+  display: inline-block;
+  color: #91d000;
+}

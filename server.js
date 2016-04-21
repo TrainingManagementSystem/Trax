@@ -1,29 +1,34 @@
-var express = require('express'),
-     app = express(),
-     mongoose = require('mongoose'),
-     mongoUri = 'mongodb://localhost:27017/database',
-     bodyParser = require('body-parser'),
-     cors = require('cors'),
-     corsOptions = {
-       origin: 'http://localhost:8030'
-     },
-     port = 8030;
+/// DEPENDENCIES ///
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import session from 'express-session';
+import passport from 'passport';
+import mongoose from 'mongoose';
 
+/// FILES ///
+import routes from './ServerAssets/routes';
+import authentication from './ServerAssets/passport';
+import { mongoUri, corsOptions, port, expressConfig } from './config/session';
 
-// var session = require('express-session'),
-// sessionConfig = require('./config/session'),
-// app.use(session(sessionConfig));
+///////////////////////
+// INSERT MIDDLEWARE //
+const app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.use(session(expressConfig));
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect(mongoUri);
-mongoose.connection.once('open', function(){
+mongoose.connection.once('open', () => {
   console.log('Connected to mongo at ' + mongoUri);
 });
 
-// require('./routes/routes')( app );
+authentication(passport);
+routes(app);
 
-app.listen(port, function(){
+app.listen(port, () => {
   console.log('listening on ' + port);
 });

@@ -260,3 +260,39 @@ li.upcoming-sessions-li{
   font-size: 1rem;
   letter-spacing: 2px;
 }
+
+
+
+
+
+
+/*@MEDIA QUERIES*/
+@media (max-width: 1200px) {
+
+  .client-info{
+    display: block;
+  }
+
+  .client-info-section{
+    width: 100vw;
+  }
+
+  .client-info-section{
+    margin: 0px;
+  }
+
+}
+@media (max-width: 705px) {
+
+  .client-profileStats{
+    display: none;
+  }
+
+  .client-header-section{
+    width: 100vw;
+  }
+  .client-profileInfo{
+    width: 100vw;
+  }
+
+}
