@@ -11,11 +11,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',
-<<<<<<< Updated upstream
-		  controller: 'LoginControl'
-=======
 		    controller: 'LoginControl'
->>>>>>> Stashed changes
       })
       .state('dashboard', {
         url: '/dashboard',
@@ -30,13 +26,10 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         templateUrl: '/js/client/client.html',
         controller: "client_ctrl"
       })
-<<<<<<< Updated upstream
       .state('about', {
         url: '/about',
         templateUrl: '/js/about/about.html',
       })
-=======
->>>>>>> Stashed changes
 	    .state('clientList', {
         url: '/clientList',
         templateUrl: '/js/clientList/clientList.html',
