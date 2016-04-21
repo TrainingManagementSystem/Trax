@@ -1,0 +1,75 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.aboutContainer {
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.aboutHeader {
+	padding: 3em 0 1.8em 0;
+	background-image: url(../img/steps-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.fa-logo-about-header {
+	color: #f2f2ea; 
+}
+
+.aboutHeaderText {
+	font-size: 2.5em;
+	color: #91d000;
+	margin: 0;
+}
+
+.aboutDescriptionContainer {
+	background-color: #f2f2ea;
+	color: #1b2224;
+	font-size: 1.2em;
+	font-family: "proxima-nova";
+	border-radius: 5px;
+	padding: 0;
+	height: 100vh;
+}
+
+.aboutDescriptionText {
+	background-color: #1b2224;
+	padding: 3em 2em;
+	background-color: #fff;
+}
+
+.aboutBold {
+	color: #91d000;
+	font-weight: 400;
+	font-size: 1.3em;
+}
+
+.fa-logo-about {
+	color: #1b2224;
+}
+
+.aboutFeaturesIcon {
+	padding: .5em;
+}
+
+.aboutFeatureContainer {
+	background-color: #f2f2ea;
+	border-bottom: 5px solid #fff;
+}
+
+.aboutWebsiteHeader {
+	color: #f2f2ea;
+	margin: 1em;
+	border-bottom: 5px solid #91d000;
+}
+
+
+
+
+
+
