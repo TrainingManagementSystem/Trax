@@ -13,6 +13,7 @@ dashboard {
   margin: 0 auto;
   background-color: white;
   border-bottom: 2px solid #c6c7c8;
+  margin-bottom: 4%;
 }
 
 .stats-container {
@@ -56,12 +57,127 @@ display: flex;
 }
 
 .test {
-	margin-left: 50px;
 }
 
-@media (max-width: 50em) {
+
+.clientList-header {
+	background-color: #1b2224;
+	padding: 10px 22px;
+}
+
+.clientlist-overview {
+	padding: 0;
+	margin: 0 0 4.5% 4.5%;
+
+}
+.trainer-clientlist-s1 {
+	width: 40%;
+	font-size: .75em;
+}
+
+.trainer-clientlist-s2 {
+	width: 30%;
+	font-size: .75em;
+
+}
+
+.trainer-clientlist-row {
+	font-size: .75em;
+}
+
+.trainerclientlist-detail-s1 {
+	width: 40%;
+}
+
+.trainerclientlist-detail-s2 {
+	width: 30%;
+}
+
+.trainerlist-sessions {
+	background-color: #91D000;
+	color: #fff;
+	font-family: "proxima-nova", sans-serif;
+	text-transform: uppercase;
+	font-size: .75em;
+	text-align: center;
+	padding: 9px 0;
+	letter-spacing: 2px;
+	
+}
+
+.sessions-graph-container {
+	padding-left: 2.5rem;
+}
+.sessions-graph {
+	min-height: 150px;
+	background-color: #1B2224;
+}
+
+.trainer-upcoming-sessions {
+	background-color: #fff;
+}
+
+.trainer-upcoming-sessions ul {
+	list-style-type: none;
+}
+
+.trainer-upcoming-sessions ul li {
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.trainer-upcoming-sessions ul li:last-child {
+	border-bottom: none;
+}
+
+.trainer-dateBlock, .trainer-session-info {
+	display: inline-block;
+}
+
+.trainer-dateBlock {
+	padding: 20px 20px 10px 20px;
+	border-right: 1px solid rgba(0, 0, 0, .2);
+	margin-right: 20px;
+}
+
+.trainer-dateBlock-tod {
+	font-size: 0.65em;
+}
+
+.trainer-session-info h1, .trainer-session-info h2 {
+	font-family: "proxima-nova", "helvetica neue", sans-serif;
+	font-size: .85em;
+	font-weight: 600;
+	margin: 0;
+}
+
+.trainer-session-info h2 {
+	font-weight: 400;
+	font-size: 0.75em;
+	margin-top: 5px;
+}
+
+
+
+@media (max-width: 52em) {
+	
+
 	.client {
 		width: 100%;
 	}
+
+	.clientlist-overview {
+		margin-left: 0;
+}
+	
+	.sessions-graph-container{
+		padding: 0;
+		width
+	}
+
+	.container-trainer {
+		max-width: 675px;
+	}
+
+
 }
 
