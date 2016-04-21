@@ -26,4 +26,8 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         templateUrl: '/js/client/client.html',
         controller: "client_ctrl"
       })
+      .about('about', {
+        url: '/about',
+        templateUrl: '/js/about/about.html',
+      })
 });
