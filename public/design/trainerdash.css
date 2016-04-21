@@ -1,0 +1,217 @@
+
+dashboard {
+	z-index: 999;
+}
+
+.client {
+	position: absolute;
+	z-index: -999;
+}
+
+.trainer-header{
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-bottom: 2px solid #c6c7c8;
+  margin-bottom: 4%;
+}
+
+.stats-container {
+display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.trainer-statBlock {
+
+	padding: 20px 0;
+	border-right: 1px solid #DDDEDE;
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+}
+
+.trainer-statBlock i{
+  font-size: 2.5rem;
+}
+
+.trainer-statBlock h1{
+  font-size: 3.625em;
+  color:#91d000;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 7%;
+}
+
+.trainer-statBlock span {
+	display: inline-block;
+	font-family: "proxima-nova", sans-serif;
+	width: 35%;
+	margin-top: -50px;
+	font-weight: 300;
+	font-size: 1.1em;
+	line-height: 1.15;
+	text-align: left;
+}
+
+.test {
+}
+
+
+.clientList-header {
+	background-color: #1b2224;
+	padding: 10px 22px;
+}
+
+.clientlist-overview {
+	padding: 0;
+	margin: 0 0 4.5% 4.5%;
+
+}
+.trainer-clientlist-s1 {
+	width: 40%;
+	font-size: .75em;
+}
+
+.trainer-clientlist-s2 {
+	width: 30%;
+	font-size: .75em;
+
+}
+
+.trainer-clientlist-row {
+	font-size: .75em;
+}
+
+.trainerclientlist-detail-s1 {
+	width: 40%;
+}
+
+.trainerclientlist-detail-s2 {
+	width: 30%;
+}
+
+.trainerlist-sessions {
+	background-color: #91D000;
+	color: #fff;
+	font-family: "proxima-nova", sans-serif;
+	text-transform: uppercase;
+	font-size: .75em;
+	text-align: center;
+	padding: 9px 0;
+	letter-spacing: 2px;
+	
+}
+
+.sessions-graph-container {
+	padding-left: 2.5rem;
+}
+.sessions-graph {
+	background-color: #1B2224;
+	padding:35px 5px;
+}
+
+.trainer-upcoming-sessions {
+	background-color: #fff;
+}
+
+.trainer-upcoming-sessions ul {
+	list-style-type: none;
+}
+
+.trainer-upcoming-sessions ul li {
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.trainer-upcoming-sessions ul li:last-child {
+	border-bottom: none;
+}
+
+.trainer-dateBlock, .trainer-session-info {
+	display: inline-block;
+}
+
+.trainer-dateBlock {
+	padding: 20px 20px 10px 20px;
+	border-right: 1px solid rgba(0, 0, 0, .2);
+	margin-right: 20px;
+}
+
+.trainer-dateBlock-tod {
+	font-size: 0.65em;
+}
+
+.trainer-session-info h1, .trainer-session-info h2 {
+	font-family: "proxima-nova", "helvetica neue", sans-serif;
+	font-size: .85em;
+	font-weight: 600;
+	margin: 0;
+}
+
+.trainer-session-info h2 {
+	font-weight: 400;
+	font-size: 0.75em;
+	margin-top: 5px;
+}
+
+.graph-container, .label-container {
+	margin:0 auto;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.bargraph {
+	width: 4.5%;
+	height: 25px;
+	background-color: transparent;
+	border: 1.5px solid #b1b1b1;
+	display: inline-block;
+}
+
+.active-time {
+	height: 35px;
+	background-color: #91d000;
+	border: 1.5px solid #91d000;
+}
+
+.bargraph-label {
+	color: #fff;
+	font-family: "proxima-nova", "helvetica neue", sans-serif;
+	font-size: .75em;
+	width: 4.5%;
+	font-weight: 300;
+}
+
+.label-container {
+	padding-top: 5px;
+	text-align: center;
+}
+
+.active-label { color: #91d000; }
+
+
+@media (max-width: 1200px) {
+	
+
+	.client {
+		width: 100%;
+	}
+
+	.clientlist-overview {
+		margin-left: 0;
+}
+	
+	.sessions-graph-container{
+		
+	}
+
+	.container-trainer {
+	}
+
+
+}
+

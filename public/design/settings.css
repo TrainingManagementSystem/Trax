@@ -1,0 +1,110 @@
+.settings-title h1{
+  font-size: 3.5rem;
+  margin: 0px;
+  font-weight: 100;
+  padding-left: 25px;
+}
+.settings-header-profile{
+  position: relative;
+}
+.settings-gearIcon{
+  position: absolute;
+  z-index: 100;
+  bottom: 0px;
+  right: 0px;
+  background-color: #91d000;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: white;
+}
+.settings-settingBlock{
+  background-color: white;
+  padding: 40px 40px;
+  font-family: "proxima-nova";
+  min-height: 280px;
+  position: relative;
+}
+.settings-settingBlock .fa{
+  color:#91d000;
+  font-size: 1.9rem;
+}
+.settings-settingBlock h1{
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 20px 0px;
+}
+.settings-settingBlock h2{
+  font-size: 0.8rem;
+}
+.settings-settingBlock h2 span{
+  font-weight: 600;
+}
+button.settings-button{
+  position: absolute;
+  bottom: 40px;
+  background: none;
+  padding: 10px;
+  box-shadow: none;
+  border: 2px solid #9c9b9b !important;
+  color: #9c9b9b;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.settings-footer{
+  background-color: white;
+  margin: 0px 40px;
+  margin-top: -10px;
+  text-align: center;
+  padding: 15px;
+  font-family: "proxima-nova";
+  font-size: 0.8rem;
+}
+.settings-footer span{
+  color: #91d000;
+  font-weight: 900;
+}
+.editForm{
+  border-top: 1px solid #9c9b9b;
+}
+.editForm label{
+  display: block;
+  margin-bottom: 2px;
+  margin-top: 15px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.editForm button{
+  width: 100%;
+  background-color: #91d000;
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.editForm input{
+  width: 100%;
+  border: 1px solid #9c9b9b;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+}
+i.editIcon{
+  display: inline-block;
+  margin: 0px;
+}
+h1.editH1{
+  display: inline-block;
+  color: #91d000;
+}

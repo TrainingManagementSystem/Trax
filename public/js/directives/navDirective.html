@@ -1,0 +1,48 @@
+<div class="dashboard-aside">
+	<div class="dashboard-image-container">
+		<div class="dashboard-aside-container">
+			<h5>Wednesday, June 19<span>9:37 AM</span><h5>
+			<h2>Good Morning Josephine</h2>
+			<h3>You have 3 sessions today</h3>
+		</div>
+	</div>
+	<div class="dashboard-nav-links">
+		<div class="dashboard-nav-links-container">
+			<ul>
+				<li ng-click="goToState('trainer')" class="link"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
+				<li ng-click="goToState('clientList')"><i class="fa fa-clients fa-lg"></i>Clients</li>
+				<li><i class="fa fa-calendar fa-lg"></i>Schedule</li>
+				<li ng-click="goToState('settings')"><i class="fa fa-settings fa-lg"></i>Settings</li>
+			</ul>
+		</div>
+	</div>
+	<div class="logout">
+
+		<img src="../img/users/user-seven.jpg">
+		<span>Josephine Luna<p><a href="#">Logout</a></p></span>
+	</div>
+
+</div>
+<div class="dashboard-nav">
+	<i class="fa fa-logo fa-2x dashboard-logo"></i>
+	<i class="fa fa-menu fa-2x dashboard-toggle toggle-nav"></i>
+	<button class="dashboard-navbutton">Add A New Client</button>
+</div>
+
+
+<script>
+
+	$(document).ready(function() {
+
+
+
+    $('.toggle-nav').click(function() {
+        $('.dashboard-aside').toggleClass('active');
+ 	});
+
+
+
+
+});
+
+</script>
