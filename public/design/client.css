@@ -112,6 +112,10 @@ i.editGoal{
 i.editGoal:hover{
   opacity: 1;
 }
+i.editingIcon{
+  opacity: 1 !important;
+  color: #91d000 !important;
+}
 .editGoalLable{
   position: absolute;
   top: 13px;
@@ -147,10 +151,10 @@ i.editGoal:hover{
   font-size: 5rem;
   margin-bottom:0px;
   display: inline;
-  width: 110px;
+  width: 115px;
   color: black;
   border: none;
-  padding: 0px 10px;
+  padding: 0px 5px;
   line-height: 4rem;
   background-color: rgba(255,255,255,0.6);
 }
