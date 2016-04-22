@@ -282,7 +282,50 @@ li.upcoming-sessions-li{
 }
 
 
+/*CLIET NO AUTH */
 
+.noAuth-container {
+  width: 70%;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  background-color: aqua;
+}
+
+.noAuth-img-container {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: solid 1px #858885;
+  display: inline-block;
+}
+
+.noAuth-img-container img {
+  
+  margin: 0 auto;
+  padding-top: 25px;
+  text-align: center;
+  display: block;
+  width: 100px;
+}
+
+.noAuth-text-container {
+  display:inline-block;
+  text-transform: uppercase;
+}
+
+.noAuth-text-container h1 {
+  font-size: 6em;
+  margin: 0;
+}
+
+.noAuth-text-container h2 {
+  font-family: "proxima-nova", "helvetica neue", sans-serif;
+  font-weight: 600;
+  font-size: 1.03em;
+  margin: 0;
+}
 
 
 
