@@ -141,6 +141,18 @@ i.editGoal:hover{
 .info-header-content h1{
   font-size: 5rem;
   margin-bottom:0px;
+  display: inline;
+}
+.info-header-content input{
+  font-size: 5rem;
+  margin-bottom:0px;
+  display: inline;
+  width: 110px;
+  color: black;
+  border: none;
+  padding: 0px 10px;
+  line-height: 4rem;
+  background-color: rgba(255,255,255,0.6);
 }
 .info-cal-header .info-header-content h1 span{
   color: #91d000;

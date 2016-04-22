@@ -14,4 +14,14 @@ app.controller('client_ctrl', function($scope){
   $scope.hideStepGoalLabel = function(){
     $scope.stepGoalLabelVisable = false;
   }
+
+  $scope.editingCalGoal = false;
+  $scope.editCalGoal = function(){
+    $scope.editingCalGoal = !$scope.editingCalGoal;
+  }
+
+  $scope.editingStepGoal = false;
+  $scope.editStepGoal = function(){
+    $scope.editingStepGoal = !$scope.editingStepGoal;
+  }
 });
