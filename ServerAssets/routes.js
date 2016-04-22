@@ -10,6 +10,23 @@ export default function (app) {
   trainer(app);
 
   ///// PASSPORT ROUTES /////
+  /// LOCAL : LOGIN ///
+  app.post('/login', passport.authenticate('local',
+    { successRedirect: '/loggedIn' }
+  ));
+  /// LOCAL : If Local Auth SUCCEEDS ///
+  app.get('/loggedIn',
+   function(req, res) {
+     if(req.user) res.status(200).send(req.user);
+     else res.status(403).send('Invalid Login');
+  });
+  /// LOCAL : LOGOUT ///
+  app.get('/logout',
+  function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
   // FITBIT : AUTHORIZE //
   // sends user to Fitbit for authorization
   app.get('/auth/fitbit',
@@ -21,25 +38,9 @@ export default function (app) {
   app.get('/auth/fitbit/callback',
     passport.authenticate( 'fitbit',
     { successRedirect: '/',
-      failureRedirect: '/login',
-      failureFlash: true
+      failureRedirect: '/login'
     })
   );
-
-  /// LOCAL : LOGIN ///
-  app.post('/login',
-    passport.authenticate('local',
-    { successRedirect: '/',
-      failureRedirect: '/login',
-      failureFlash: true
-    })
-  );
-  /// LOCAL : LOGOUT ///
-  app.get('/logout',
-   function(req, res) {
-     req.logout();
-     res.redirect('/');
-  });
 
   ///// END OF EXPORT /////
 }

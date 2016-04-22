@@ -1,3 +1,3 @@
 app.service('LoginService', function(){
 
-})
+});

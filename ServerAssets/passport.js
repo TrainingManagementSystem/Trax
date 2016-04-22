@@ -9,11 +9,12 @@ export default function (passport) {
 
 ////////--- LOCAL AUTH ---///////////
 passport.use(new LocalStrategy(
+  { usernameField: 'email'},
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
+    Trainer.findOne({ email: username }, function (err, user) {
       if (err) return done(err);
       if (!user) return done(null, false, { message: 'Incorrect username.' });
-      if (!user.validPassword(password)) {
+      if (!user.validatePassword(password)) {
         return done(null, false, { message: 'Incorrect password.' });
       }
       return done(null, user);
