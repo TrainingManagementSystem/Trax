@@ -1,5 +1,5 @@
 // import mongoose from 'mongoose';
-import trainee from './Trainee';
+import Trainee from './Trainee';
 
 const cb = res => function (error, response) {
     if(error) res.status(500).json(error);
@@ -8,18 +8,18 @@ const cb = res => function (error, response) {
 
 export default {
   newTrainee( req, res ){
-    trainee.create(req.body, cb(res));
+    Trainee.create(req.body, cb(res));
   },
   getTrainees( req, res ){
-    trainee.find(req.query, cb(res)).populate('trainer');
+    Trainee.find(req.query, cb(res)).populate('trainer');
   },
   getTrainee( req, res ){
-    trainee.findById(req.params.id, cb(res)).populate('trainer');
+    Trainee.findById(req.params.id, cb(res)).populate('trainer');
   },
   updateTrainee( req, res ){
-    trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}, cb(res));
+    Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}, cb(res));
   },
   deleteTrainee( req, res ){
-    trainee.findByIdAndRemove(req.params.id, cb(res));
+    Trainee.findByIdAndRemove(req.params.id, cb(res));
   }
 };

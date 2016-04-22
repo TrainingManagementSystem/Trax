@@ -1,42 +1,52 @@
 import { FitbitOAuth2Strategy as FitbitStrategy} from 'passport-fitbit-oauth2';
+import { Strategy as LocalStrategy} from 'passport-local';
 import fitbit from '../config/fitbit';
-import trainer from './trainer/Trainer';
-import trainee from './trainee/Trainee';
+import Trainer from './trainer/Trainer';
+import Trainee from './trainee/Trainee';
 
 export default function (passport) {
-
   /// START OF EXPORT ///
-passport.use(new FitbitStrategy(fitbit,
-  function(req, accessToken, refreshToken, profile, done) {
 
-    console.log(`Req: ${req}`);
-    console.log(`accessToken: ${accessToken}`);
-    console.log(`refreshToken: ${refreshToken}`);
-    console.log(`profile: ${profile}`);
-    if(req.query.role === 'trainee') {
-      trainee.findOne({ fitbitId: profile.id }, function (err, user) {
-        console.log(`err: ${err}, user: ${user}`);
-        if(err || user) return done(err, user);
-        // let newTrainee = new trainee();
-      });
-    }
-    if(req.query.role === 'trainer') {
-      trainer.findOne({ fitbitId: profile.id }, function (err, user) {
-        console.log(`err: ${err}, user: ${user}`);
-        if(err || user) return done(err, user);
-        // let newTrainee = new trainee();
-      });
-    }
-    return done(null, false);
+////////--- LOCAL AUTH ---///////////
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) return done(err);
+      if (!user) return done(null, false, { message: 'Incorrect username.' });
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
   }
 ));
 
+////////--- OAUTH w/ FITBIT ---///////////
+passport.use(new FitbitStrategy(fitbit,
+  function(req, accessToken, refreshToken, profile, done) {
+    Trainee.findOne({ fitbitId: profile.id }, function (err, user) {
+        if( err || user ) return done(err, user);
+        // var newTrainee = new trainee();
+        // newUser.fitbitId = profile.id;
+        // newUser.name = profile.displayName;
+        // newUser.save(function(err){
+        //     if(err) {
+        //         // throw err;
+        //     }
+        //     return cb(err, newUser);
+        // });
+        // console.log(user);
+    });
+  }
+));
+
+///// -- Serialization -- /////
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-  ///// END OF EXPORT /////
 
+  ///// END OF EXPORT /////
 }
