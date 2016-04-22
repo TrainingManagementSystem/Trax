@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="client-info">
+  <div class="client-info" ng-hide="notAuthFitbit">
     <div class="client-info-section">
       <div class="info-cal-header">
         <div class="info-header-content">
@@ -102,8 +102,8 @@
         </ul>
       </div>
     </div>
-  </div> -->
-  <div class="noAuth">
+  </div>
+  <div class="noAuth" ng-show="notAuthFitbit">
     <div class="noAuth-container">
       <div class="noAuth-img-container">
         <img src="/img/fitbit-outline.png">
