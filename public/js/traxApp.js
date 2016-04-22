@@ -1,5 +1,5 @@
 angular.module('traxApp', ['ui.router', 'angularMoment'])
-  .config(($stateProvider, $urlRouterProvider) => {
+  .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
