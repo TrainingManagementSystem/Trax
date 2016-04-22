@@ -55,17 +55,6 @@
 	position: fixed;
 }
 
-.dashboard-image-container {
-	background-image: url(../img/hello-bg.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	transition: all ease .25s;
-}
-
-.dashboard-image-container:hover {
-	background-image: url(../img/hello-bg.gif);
-	transition: all ease .25s;
-}
 
 /* NAVIGATION ASIDE */
 
