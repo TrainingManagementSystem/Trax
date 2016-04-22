@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="client-info">
-    <div class="client-info-section">
+    <div class="client-info-section settings-section">
       <div class="settings-settingBlock">
         <i ng-hide="editingBilling" class="fa fa-card"></i>
         <h1 ng-hide="editingBilling">BILLING INFO</h1>
@@ -33,12 +33,12 @@
         </form>
       </div>
     </div>
-    <div class="client-info-section">
+    <div class="client-info-section settings-section">
       <div class="settings-settingBlock">
         <i ng-hide="editingProfile" class="fa fa-userupdate"></i>
         <h1 ng-hide="editingProfile">YOUR PROFILE</h1>
-        <h2 ng-hide="editingProfile">Edit your basic profile details</h2>
-        <button ng-hide="editingProfile" class="settings-button" ng-click="editProfile()">EDIT BILLING INFO</button>
+        <h2 ng-hide="editingProfile">Edit your basic profile details and cancel your account</h2>
+        <button ng-hide="editingProfile" class="settings-button" ng-click="editProfile()">EDIT YOUR PROFILE</button>
         <i ng-show="editingProfile" class="fa fa-userupdate editIcon"></i>
         <h1 ng-show="editingProfile" class="editH1">YOUR PROFILE</h1>
         <form class="editForm" ng-show="editingProfile" ng-submit="editProfile()">
@@ -48,15 +48,8 @@
           <label for="password">Password</label><input type="password" name="password" value=""><br>
           <label for="phone">Phone Number</label><input type="textfield" name="phone" value="">
           <button type="submit" name="button">SAVE UPDATED PROFILE</button>
+          <button type="button" name="button" class="deleteButton">CANCEL ACCOUNT</button>
         </form>
-      </div>
-    </div>
-    <div class="client-info-section">
-      <div class="settings-settingBlock">
-        <i class="fa fa-cancel"></i>
-        <h1>CANCEL ACCOUNT</h1>
-        <h2>Permenantly delete your account</h2>
-        <button type="button" name="button" class="settings-button">CANCEL ACCOUNT</button>
       </div>
     </div>
   </div>
