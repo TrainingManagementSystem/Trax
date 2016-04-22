@@ -42,6 +42,9 @@ body {
 	/*font-size: 30px;*/
 }
 
+.container {
+	padding: 0;
+}
 .loginSpace {
 	padding: 1.5em;
 	margin-bottom: 4%;
@@ -52,9 +55,12 @@ body {
 	text-align: right;
 }
 
+.signupContainer {
+	padding: 0;
+}
+
 .loginBox {
 	background-color: #0e1112;
-	margin: 0 auto;
 	max-width: 340px;
 	text-align: center;
 }
@@ -79,29 +85,13 @@ body {
 	font-size: 1.2em;
 }
 
-.loginTrainerButton {
-	padding: .5em 1.8em;
-	background-color: #91d000;
-}
-
-.loginClientButton {
-	padding: .4em 1.8em;
-	border: 2px solid #f2f2ea;
-}
-
 .inputBox {
-	margin-top: 0;
 	margin-bottom: .5em;
 }
 
 .aboutInput {
 	height: 2em;
 	font-size: 1.2em;
-}
-
-.loginResetPassword {
-	/*margin-top: -20px;*/
-	margin: .5em 0;
 }
 
 .loginSignupButton {
@@ -114,21 +104,28 @@ body {
 	font-family: "proxima-nova";
 	font-weight: 100;
 	font-size: 1em;
-	padding: .3em 2em;  
 }
 
-.loginButton {
-	width: 100%;
+.signupHeaders {
+	color: white;
+	font-family: "proxima-nova";
+	border-bottom: 5px solid #91d000;
+	font-size: 1.5em;
+	font-weight: 100;
+}
+
+.signupButton {
 	background-color: #91d000;
 	height: 3em;
 	margin-top: 1em;
-	padding-top: .6em;
 }
 
-.loginButtonText {
+.signupButtonText {
 	color: #f2f2ea;
+	background-color: #91d000;
 	font-family: "proxima-nova";
-	font-size: 22px;
+	font-size: 1.5em;
+	padding-top: .3em;
+	font-weight: 100;
+	border: none;
 }
-
-

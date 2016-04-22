@@ -1,13 +1,13 @@
 <div class="container-fluid loginContainer">
-	<header class="page-header">
+	<header class="page-header loginSpace">
 		<div class="row">
 			<div class="col-sm-6" ng-controller="LoginControl">
 				<p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
 			</div>
 			<ul class="col-sm-6 loginNav">
-				<li><a href="#" class="loginWhite">ABOUT US</a></li>
-				<li class="loginWhite loginHeader">|</li>
-				<li><a href="#" class="loginWhite">SUPPORT</a></li>
+				<li><a href="#" class="loginWhite">ABOUT US </a></li>
+				<li class="loginWhite"> | </li>
+				<li><a href="#" class="loginWhite">SUPPORT </a></li>
 			</ul>
 		</div>
 	</header>
@@ -16,7 +16,7 @@
 			<div class="col-sm-12">
 				<div class="row">
 					<div class="col-xs-12 loginLogoContainer">
-						<i class="fa fa-logo fa-2x fa-logo-login"></i>
+						<i class="fa fa-logo fa-3x fa-logo-login"></i>
 					</div>
 				</div>
 				<div class="row">
@@ -34,17 +34,22 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12 inputBox">
-						<input placeholder="email"/>
+						<input class="aboutInput" placeholder="email"/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<input placeholder="password"/>
+						<input class="aboutInput" placeholder="password"/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 loginResetPassword">
 						<a href="#" class="loginWhite">reset password</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 loginSignupButton">
+						<a href="#" class="loginSignup">SIGN UP</a>
 					</div>
 				</div>
 				<div class="row">

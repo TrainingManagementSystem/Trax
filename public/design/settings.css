@@ -108,3 +108,18 @@ h1.editH1{
   display: inline-block;
   color: #91d000;
 }
+.deleteButton{
+  background-color: rgb(232,78,27) !important;
+}
+.settings-section{
+  width: calc(50% - 60px);
+}
+@media (max-width: 705px) {
+  .settings-section{
+    width:100%;
+  }
+  .settings-footer{
+    margin: 0px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="container-fluid loginContainer">
+	<header class="page-header loginSpace">
+		<div class="row">
+			<div class="col-sm-6" ng-controller="LoginControl">
+				<p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
+			</div>
+			<ul class="col-sm-6 loginNav">
+				<li><a href="#" class="loginWhite">ABOUT US </a></li>
+				<li class="loginWhite"> | </li>
+				<li><a href="#" class="loginWhite">SUPPORT </a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row loginBox">
+			<div class="col-sm-12 signupContainer">
+				<div class="row">
+					<div class="col-xs-12 loginLogoContainer">
+						<i class="fa fa-logo fa-3x fa-logo-login"></i>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<p class="loginText">SIGN UP</p>
+					</div>
+				</div>
+				<form action="" method="">
+					<div class="row">
+						<div class="col-xs-12 inputBox">
+							<h2 class="signupHeaders">NAME</h2>
+							<input type="text" name="firstname" class="aboutInput" placeholder="first"/>
+							<input type="text" name="lastname" class="aboutInput" placeholder="last"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 inputBox">
+							<input type="email" name="email" class="aboutInput" placeholder="email"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<input type="password" name="password"class="aboutInput" placeholder="password"/>
+							<input type="password" name="verify" class="aboutInput" placeholder="verify password"/>
+						</div>
+					</div>
+					<div class="col-xs-12 signupButton">
+						<input type="submit" value="SIGNUP" class="signupButtonText"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
