@@ -1,0 +1,117 @@
+@keyframes giffy {
+    0%   { background-image: url(../img/giffy/giffy1.png); }
+    1%   { background-image: url(../img/giffy/giffy2.png); }
+    2%   { background-image: url(../img/giffy/giffy3.png); }
+    3%   { background-image: url(../img/giffy/giffy4.png); }
+    4%   { background-image: url(../img/giffy/giffy5.png); }
+    5%   { background-image: url(../img/giffy/giffy6.png); }
+    6%   { background-image: url(../img/giffy/giffy7.png); }
+    7%   { background-image: url(../img/giffy/giffy8.png); }
+    8%   { background-image: url(../img/giffy/giffy9.png); }
+    9%   { background-image: url(../img/giffy/giffy10.png); }
+    10%   { background-image: url(../img/giffy/giffy11.png); }
+    11%   { background-image: url(../img/giffy/giffy12.png); }
+    12%   { background-image: url(../img/giffy/giffy13.png); }
+    13%   { background-image: url(../img/giffy/giffy14.png); }
+    14%   { background-image: url(../img/giffy/giffy15.png); }
+    15%   { background-image: url(../img/giffy/giffy16.png); }
+    16%   { background-image: url(../img/giffy/giffy17.png); }
+    17%   { background-image: url(../img/giffy/giffy18.png); }
+    18%   { background-image: url(../img/giffy/giffy19.png); }
+    19%   { background-image: url(../img/giffy/giffy20.png); }
+    20%   { background-image: url(../img/giffy/giffy21.png); }
+    21%   { background-image: url(../img/giffy/giffy22.png); }
+    22%   { background-image: url(../img/giffy/giffy23.png); }
+    23%   { background-image: url(../img/giffy/giffy24.png); }
+    24%   { background-image: url(../img/giffy/giffy25.png); }
+    25%   { background-image: url(../img/giffy/giffy26.png); }
+    26%   { background-image: url(../img/giffy/giffy27.png); }
+    27%   { background-image: url(../img/giffy/giffy28.png); }
+    28%   { background-image: url(../img/giffy/giffy29.png); }
+    29%   { background-image: url(../img/giffy/giffy30.png); }
+    30%   { background-image: url(../img/giffy/giffy31.png); }
+    31%   { background-image: url(../img/giffy/giffy32.png); }
+    32%   { background-image: url(../img/giffy/giffy33.png); }
+    33%   { background-image: url(../img/giffy/giffy34.png); }
+    34%   { background-image: url(../img/giffy/giffy35.png); }
+    35%   { background-image: url(../img/giffy/giffy36.png); }
+    36%   { background-image: url(../img/giffy/giffy37.png); }
+    37%   { background-image: url(../img/giffy/giffy38.png); }
+    38%   { background-image: url(../img/giffy/giffy39.png); }
+    39%   { background-image: url(../img/giffy/giffy40.png); }
+    40%   { background-image: url(../img/giffy/giffy41.png); }
+    41%   { background-image: url(../img/giffy/giffy42.png); }
+    42%   { background-image: url(../img/giffy/giffy43.png); }
+    43%   { background-image: url(../img/giffy/giffy44.png); }
+    44%   { background-image: url(../img/giffy/giffy45.png); }
+    45%   { background-image: url(../img/giffy/giffy46.png); }
+    46%   { background-image: url(../img/giffy/giffy47.png); }
+    47%   { background-image: url(../img/giffy/giffy48.png); }
+    48%   { background-image: url(../img/giffy/giffy49.png); }
+    49%   { background-image: url(../img/giffy/giffy50.png); }
+    50%   { background-image: url(../img/giffy/giffy51.png); }
+    51%   { background-image: url(../img/giffy/giffy52.png); }
+    52%   { background-image: url(../img/giffy/giffy53.png); }
+    53%   { background-image: url(../img/giffy/giffy54.png); }
+    54%   { background-image: url(../img/giffy/giffy55.png); }
+    55%   { background-image: url(../img/giffy/giffy56.png); }
+    56%   { background-image: url(../img/giffy/giffy57.png); }
+    57%   { background-image: url(../img/giffy/giffy58.png); }
+    58%   { background-image: url(../img/giffy/giffy59.png); }
+    59%   { background-image: url(../img/giffy/giffy60.png); }
+    60%   { background-image: url(../img/giffy/giffy61.png); }
+    61%   { background-image: url(../img/giffy/giffy62.png); }
+    62%   { background-image: url(../img/giffy/giffy63.png); }
+    63%   { background-image: url(../img/giffy/giffy64.png); }
+    64%   { background-image: url(../img/giffy/giffy65.png); }
+    65%   { background-image: url(../img/giffy/giffy66.png); }
+    66%   { background-image: url(../img/giffy/giffy67.png); }
+    67%   { background-image: url(../img/giffy/giffy68.png); }
+    68%   { background-image: url(../img/giffy/giffy69.png); }
+    69%   { background-image: url(../img/giffy/giffy70.png); }
+    70%   { background-image: url(../img/giffy/giffy71.png); }
+    71%   { background-image: url(../img/giffy/giffy72.png); }
+    72%   { background-image: url(../img/giffy/giffy73.png); }
+    73%   { background-image: url(../img/giffy/giffy74.png); }
+   	74%   { background-image: url(../img/giffy/giffy75.png); }
+    75%   { background-image: url(../img/giffy/giffy76.png); }
+    76%   { background-image: url(../img/giffy/giffy77.png); }
+    77%   { background-image: url(../img/giffy/giffy78.png); }
+    78%   { background-image: url(../img/giffy/giffy79.png); }
+    79%   { background-image: url(../img/giffy/giffy80.png); }
+    80%   { background-image: url(../img/giffy/giffy81.png); }
+    81%   { background-image: url(../img/giffy/giffy82.png); }
+    82%   { background-image: url(../img/giffy/giffy83.png); }
+    83%   { background-image: url(../img/giffy/giffy84.png); }
+    84%   { background-image: url(../img/giffy/giffy85.png); }
+    85%   { background-image: url(../img/giffy/giffy86.png); }
+    86%   { background-image: url(../img/giffy/giffy87.png); }
+    87%   { background-image: url(../img/giffy/giffy88.png); }
+    88%   { background-image: url(../img/giffy/giffy89.png); }
+    89%   { background-image: url(../img/giffy/giffy90.png); }
+    90%   { background-image: url(../img/giffy/giffy91.png); }
+    91%   { background-image: url(../img/giffy/giffy92.png); }
+    92%   { background-image: url(../img/giffy/giffy93.png); }
+    93%   { background-image: url(../img/giffy/giffy94.png); }
+    94%   { background-image: url(../img/giffy/giffy95.png); }
+    95%   { background-image: url(../img/giffy/giffy96.png); }
+    96%   { background-image: url(../img/giffy/giffy97.png); }
+    97%   { background-image: url(../img/giffy/giffy98.png); }
+    98%   { background-image: url(../img/giffy/giffy99.png); }
+    99%   { background-image: url(../img/giffy/giffy100.png); }
+    100%  { background-image: url(../img/giffy/giffy101.png); }   
+}
+
+
+.dashboard-image-container {
+	background-image: url(../img/giffy/giffy1.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	animation: giffy 5s infinite steps(1);
+	animation-play-state: paused;
+}
+
+.dashboard-image-container:hover {
+	    animation-play-state: running;
+}
+
