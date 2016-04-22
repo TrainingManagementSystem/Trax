@@ -97,7 +97,6 @@
 
 .activeLink{
 	background-color: #0e1112;
-	border-left: 3px solid #91d000;
 }
 
 .dashboard-nav-links ul li {
@@ -212,6 +211,11 @@
 		display: inline-block;
 		float: right;
 		line-height: 60px;
+	}
+
+	.activeLink{
+		background-color: #0e1112;
+		border-left: 3px solid #91d000 !important;
 	}
 
 	.active {
