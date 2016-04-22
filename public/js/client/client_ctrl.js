@@ -1,5 +1,7 @@
 var app = angular.module('traxApp');
-app.controller('client_ctrl', function($scope){
+app.controller('client_ctrl', function($scope, $rootScope){
+  $rootScope.currentState = 'clientList';
+
   $scope.calGoalLabelVisable = false;
   $scope.showCalGoalLabel = function(){
     $scope.calGoalLabelVisable = true;

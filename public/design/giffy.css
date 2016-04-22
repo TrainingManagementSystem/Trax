@@ -101,7 +101,7 @@
     97%   { background-image: url(../img/giffy/giffy98.png); }
     98%   { background-image: url(../img/giffy/giffy99.png); }
     99%   { background-image: url(../img/giffy/giffy100.png); }
-    100%  { background-image: url(../img/giffy/giffy101.png); }   
+    100%  { background-image: url(../img/giffy/giffy101.png); }
 }
 
 
@@ -117,4 +117,3 @@
 .dashboard-image-container:hover {
 	    animation-play-state: running;
 }
-
