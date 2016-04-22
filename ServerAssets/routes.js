@@ -10,21 +10,35 @@ export default function (app) {
   trainer(app);
 
   ///// PASSPORT ROUTES /////
-  // PASSPORT : LOGIN //
-  // sends user to Fitbit for authentication
-  app.get('/auth/fitbit', passport.authenticate('fitbit', {
-      scope: ['activity','heartrate','location','nutrition','profile','settings','sleep','social','weight']
-  }));
-  // Location Fitbit sends the user to after authentication
-  app.get('/auth/fitbit/callback', passport.authenticate( 'fitbit', {
-      successRedirect: '/client',
+  // FITBIT : AUTHORIZE //
+  // sends user to Fitbit for authorization
+  app.get('/auth/fitbit',
+    passport.authenticate('fitbit',
+    { scope: ['activity','heartrate','location','nutrition','profile','settings','sleep','social','weight']
+    })
+  );
+  // Location Fitbit sends the user to after authorization
+  app.get('/auth/fitbit/callback',
+    passport.authenticate( 'fitbit',
+    { successRedirect: '/',
       failureRedirect: '/login',
-  }));
+      failureFlash: true
+    })
+  );
 
-  // PASSPORT : LOGOUT //
-  app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
+  /// LOCAL : LOGIN ///
+  app.post('/login',
+    passport.authenticate('local',
+    { successRedirect: '/',
+      failureRedirect: '/login',
+      failureFlash: true
+    })
+  );
+  /// LOCAL : LOGOUT ///
+  app.get('/logout',
+   function(req, res) {
+     req.logout();
+     res.redirect('/');
   });
 
   ///// END OF EXPORT /////
