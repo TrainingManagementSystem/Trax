@@ -14,6 +14,24 @@ li {
 	padding: 0;
 }
 
+.contactDescriptionContainer {
+	background-color: #f2f2ea;
+	color: #1b2224;
+	font-size: 1.2em;
+	font-family: "proxima-nova";
+	border-radius: 5px;
+	padding: 0;
+	height: 100vh;
+}
+
+.contactBold {
+	font-weight: 600;
+}
+
+.FAQs {
+	padding: 4em;
+}
+
 .aboutHeader {
 	padding: 3em 0 1.8em 0;
 	background-image: url(../img/steps-bg.png);
@@ -30,16 +48,6 @@ li {
 	font-size: 2.5em;
 	color: #91d000;
 	margin: 0;
-}
-
-.aboutDescriptionContainer {
-	background-color: #f2f2ea;
-	color: #1b2224;
-	font-size: 1.2em;
-	font-family: "proxima-nova";
-	border-radius: 5px;
-	padding: 0;
-	height: 100vh;
 }
 
 .contactDescriptionText {
