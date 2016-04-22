@@ -1,5 +1,5 @@
 <div class="container-fluid loginContainer">
-	<header class="page-header loginSpace">
+	<header class="page-header loginSpaceSignup">
 		<div class="row">
 			<div class="col-sm-6" ng-controller="LoginControl">
 				<p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
@@ -34,11 +34,13 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 inputBox">
+							<h2 class="signupHeaders">EMAIL</h2>
 							<input type="email" name="email" class="aboutInput" placeholder="email"/>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
+							<h2 class="signupHeaders">SECURITY</h2>
 							<input type="password" name="password"class="aboutInput" placeholder="password"/>
 							<input type="password" name="verify" class="aboutInput" placeholder="verify password"/>
 						</div>

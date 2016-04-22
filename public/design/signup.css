@@ -39,15 +39,11 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
-	/*font-size: 30px;*/
 }
 
-.container {
-	padding: 0;
-}
-.loginSpace {
+.loginSpaceSignup {
 	padding: 1.5em;
-	margin-bottom: 4%;
+	margin-bottom: 1%;
 	font-size: 1em;
 }
 
@@ -110,8 +106,9 @@ body {
 	color: white;
 	font-family: "proxima-nova";
 	border-bottom: 5px solid #91d000;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	font-weight: 100;
+	margin: 0 1.7em .5em 1.7em;
 }
 
 .signupButton {
@@ -124,6 +121,7 @@ body {
 	color: #f2f2ea;
 	background-color: #91d000;
 	font-family: "proxima-nova";
+	letter-spacing: .1em;
 	font-size: 1.5em;
 	padding-top: .3em;
 	font-weight: 100;
