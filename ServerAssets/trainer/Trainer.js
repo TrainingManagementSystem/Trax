@@ -5,8 +5,8 @@ const Trainer = new mongoose.Schema({
       firstName: {type:String, required: true},
       lastName: {type:String, required: true},
       email: {type:String, required: true, unique: true},
-      password: {type: String, required:true},
-      phone: {type: String, required:true, index:true},
+      password: {type: String, required: true},
+      phone: {type: String, unique: true},
       trainees: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trainee'}],
       fitbit: {
         authorized: {type: Boolean, default: false},
@@ -65,10 +65,10 @@ Trainer.methods.validatePassword = function( password ) {
 
 /////////////saves hashed pw, not real pw///////////////
 Trainer.pre('save', function(next){
- var user = this;
- if(!user.isModified('password')) return next();
- user.password = Trainer.methods.generateHash(user.password);
- next();
+  var user = this;
+  if(!user.isModified('password')) return next();
+  user.password = Trainer.methods.generateHash(user.password);
+  next();
 });
 
 export default mongoose.model('Trainer', Trainer);

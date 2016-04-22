@@ -52,7 +52,5 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
       .state('support', {
         url: '/support',
         templateUrl: '/js/support/support.html'
-      })
-   	$urlRouterProvider
-  	.otherwise('/');
+      });
 });
