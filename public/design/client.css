@@ -271,6 +271,19 @@ li.upcoming-sessions-li{
 
 
 /*@MEDIA QUERIES*/
+@media (max-width: 1435px) {
+  .client-statBlock h1{
+    font-size: 1.5rem;
+  }
+  .client-statBlock i{
+    font-size: 1.5rem;
+  }
+  .client-statBlock{
+    display: block;
+    text-align: center;
+    padding: 15px 0px;
+  }
+}
 @media (max-width: 1350px) {
 
   .client-info-section{
@@ -320,6 +333,14 @@ li.upcoming-sessions-li{
   .upcoming-sessions{
     width: 100%;
     margin: 0px;
+  }
+}*/
+/*@media (max-width: 900px) {
+  .client-statBlock h1{
+    font-size: 1.2rem;
+  }
+  .client-statBlock i{
+    font-size: 1.2rem;
   }
 }*/
 @media (max-width: 705px) {
