@@ -55,12 +55,6 @@
 	position: fixed;
 }
 
-.dashboard-image-container {
-	background-image: url(../img/steps-bg.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
 
 /* NAVIGATION ASIDE */
 
@@ -266,6 +260,7 @@
 
 	.dashboard-logo {
 		text-align: initial;
+
 	}
 
 	.nav-logout {

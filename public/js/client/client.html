@@ -26,11 +26,11 @@
     <div class="client-info-section">
       <div class="info-cal-header">
         <div class="info-header-content">
-          <label class="editGoalLable" ng-class="{showGoalLabel: calGoalLabelVisable}">EDIT GOAL</label>
-          <i class="fa fa-settings editGoal" ng-mouseover="showCalGoalLabel()" ng-mouseleave="hideCalGoalLabel()"></i>
+          <label class="editGoalLable" ng-class="{showGoalLabel: calGoalLabelVisable}">{{calEditText}} GOAL</label>
+          <i class="fa fa-{{calEditIcon}} editGoal" ng-class="{editingIcon: editingCalGoal}" ng-mouseover="showCalGoalLabel()" ng-mouseleave="hideCalGoalLabel()" ng-click="editCalGoal()"></i>
           <i class="fa fa-apple"></i>
           <h2>TODAY'S CALORIE GOAL</h2>
-          <h1><span>1,329</span> / 1500</h1>
+          <h1><span>1,329</span> / </h1><h1 ng-hide="editingCalGoal">1500</h1><input ng-show="editingCalGoal" type="textfield" name="calGoalText" value="">
         </div>
       </div>
       <ul>
@@ -46,11 +46,11 @@
     <div class="client-info-section">
       <div class="info-step-header">
         <div class="info-header-content">
-          <label class="editGoalLable" ng-class="{showGoalLabel: stepGoalLabelVisable}">EDIT GOAL</label>
-          <i class="fa fa-settings editGoal" ng-mouseover="showStepGoalLabel()" ng-mouseleave="hideStepGoalLabel()"></i>
+          <label class="editGoalLable" ng-class="{showGoalLabel: stepGoalLabelVisable}">{{stepEditText}} GOAL</label>
+          <i class="fa fa-{{stepEditIcon}} editGoal" ng-class="{editingIcon: editingStepGoal}" ng-mouseover="showStepGoalLabel()" ng-mouseleave="hideStepGoalLabel()" ng-click="editStepGoal()"></i>
           <i class="fa fa-shoe"></i>
           <h2>TODAY'S STEP GOAL</h2>
-          <h1><span>1,329</span> / 1500</h1>
+          <h1><span>1,329</span> / </h1><h1 ng-hide="editingStepGoal">1500</h1><input ng-show="editingStepGoal" type="textfield" name="stepGoalText" value="">
         </div>
       </div>
       <ul>

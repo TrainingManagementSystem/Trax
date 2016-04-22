@@ -189,6 +189,7 @@ display: flex;
 .label-container {
 	padding-top: 5px;
 	text-align: center;
+	transition: all ease .25s;
 }
 
 .active-label { color: #91d000; }
