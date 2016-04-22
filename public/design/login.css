@@ -15,7 +15,6 @@
 
 body {
 	font-family: "Dharma-ExLight", helvetica;
-	/*font-size: 45px;*/
 }
 
 .loginContainer ul li{
@@ -28,17 +27,10 @@ body {
 	width: 80%;
 	text-align: center;
 	font-family: "proxima-nova";
-	height: 40px;
-	font-size: 20px;
-}
-
-.inputBox {
-	margin-bottom: 10px;
 }
 
 .loginWhite {
 	color: rgba(255, 255, 255, 0.5);
-	font-size: 18px;
 	font-family: "proxima-nova";
 }
 
@@ -47,16 +39,13 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
-	font-size: 30px;
+	/*font-size: 30px;*/
 }
 
-.loginHeader {
-	padding: 20px;
-	margin-bottom: 10%;
-}
-
-.loginHeaderText {
-	color: #737777;
+.loginSpace {
+	padding: 1.5em;
+	margin-bottom: 4%;
+	font-size: 1em;
 }
 
 .loginNav {
@@ -71,13 +60,13 @@ body {
 }
 
 .fa-logo-login {
-	padding-top: 25px;
+	padding-top: .5em;
 	color: #f2f2ea;
 }
 
 .loginText {
 	color: #91d000;
-	font-size: 45px;
+	font-size: 3em;
 }
 
 .loginbuttonsContainer {
@@ -85,34 +74,55 @@ body {
 }
 
 .loginButtons {
-	width: 150px;
 	color: #f2f2ea;
 	font-family: "proxima-nova";
-	font-size: 18px;
-	margin: 0;
+	font-size: 1.2em;
 }
 
 .loginTrainerButton {
-	padding: .5em 2em;
-	flex-direction: ;
+	padding: .5em 1.8em;
 	background-color: #91d000;
 }
 
 .loginClientButton {
-	padding: .4em 2em;
-	flex-direction: row;
+	padding: .4em 1.8em;
 	border: 2px solid #f2f2ea;
+}
+
+.inputBox {
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+
+.aboutInput {
+	height: 2em;
+	font-size: 1.2em;
 }
 
 .loginResetPassword {
 	/*margin-top: -20px;*/
-	margin-bottom: 1.5em;
+	margin: .5em 0;
+}
+
+.loginSignupButton {
+	margin: 1em 0; 
+}
+
+.loginSignup {
+	color: #91d000;
+	border: 2px solid #91d000;
+	font-family: "proxima-nova";
+	font-weight: 100;
+	font-size: 1em;
+	padding: .3em 2em;  
 }
 
 .loginButton {
 	width: 100%;
 	background-color: #91d000;
-	height: 45px;
+	height: 3em;
+	margin-top: 1em;
+	padding-top: .6em;
 }
 
 .loginButtonText {
@@ -120,3 +130,5 @@ body {
 	font-family: "proxima-nova";
 	font-size: 22px;
 }
+
+

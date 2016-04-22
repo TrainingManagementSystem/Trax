@@ -13,6 +13,11 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
         templateUrl: '/js/login/login.html',
 		    controller: 'LoginControl'
       })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: '/js/signup/signup.html',
+        controller: 'LoginControl'
+      })
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: '/js/dashboard/dashboard.html'
@@ -43,6 +48,10 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
 	    .state('trainer', {
         url: '/trainer',
         templateUrl: '/js/trainerDash/trainerDash.html',
+      })
+      .state('support', {
+        url: '/support',
+        templateUrl: '/js/support/support.html'
       })
    	$urlRouterProvider
   	.otherwise('/');
