@@ -4,18 +4,19 @@
                 <h1>Add A New Client</h1>
             </div>
             <div class="newClientFormContainer">
-                <form class="editForm addClientForm">
+                <form class="editForm addClientForm" ng-submit="addNewClient()">
                     <label for="firstName">First Name</label>
-                    <input type="textfield" class="clientAddForm formHalf" name="firstName" />
+                    <input type="textfield" class="clientAddForm formHalf" name="firstName" ng-model="newUser.fname"/>
                     <label for="lastName">Last Name</label>
-                    <input type="textfield" class="clientAddForm formHalf" name="lastName" />
+                    <input type="textfield" class="clientAddForm formHalf" name="lastName" ng-model="newUser.lname"/>
                     <label for="email">Email</label>
-                    <input type="textfield" class="clientAddForm" name="email" />
+                    <input type="textfield" class="clientAddForm" name="email" ng-model="newUser.email"/>
                     <label for="message">Email Message</label>
-                    <textarea name="message" class="clientAddForm">
+                    <textarea name="message" class="clientAddForm" ng-model="newUser.message">
                     Thank you for using FlexTrax. To activate your account, please visit www.flextrax.com/login.
                     </textarea>
+                    <button type="submit" ng-click="ok()" class="modalButton" >Send Activation Email</button>
                 </form>
-                <button type="button" ng-click="ok()" class="modalButton">Send Activation Email</button>
+                
                 </div>
         </div>
