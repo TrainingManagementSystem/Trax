@@ -93,12 +93,12 @@
       <div class="measurements">
         <h1 class="title">MEASUREMENTS</h1>
         <ul>
-          <li><h1><span>NECK: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
-          <li><h1><span>CHEST: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
-          <li><h1><span>WAIST: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
-          <li><h1><span>HIPS: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
-          <li><h1><span>THIGH: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
-          <li><h1><span>CALF: </span> 18" / 40 cm<span class="cal-list-percent status-good"><i class="fa fa-plus"></i></span></h1></li>
+          <li><h1><span>NECK: </span></h1><h1 ng-hide="editingNeck"> 18" / 40 cm</h1><input ng-show="editingNeck" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editNeck()"><i class="fa fa-{{neckEditIcon}}"></i></span></h1></li>
+          <li><h1><span>CHEST: </span></h1><h1 ng-hide="editingChest"> 18" / 40 cm</h1><input ng-show="editingChest" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editChest()"><i class="fa fa-{{chestEditIcon}}"></i></span></h1></li>
+          <li><h1><span>WAIST: </span></h1><h1 ng-hide="editingWaist"> 18" / 40 cm</h1><input ng-show="editingWaist" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editWaist()"><i class="fa fa-{{waistEditIcon}}"></i></span></h1></li>
+          <li><h1><span>HIPS: </span></h1><h1 ng-hide="editingHips"> 18" / 40 cm</h1><input ng-show="editingHips" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editHips()"><i class="fa fa-{{hipsEditIcon}}"></i></span></h1></li>
+          <li><h1><span>THIGH: </span></h1><h1 ng-hide="editingThigh"> 18" / 40 cm</h1><input ng-show="editingThigh" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editThigh()"><i class="fa fa-{{thighEditIcon}}"></i></span></h1></li>
+          <li><h1><span>CALF: </span></h1><h1 ng-hide="editingCalf"> 18" / 40 cm</h1><input ng-show="editingCalf" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editCalf()"><i class="fa fa-{{calfEditIcon}}"></i></span></h1></li>
         </ul>
       </div>
     </div>

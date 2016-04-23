@@ -269,6 +269,9 @@ li.upcoming-sessions-li{
 .measurements{
   margin-top: 40px;
 }
+.measurements h1{
+  display: inline;
+}
 .measurements h1.title{
   width: 100%;
   text-align: center;
@@ -279,6 +282,7 @@ li.upcoming-sessions-li{
   color: white;
   font-size: 1rem;
   letter-spacing: 2px;
+  display: block;
 }
 
 
@@ -309,7 +313,7 @@ li.upcoming-sessions-li{
 }
 
 .noAuth-img-container img {
-  
+
   margin: 0 auto;
   padding-top: 13%;
   text-align: center;

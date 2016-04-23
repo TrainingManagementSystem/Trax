@@ -44,4 +44,70 @@ app.controller('client_ctrl', function($scope, $rootScope){
       $scope.stepEditIcon = 'save';
     }
   }
+
+  $scope.editingNeck = false;
+  $scope.neckEditIcon = 'plus';
+  $scope.editNeck = function(){
+    $scope.editingNeck = !$scope.editingNeck;
+    if($scope.neckEditIcon === 'plus'){
+      $scope.neckEditIcon = 'save';
+    }else{
+      $scope.neckEditIcon = 'plus';
+    }
+  }
+
+  $scope.editingChest = false;
+  $scope.chestEditIcon = 'plus';
+  $scope.editChest = function(){
+    $scope.editingChest = !$scope.editingChest;
+    if($scope.chestEditIcon === 'plus'){
+      $scope.chestEditIcon = 'save';
+    }else{
+      $scope.chestEditIcon = 'plus';
+    }
+  }
+
+  $scope.editingWaist = false;
+  $scope.waistEditIcon = 'plus';
+  $scope.editWaist = function(){
+    $scope.editingWaist = !$scope.editingWaist;
+    if($scope.waistEditIcon === 'plus'){
+      $scope.waistEditIcon = 'save';
+    }else{
+      $scope.waistEditIcon = 'plus';
+    }
+  }
+
+  $scope.editingHips = false;
+  $scope.hipsEditIcon = 'plus';
+  $scope.editHips = function(){
+    $scope.editingHips = !$scope.editingHips;
+    if($scope.hipsEditIcon === 'plus'){
+      $scope.hipsEditIcon = 'save';
+    }else{
+      $scope.hipsEditIcon = 'plus';
+    }
+  }
+
+  $scope.editingThigh = false;
+  $scope.thighEditIcon = 'plus';
+  $scope.editThigh = function(){
+    $scope.editingThigh = !$scope.editingThigh;
+    if($scope.thighEditIcon === 'plus'){
+      $scope.thighEditIcon = 'save';
+    }else{
+      $scope.thighEditIcon = 'plus';
+    }
+  }
+
+  $scope.editingCalf = false;
+  $scope.calfEditIcon = 'plus';
+  $scope.editCalf = function(){
+    $scope.editingCalf = !$scope.editingCalf;
+    if($scope.calfEditIcon === 'plus'){
+      $scope.calfEditIcon = 'save';
+    }else{
+      $scope.calfEditIcon = 'plus';
+    }
+  }
 });
