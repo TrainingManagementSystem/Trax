@@ -1,0 +1,21 @@
+
+    <div class="modalbox">
+            <div class="newClientHeader">
+                <h1>Add A New Client</h1>
+            </div>
+            <div class="newClientFormContainer">
+                <form class="editForm addClientForm">
+                    <label for="firstName">First Name</label>
+                    <input type="textfield" class="clientAddForm formHalf" name="firstName" />
+                    <label for="lastName">Last Name</label>
+                    <input type="textfield" class="clientAddForm formHalf" name="lastName" />
+                    <label for="email">Email</label>
+                    <input type="textfield" class="clientAddForm" name="email" />
+                    <label for="message">Email Message</label>
+                    <textarea name="message" class="clientAddForm">
+                    Thank you for using FlexTrax. To activate your account, please visit www.flextrax.com/login.
+                    </textarea>
+                </form>
+                <button type="button" ng-click="ok()" class="modalButton">Send Activation Email</button>
+                </div>
+        </div>

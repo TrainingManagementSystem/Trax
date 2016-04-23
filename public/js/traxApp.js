@@ -1,4 +1,4 @@
-angular.module('traxApp', ['ui.router', 'angularMoment'])
+angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 

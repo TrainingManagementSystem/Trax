@@ -1,0 +1,57 @@
+.modalbox {
+	font-family: "proxima nova", "helvetica neue", sans-serif;
+}
+
+.modal-dialog {
+	margin-top: 12%;
+}
+
+.modalbox h1 {
+	font-family: "Dharma-ExLight";
+	color: #91d000;
+}
+
+.newClientHeader {
+	background-color: #1B2224;
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 10px 0;
+	text-transform: uppercase;
+}
+
+.newClientFormContainer {
+	padding: 5px 40px 20px 40px;
+}
+
+.modal-content {
+	border-radius: 0;
+}
+
+.modalButton {
+  background-color: #91d000;
+  box-shadow: none;
+  border: none;
+  display: block;
+  padding: 15px 40px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 15px;
+
+}
+
+.clientAddForm:focus {
+	outline: none;
+	border: 2px solid #91d000;
+}
+
+.addClientForm {
+	border-top: none;
+}
+
+.formHalf {
+	width: 50%;
+}
