@@ -95,7 +95,9 @@
 }
 
 
-
+.activeLink{
+	background-color: #0e1112;
+}
 
 .dashboard-nav-links ul li {
 	list-style-type: none;
@@ -209,6 +211,11 @@
 		display: inline-block;
 		float: right;
 		line-height: 60px;
+	}
+
+	.activeLink{
+		background-color: #0e1112;
+		border-left: 3px solid #91d000 !important;
 	}
 
 	.active {

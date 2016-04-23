@@ -100,6 +100,16 @@ button.settings-button{
   letter-spacing: 1px;
   padding: 5px;
 }
+
+.editForm textarea {
+  width: 100%;
+  border: 1px solid #9c9b9b;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+
+}
 i.editIcon{
   display: inline-block;
   margin: 0px;
