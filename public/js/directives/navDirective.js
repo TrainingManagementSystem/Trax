@@ -3,6 +3,18 @@ angular.module('traxApp').directive('dashboard', function() {
     restrict: 'E',
     templateUrl: './js/directives/navDirective.html',
     controller:function($scope, $state, $rootScope, $uibModal){
+      
+
+    $scope.currentDate = moment().format('dddd [,] MMMM D');
+
+    $scope.currentTime = moment().format('h:mm a')
+  
+
+
+
+
+
+
       $scope.currentState = $rootScope.currentState;
       $scope.goToState = function(state){
         $rootScope.currentState = state;
