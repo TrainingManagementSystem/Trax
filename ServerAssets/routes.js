@@ -17,8 +17,8 @@ export default function (app) {
   /// LOCAL : If Local Auth SUCCEEDS ///
   app.get('/loggedIn',
    function(req, res) {
-     if(req.user) res.status(200).send(req.user);
-     else res.status(403).send('Invalid Login');
+     if(req.user) res.status(200).json(req.user);
+     else res.status(403).json('Invalid Login Attempt');
   });
   /// LOCAL : LOGOUT ///
   app.get('/logout',
@@ -37,8 +37,8 @@ export default function (app) {
   // Location Fitbit sends the user to after authorization
   app.get('/auth/fitbit/callback',
     passport.authenticate( 'fitbit',
-    { successRedirect: '/',
-      failureRedirect: '/login'
+    { successRedirect: '/loggedIn',
+      // failureRedirect: '/login'
     })
   );
 

@@ -1,63 +1,62 @@
 <div class="container-fluid loginContainer">
-	<header class="page-header loginSpace">
-		<div class="row">
-			<div class="col-sm-6" ng-controller="LoginControl">
-				<p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
-			</div>
-			<ul class="col-sm-6 loginNav">
-				<li><a href="#" class="loginWhite">ABOUT US </a></li>
-				<li class="loginWhite"> | </li>
-				<li><a href="#" class="loginWhite"> CONTACT</a></li>
-			</ul>
-		</div>
-	</header>
-	<div class="container">
-		<div class="row loginBox">
-			<div class="col-sm-12">
-				<div class="row">
-					<div class="col-xs-12 loginLogoContainer">
-						<i class="fa fa-logo fa-3x fa-logo-login"></i>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<p class="loginText">LOGIN</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<ul class="loginButtonsContainer">
-							<li><a href="#" class="loginTrainerButton loginButtons">Trainer</a></li
-							><li><a href="/auth/fitbit" class="loginClientButton loginButtons">Client</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 inputBox">
-						<input class="aboutInput" placeholder="email"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<input class="aboutInput" placeholder="password"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 loginResetPassword">
-						<a href="#" class="loginWhite">reset password</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 loginSignupButton">
-						<a href="#" class="loginSignup">SIGN UP</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 loginButton">
-						<span class=""><a class="loginButtonText" href="#">LOG IN</a><span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <header class="page-header loginSpace">
+        <div class="row">
+            <div class="col-sm-6" ng-controller="LoginControl">
+                <p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
+            </div>
+            <ul class="col-sm-6 loginNav">
+                <li><a ui-sref="about" class="loginWhite">ABOUT US </a></li>
+                <li class="loginWhite"> | </li>
+                <li><a ui-sref="support" class="loginWhite"> CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row loginBox">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-xs-12 loginLogoContainer">
+                        <i class="fa fa-logo fa-3x fa-logo-login"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="loginText">LOGIN</p>
+                    </div>
+                </div>
+                <form name="login" ng-submit="loginForm()" novalidate>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="loginButtonsContainer">
+                            <li ng-click="getRole('trainer')"><p class="loginClientButton loginButtons" ng-class="{loginTrainerButton : trainer}">Trainer</p></li
+                            ><li ng-click="getRole('trainee')" ><p class="loginClientButton loginButtons" ng-class="{loginTrainerButton : !trainer}">Client</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 inputBox" ng-class="">
+                        <input type="email" name="email" value="" class="aboutInput"
+                        ng-class="user.email" placeholder="email" required/>
+                        <input type="text" name="password" value="" class="aboutInput" ng-class="user.password" placeholder="password" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 loginResetPassword">
+                        <a href="#" class="loginWhite">reset password</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 loginSignupButton">
+                        <a href="#" class="loginSignup">SIGN UP</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 loginButton">
+                        <button type="submit" name="login" class="">LOGIN</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 </div>

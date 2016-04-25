@@ -2,9 +2,9 @@
 import Trainee from './Trainee';
 
 const cb = res => function (error, response) {
-    if(error) res.status(500).json(error);
-    else res.status(200).json(response);
-};
+        if(error) res.status(500).json(error);
+        else res.status(200).json(response);
+      };
 
 export default {
   newTrainee( req, res ){
