@@ -1,5 +1,6 @@
 import { FitbitOAuth2Strategy as FitbitStrategy} from 'passport-fitbit-oauth2';
 import { Strategy as LocalStrategy} from 'passport-local';
+import { secret } from '../config/session';
 import fitbit from '../config/fitbit';
 import Trainer from './trainer/Trainer';
 import Trainee from './trainee/Trainee';
@@ -9,35 +10,64 @@ export default function (passport) {
 
 ////////--- LOCAL AUTH ---///////////
 passport.use(new LocalStrategy(
-  { usernameField: 'email'},
-  function(username, password, done) {
-    Trainer.findOne({ email: username }, function (err, user) {
-      if (err) return done(err);
-      if (!user) return done(null, false, { message: 'Incorrect username.' });
-      if (!user.validatePassword(password)) {
+  { usernameField: 'email', passReqToCallback: true },
+  function(req, email, password, done) {
+    if (req.body.role === 'trainer') {
+      Trainer.findOne({ email: email }, function (err, user) {
+        if (err) return done(err);
+        if (!user) return done(null, false, { message: 'Incorrect Email.' });
+        if (!user.validatePassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }
+    else if (req.body.role === 'trainee') {
+      Trainee.findOne({ email: email }, function (err, user) {
+        if (err) return done(err);
+        if (!user) return done(null, false, { message: 'Incorrect Email.' });
+        if (user.validatePassword(password) || user.password === secret) {
+          return done(null, user);
+        }
         return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
+      });
+    }
+    else return done(null, false, { message: 'How did you even get here?' });
   }
 ));
 
 ////////--- OAUTH w/ FITBIT ---///////////
 passport.use(new FitbitStrategy(fitbit,
   function(req, accessToken, refreshToken, profile, done) {
-    Trainee.findOne({ fitbitId: profile.id }, function (err, user) {
-        if( err || user ) return done(err, user);
-        // var newTrainee = new trainee();
-        // newUser.fitbitId = profile.id;
-        // newUser.name = profile.displayName;
-        // newUser.save(function(err){
-        //     if(err) {
-        //         // throw err;
-        //     }
-        //     return cb(err, newUser);
-        // });
-        // console.log(user);
-    });
+    if(req.user){
+      console.log(req.user);
+      let fitbit = {
+        authorized: true,
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+        provider: 'fitbit',
+        id: profile.id,
+        displayName: profile.displayName,
+        user: profile._json.user
+      };
+      req.user.fitbit = fitbit;
+      if(req.user.trainer) {
+        Trainee.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
+          if(err) return done(err);
+          else return done(null, user);
+        });
+      }
+      else {
+        Trainer.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
+          if(err) return done(err);
+          else return done(null, user);
+        });
+      }
+    }
+    else done(null, false, { message: 'Please log in first.' });
+    // else {
+    //   // Add fitbit authentication for peeps who forgot their password
+    // }
   }
 ));
 

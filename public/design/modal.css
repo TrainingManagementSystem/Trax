@@ -1,7 +1,9 @@
 .modalbox {
 	font-family: "proxima nova", "helvetica neue", sans-serif;
 }
-
+.cleintInfoModal{
+	display: flex;
+}
 .modal-dialog {
 	margin-top: 12%;
 }
@@ -54,4 +56,62 @@
 
 .formHalf {
 	width: 50%;
+}
+.clientInfoAside{
+	width: 40%;
+	background-color: #1b2224;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	padding: 20px 0px;
+}
+.clientInfoAside h1{
+	letter-spacing: 1px;
+	font-size: 2.5rem;
+	margin-top: 10px;
+}
+.clientInfoAside h2{
+	font-family: "proxima-nova";
+	font-size:1rem;
+	letter-spacing: 1.5px;
+	font-weight: 100;
+}
+.clientInfoAside img{
+	border-radius: 100%;
+}
+.clientInfoStatus{
+	width: 60%;
+	position: relative;
+}
+.clientInfoModalBackground{
+	width: 100%;
+	height: 100%;
+	background-image: url('/img/modalbackgroound.png');
+	background-size: cover;
+	opacity: 0.2;
+	position: absolute;
+	z-index: 0;
+}
+.clientInfoStatusContent{
+	font-family: "proxima-nova";
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.clientInfoStatusContent h1{
+	font-size: 2rem;
+	font-weight: 600;
+}
+.clientInfoStatusContent h1 span.good{
+	color: #91d000;
+}
+.clientInfoStatusContent a{
+	color: #1b2224;
+	text-decoration: underline;
 }

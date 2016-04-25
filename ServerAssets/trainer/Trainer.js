@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 const Trainer = new mongoose.Schema({
-      firstName: {type:String, required: true},
-      lastName: {type:String, required: true},
-      email: {type:String, required: true, unique: true},
+      firstName: {type: String, required: true},
+      lastName: {type: String, required: true},
+      email: {type: String, required: true, unique: true},
       password: {type: String, required: true},
       phone: {type: String, unique: true},
       trainees: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trainee'}],

@@ -4,7 +4,9 @@
 @font-face { font-family: "Dharma-Light-I"; src: url(../fonts/DharmaGothicE_Light_I.otf);}
 @font-face { font-family: "Dharma-Light"; src: url(../fonts/DharmaGothicE_Light_R.otf);}
 
+/* CSS Preload Images in Directive */
 
+div#preload { display: none; }
 
 /* NAVIGATION */
 

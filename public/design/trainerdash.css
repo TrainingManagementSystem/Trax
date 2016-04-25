@@ -123,6 +123,7 @@ display: flex;
 
 .trainer-upcoming-sessions ul li {
 	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	position: relative;
 }
 
 .trainer-upcoming-sessions ul li:last-child {
@@ -197,6 +198,17 @@ display: flex;
 .container{
 	width: 100% !important;
 }
+
+.fa-info-circle{
+	color: #91d000;
+	font-size: 1.5rem;
+	float: right;
+	position: absolute;
+	top: 30px;
+	right: 10px;
+	cursor: pointer;
+}
+
 @media (max-width: 1200px) {
 
 
