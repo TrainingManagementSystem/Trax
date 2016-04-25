@@ -81,7 +81,7 @@ body {
 
 .loginTrainerButton {
 	padding: .5em 1.8em;
-	background-color: #91d000;
+	background-color: #91d000 !important;
 }
 
 .loginClientButton {
