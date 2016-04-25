@@ -1,3 +1,5 @@
+
+
 @keyframes giffy {
     0%   { background-image: url(../img/giffy/giffy1.png); }
     1%   { background-image: url(../img/giffy/giffy2.png); }
@@ -99,7 +101,7 @@
     97%   { background-image: url(../img/giffy/giffy98.png); }
     98%   { background-image: url(../img/giffy/giffy99.png); }
     99%   { background-image: url(../img/giffy/giffy100.png); }
-    100%  { background-image: url(../img/giffy/giffy101.png); }   
+    100%  { background-image: url(../img/giffy/giffy101.png); }
 }
 
 
@@ -107,6 +109,7 @@
 	background-image: url(../img/giffy/giffy1.png);
 	background-size: cover;
 	background-repeat: no-repeat;
+	animation-name: giffy;
 	animation: giffy 5s infinite steps(1);
 	animation-play-state: paused;
 }
@@ -114,4 +117,3 @@
 .dashboard-image-container:hover {
 	    animation-play-state: running;
 }
-

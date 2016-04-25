@@ -1,4 +1,4 @@
-angular.module('traxApp', ['ui.router', 'angularMoment'])
+angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
@@ -48,6 +48,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment'])
 	    .state('trainer', {
         url: '/trainer',
         templateUrl: '/js/trainerDash/trainerDash.html',
+        controller: "trainerDash_ctrl"
       })
       .state('support', {
         url: '/support',
