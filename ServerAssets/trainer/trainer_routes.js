@@ -1,11 +1,16 @@
 import ctrl from './trainer_ctrl';
 
+const requireAuth = function(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.status(403).end();
+};
+
 export default function( app ){
   app.route('/api/trainers')
       .post(ctrl.newTrainer)
-      .get(ctrl.getTrainers);
+      .get(requireAuth, ctrl.getTrainers);
   app.route('/api/trainer/:id')
-      .get(ctrl.getTrainer)
-      .put(ctrl.updateTrainer)
-      .delete(ctrl.deleteTrainer);
+      .get(requireAuth, ctrl.getTrainer)
+      .put(requireAuth, ctrl.updateTrainer)
+      .delete(requireAuth, ctrl.deleteTrainer);
 }

@@ -5,10 +5,6 @@ const cb = res => function (error, response) {
         if(error) res.status(500).json(error);
         else res.status(200).json(response);
       };
-      // requireAuth = (req, res, next) => {
-      //   if(!req.isAuthenticated()) return res.status(403).end();
-      //   return next();
-      // };
 
 export default {
   newTrainer( req, res ){

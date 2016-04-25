@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { secret } from '../../config/session';
 
 const Trainee = new mongoose.Schema({
       firstName: {type: String, required: true},
       lastName: {type: String, required: true},
       email: {type: String, required: true, unique: true},
-      password: {type: String, required: true},
+      password: {type: String, default: secret},
       phone: {type: String, unique: true},
       trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
-      shareWithTrainer: {type: Boolean, default: false},
       active: {type: Boolean, default: true},
       schedule: [{
         lastInstance: String,
@@ -75,6 +75,24 @@ const Trainee = new mongoose.Schema({
           weightUnit: String, // "en_US"
         }
       }
+});
+
+///////////bcrypt/////////////
+Trainee.methods.generateHash = function( password ) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+Trainee.methods.validatePassword = function( password ) {
+	return bcrypt.compareSync(password, this.password);
+};
+
+
+/////////////saves hashed pw, not real pw///////////////
+Trainee.pre('save', function(next){
+  var user = this;
+  if(!user.isModified('password')) return next();
+  user.password = Trainee.methods.generateHash(user.password);
+  next();
 });
 
 export default mongoose.model('Trainee', Trainee);
