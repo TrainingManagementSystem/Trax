@@ -1,11 +1,11 @@
 <div class="navContainer">
 <nav class="marketingNav">
 	<i class="fa fa-logo"></i>
-	<div><span>Login</span><span>Sign Up</span></div>
+	<div class="flexTraxLogin"><span><a ui-sref="login">Login</a></span><span><a ui-sref="signup">Sign Up</a></span></div>
 </nav>
 </div>
 <div class="marketingHeaderContainer">
-	<div class="marketingHeaderTextContainer">
+	<div class="marketingHeaderTextContainer container">
 		<h1>Supercharge Your<br>Personal Training</h1>
 	</div>
 </div>
@@ -31,32 +31,44 @@
 		<div class="row">
 			<div class="col-md-4 pricing">
 				<div class="pricingBox">
+					<div class="textBoxPricing">
 					<h1>Basic</h1>
 					<h2>$9<span>/month</span></h2>
 					<ul>
 						<li>Single Trainer</li>
 						<li>Up to 10 Clients</li>
 					</ul>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 pricing">
 				<div class="pricingBox">
+				<div class="textBoxPricing">
 					<h1>Premium</h1>
 					<h2>$19<span>/month</span></h2>
 					<ul>
 						<li>Up to 5 Trainers</li>
 						<li>Up to 50 Clients</li>
+						<li>In-App Scheduling</li>
+						<li>Mobile App</li>
 					</ul>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 pricing">
 				<div class="pricingBox">
+				<div class="textBoxPricing">
 					<h1>Enterprise</h1>
 					<h2>$39<span>/month</span></h2>
 					<ul>
 						<li>Unlimited Trainers</li>
 						<li>Unlimited Clients</li>
+						<li>In-App Scheduling</li>
+						<li>Mobile App</li>
+						<li>Exclusive Member Content</li>
+						<li>Client E-Mail Offers</li>
 					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -68,3 +80,14 @@
 	<h2>No credit card required</h2>
 	<button ui-sref="signup">SIGN UP</button>
 </div>
+
+<footer class="marketingFooter">
+	<div class="copyright">&copy; 2016 FlexTrax, Inc.</div>
+	<div class="social">
+		<i class="fa fa-social-facebook"></i>
+		<i class="fa fa-twitter-box"></i>
+		<i class="fa fa-instagram"></i>
+	</div>
+
+
+</footer>
