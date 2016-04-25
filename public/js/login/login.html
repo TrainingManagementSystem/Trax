@@ -34,10 +34,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 inputBox" ng-class="">
-                        <input type="email" name="email" value="" class="aboutInput"
-                        ng-class="user.email" placeholder="email" required/>
-                        <input type="text" name="password" value="" class="aboutInput" ng-class="user.password" placeholder="password" required/>
+                    <div class="col-xs-12 inputBox">
+                        <input type="email" name="email" class="aboutInput" ng-model="user.email" placeholder="email" required/>
+                        <input type="text" name="password" class="aboutInput" ng-model="user.password" placeholder="password" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -47,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 loginSignupButton">
-                        <a href="#" class="loginSignup">SIGN UP</a>
+                        <a ui-sref="signup" class="loginSignup">SIGN UP</a>
                     </div>
                 </div>
                 <div class="row">

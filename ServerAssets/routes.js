@@ -12,13 +12,20 @@ export default function (app) {
   ///// PASSPORT ROUTES /////
   /// LOCAL : LOGIN ///
   app.post('/login', passport.authenticate('local',
-    { successRedirect: '/loggedIn' }
+    { successRedirect: '/loggedIn',
+      failureRedirect: '/logInFail' }
   ));
   /// LOCAL : If Local Auth SUCCEEDS ///
   app.get('/loggedIn',
    function(req, res) {
      if(req.user) res.status(200).json(req.user);
-     else res.status(403).json('Invalid Login Attempt');
+     else res.send('error');
+  });
+  /// LOCAL : If Local Auth FAILS ///
+  app.get('/logInFail',
+   function(req, res) {
+    //  res.status(401).json('Invalid Login Attempt');
+     res.send('error');
   });
   /// LOCAL : LOGOUT ///
   app.get('/logout',
@@ -38,7 +45,7 @@ export default function (app) {
   app.get('/auth/fitbit/callback',
     passport.authenticate( 'fitbit',
     { successRedirect: '/loggedIn',
-      // failureRedirect: '/login'
+      failureRedirect: '/logInFail'
     })
   );
 

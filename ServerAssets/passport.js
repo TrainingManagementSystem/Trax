@@ -52,13 +52,13 @@ passport.use(new FitbitStrategy(fitbit,
       };
       req.user.fitbit = fitbit;
       if(req.user.trainer) {
-        Trainee.findByIdAndUpdate(req.user._id, req.user, function(err, user){
+        Trainee.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
           if(err) return done(err);
           else return done(null, user);
         });
       }
       else {
-        Trainer.findByIdAndUpdate(req.user._id, req.user, function(err, user){
+        Trainer.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
           if(err) return done(err);
           else return done(null, user);
         });
