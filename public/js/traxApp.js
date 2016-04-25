@@ -53,5 +53,9 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
       .state('support', {
         url: '/support',
         templateUrl: '/js/support/support.html'
+      })
+      .state('marketing', {
+        url:'/marketing',
+        templateUrl: '/js/marketing/marketing.html'
       });
 });

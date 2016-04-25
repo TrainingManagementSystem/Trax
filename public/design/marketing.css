@@ -1,0 +1,266 @@
+/* Marketing Navigation */
+
+/** {
+	background-color: #111619;
+}*/
+
+.test {
+	background-color: tomato;
+}
+
+
+.navContainer {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 95%;
+	max-width: 1170px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.marketingNav {
+	color: #fff;
+	background-color: transparent;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+
+}
+
+.marketingNav i {
+	font-size: 2em;
+}
+
+
+
+.marketingHeaderContainer {
+	background-color: transparent;
+	min-height: 600px;
+	width: 100%;
+	background-image: url(../img/marketing/marketing-header-bg.png);
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-color: #000;
+	background-position: center right;
+}
+
+
+
+
+.marketingHeaderTextContainer {
+	background-color: transparent;
+	width: 60%;
+	padding: 10% 0 10% 10%;
+}
+
+.marketingHeaderTextContainer h1 {
+	text-transform: uppercase;
+	color: #91d000;
+	font-family: "Dharma-ExLight-I";
+	font-size: 7em;
+	line-height: .89;
+	background-color: transparent;
+}
+
+.marketingAboutContainer {
+	min-height: 100px;
+	padding-top: 60px;
+	background-color: #101416;
+}
+
+.marketingAboutContainer::after {
+	content: "";
+	background-color: #101416;
+	min-height: 250px;
+	position: absolute;
+	bottom: 100;
+	margin-top: -175px;
+	width: 100%;
+	z-index: 10;
+	pointer-events: none;
+	border-bottom: 6px solid #91d000;
+	transform: skewY(6deg);
+
+}
+
+.marketingAboutContainer::before {
+	content: "";
+	background-color: #101416;
+	min-height: 550px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 10;
+	pointer-events: none;
+	border-top: 6px solid #91d000;
+	transform: skewY(6deg);
+
+}
+
+.macbook {
+	height: 350px;
+}
+
+.macbook img {
+	width: 100%;
+	position: absolute;
+	z-index: 1000;
+	margin-left: -5%;
+	margin-top: -70px;
+}
+
+
+.marketingAboutText {
+	color: #fff;
+	position: absolute;
+	z-index: 555;
+	left: 50%;
+	margin-left: 7%;
+
+}
+
+.marketingAboutText h2 {
+	text-transform: uppercase;
+	font-family: "Dharma-ExLight-I";
+	font-size: 2.5em;
+}
+
+.marketingAboutText p, .marketingAboutText a {
+	font-family: "proxima nova", "helvetica neue", sans-serif;
+	font-weight: 300;
+	font-size: .85em;
+}
+
+.marketingAboutText a {
+	color: #91d000;
+	text-decoration: underline;
+
+}
+
+
+
+
+
+
+
+
+
+.pricingContainer {
+	min-height: 400px;
+	padding: 240px 0 100px 0;
+	width: 100%;
+	background-color: #F2F1EA;
+}
+
+.pricing {
+}
+
+.pricingBox {
+	background-color: #fff;
+}
+
+.pricingBox h1 {
+	display: block;
+	background-color: #91d000;
+	text-align: center;
+	font-family: "proxima nova", "helvetica neue", sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: .85em;
+	letter-spacing: 2px;
+	padding: 10px 0;
+}
+
+
+.pricingBox h2 {
+	display: block;
+	text-align: center;
+	font-size: 4em;
+	padding: 10px 0;
+	border-bottom: 1px solid black;
+	margin-bottom: 0;
+}
+
+
+.pricingBox span {
+	font-size: .35em;
+}
+
+.pricingBox ul li {
+	font-family: "proxima nova", "helvetica neue", sans-serif;
+	font-weight: 300;
+	text-align: center;
+	font-size: .85em;
+	padding: 10px 0;
+	border-bottom: 1px solid black;
+}
+
+
+
+.callToActionSection {
+	background-image: url(../img/marketing/marketing-tryfree-bg.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 200px;
+	background-color: tomato;
+	width: 100%;
+	padding: 100px;
+	text-align: center;
+}
+
+.callToActionSection h1{
+	color: #91d000;
+	font-size: 5em;
+	margin-bottom: 0;
+}
+
+.callToActionSection h2{
+	color: #fff;
+	font-size: 1.25em;
+	font-family: "proxima nova", "helvetica neue", sans-serif ;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 30px;
+}
+
+.callToActionSection button{
+	background-color: #91d000;
+	padding: 10px 60px 7px 60px;
+	font-family: "proxima nova", "helvetica neue", sans-serif;
+	color: #fff;
+	border: none;
+	font-size: .95em;
+	letter-spacing: 1.5px;
+}
+
+
+@media (max-width: 50em) {
+	.macbook img {
+		margin-left: 0;
+		margin-bottom: 10px;
+	}
+
+	.marketingAboutText {
+		position: absolute;
+		margin-top: 0;
+		left: 0;
+		text-align: center;
+		margin-left: 0;
+		width: 100%;
+		padding: 0 5%;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
+	.marketingAboutContainer::after {
+		margin-top: 0;
+	}
+
+
+}
