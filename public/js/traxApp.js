@@ -20,7 +20,8 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
       })
       .state('dashboard', {
         url: '/dashboard',
-        templateUrl: '/js/dashboard/dashboard.html'
+        templateUrl: '/js/dashboard/dashboard.html',
+        controller: "dateTime_ctrl"
       })
       .state('nav', {
         url: '/nav',
