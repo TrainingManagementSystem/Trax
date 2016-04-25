@@ -2,14 +2,29 @@ angular.module('traxApp').directive('dashboard', function() {
   return {
     restrict: 'E',
     templateUrl: './js/directives/navDirective.html',
-    controller:function($scope, $state, $rootScope, $uibModal){
-      
+    controller:function($scope, $state, $rootScope, $uibModal, timeOfDay){
+     
+
+    // Date & Time on Nav Aside 
 
     $scope.currentDate = moment().format('dddd [,] MMMM D');
 
-    $scope.currentTime = moment().format('h:mm a')
-  
+    
+    function displayTime() {
+      var time = moment().format('h:mm a');
+      $('#clock').html(time);
+      setTimeout(displayTime, 60000);
+    }
 
+    $(document).ready(function() {
+      displayTime();
+    });
+
+
+    //  Good Morning/Afternoon/Evening Section on Nav Aside
+
+    var currenthour = timeOfDay.currenthour
+    $scope.testingService = timeOfDay.findTime(currenthour);
 
 
 
