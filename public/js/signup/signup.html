@@ -1,15 +1,15 @@
-<div class="container-fluid loginContainer">
-	<header class="page-header loginSpaceSignup">
+<div class="container-fluid signupContainer">
+	<header class="page-header">
 		<div class="row">
-			<div class="col-sm-6" ng-controller="LoginControl">
-				<p class="loginWhite loginHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
+			<div class="col-sm-6" ng-controller="SignupControl">
+				<p class="signupFadedText signupHeader">{{CurrentDate | date:'EEEE, dd, MMMM yyyy'}}</p>
 			</div>
-			<ul class="col-sm-6 loginNav">
-				<li><a ui-sref="login" class="loginWhite">LOGIN </a></li>
-				<li class="loginWhite"> | </li>
-				<li><a ui-sref="about" class="loginWhite">ABOUT US </a></li>
-				<li class="loginWhite"> | </li>
-				<li><a ui-sref="contact" class="loginWhite"> CONTACT</a></li>
+			<ul class="col-sm-6 signupNav">
+				<li><a ui-sref="login" class="signupFadedText">LOGIN </a></li>
+				<li class="signupFadedText"> | </li>
+				<li><a ui-sref="about" class="signupFadedText">ABOUT US </a></li>
+				<li class="signupFadedText"> | </li>
+				<li><a ui-sref="contact" class="signupFadedText"> CONTACT</a></li>
 			</ul>
 		</div>
 	</header>
