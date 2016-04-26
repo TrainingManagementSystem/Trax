@@ -47,6 +47,15 @@ div#preload { display: none; }
 	margin-top: 14px;
 	margin-bottom: 14px;
 	font-family: "proxima-nova";
+	transition: .25s all ease;
+}
+
+.dashboard-navbutton:hover {
+	border: 1px solid #fff;
+	background-color: #fff;
+	color: #1b2224;
+	font-weight: 400;
+	transition: .25s all ease;
 }
 
 .dashboard-aside {
@@ -200,6 +209,8 @@ div#preload { display: none; }
 @media (max-width: 1200px) {
 
 
+
+
 	.dashboard-nav {
 		width: 100%;
 
@@ -262,6 +273,8 @@ div#preload { display: none; }
 	padding: 10px 0 10px 22px;
 	transition: all ease .25s;
 	}
+
+
 
 }
 
