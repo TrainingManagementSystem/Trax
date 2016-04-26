@@ -199,54 +199,74 @@ display: flex;
 	width: 100% !important;
 }
 
+.container-trainer {
+	max-width: 95%;
+	padding-right: 0;
+}
+
 .fa-info-circle{
 	color: #91d000;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	float: right;
 	position: absolute;
 	top: 30px;
-	right: 10px;
+	right: 15px;
 	cursor: pointer;
 }
 
-@media (max-width: 1200px) {
 
 
-	.client {
-		width: 100%;
+
+/* Mid-Screen Size Sizing for Today's Sessions Section */
+@media (max-width: 1300px) {
+
+	.fa-info-circle{
+	display: initial;
+	color: #91d000;
+	font-size: 1.25rem;
+	float: right;
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	cursor: pointer;
 	}
 
-	.clientlist-overview {
-		margin-left: 0;
-}
-
-	
-
-}
-
-
-@media (max-width: 50em) {
-
-
-.trainer-statBlock h1 {
-		display: block;
-		margin-left: 0;
+	.trainer-dateBlock h1 {
+		font-size: 2em;
 	}
 
-	.trainer-statBlock span {
-		width: 100%;
-		text-align: center;
-		padding: 0 5px;
+	.trainer-dateBlock {
+		padding: 15px 15px 5px 15px;
 	}
 
+	.container-trainer {
+	padding-right: .9375rem;
+
 }
+
+}
+
+/* Hide Info Button on Awkward In-Between Screen Sizes*/
+@media (min-width: 1200px) and (max-width: 1450px) { .fa-info-circle {display: none;} }
+
+
+/* Change width of containing wrapper once nav aside is gone*/
+@media (max-width: 1200px) { .client { width: 100%; }
+							 .clientlist-overview { margin-left: 0;}
+							}
+
+/* Stack Stats on Smaller Screen Sizes and Decrease h2 underneath stat number*/
+@media (max-width: 50em) { .trainer-statBlock h1 { display: block; margin-left: 0;}
+						   .trainer-statBlock span { width: 100%; text-align: center; padding: 0 5px; }
+						  }
 
 /* Smaller Font Size for Stat Detail*/
 @media (max-width: 45em) { .trainer-statBlock span { width: 100%; font-size: .85em; text-align: center; padding: 0 5px; } }
 
 /* Smaller Font Size for Stat Number*/
-@media (max-width: 40em) { .trainer-statBlock h1 { font-size: 2em; } .trainer-statBlock span { margin-top: 5%;
-	} }
+@media (max-width: 768px) { .trainer-statBlock h1 { font-size: 2.5em; } .trainer-statBlock span { margin-top: 2.5%;} 
+						   .sessions-graph-container { padding: 0; }
+						 }
 
 
 
