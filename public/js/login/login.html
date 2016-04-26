@@ -24,42 +24,42 @@
                         <p class="login-text">LOGIN</p>
                     </div>
                 </div>
+
                 <form name="login" ng-submit="loginForm()" novalidate>
-                <div class="row">
-                    <div class="col-xs-12 login-inputSpacing">
-                        <div class="row">
-                            <div class="col-sm-3 col-sm-offset-3 col-xs-6 pull-right login-whiteText" ng-click="getRole('trainer')" ng-class="{logTrainerButton : trainer}">
-                                Trainer
-                            </div>
-                            <div class="col-sm-3 col-xs-6 pull-left login-whiteText logClientButton" ng-click="getRole('trainee') " ng-class="{logTrainerButton : !trainer}">
-                                Client
+                    <div class="row">
+                        <div class="col-xs-12 login-inputSpacing">
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-offset-3 col-xs-6 pull-right login-whiteText" ng-click="getRole('trainer')" ng-class="{logTrainerButton : trainer}">
+                                    Trainer
+                                </div>
+                                <div class="col-sm-3 col-xs-6 pull-left login-whiteText logClientButton" ng-click="getRole('trainee') " ng-class="{logTrainerButton : !trainer}">
+                                    Client
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-10 col-md-offset-1 login-noPadding" ng-class="">
-                        <input type="email" name="email" value="" class="aboutInput login-inputSpacing" ng-model="user.email" placeholder="email" required/>
-                        <input type="text" name="password" class="aboutInput" ng-model="user.password" placeholder="password" required/>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-10 col-md-offset-1 login-noPadding">
+                            <input type="email" name="email" class="aboutInput login-inputSpacing" ng-model="user.email" placeholder="email" required/>
+                            <input type="password" name="password" class="aboutInput" ng-model="user.password" placeholder="password" required/>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 loginResetPassword">
-                        <a href="#" class="login-fadedText">reset password</a>
+                    <div class="row">
+                        <div class="col-xs-12 loginResetPassword">
+                            <a href="#" class="login-fadedText">reset password</a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 loginSignupButton">
-                        <a ui-sref="signup" class="loginSignup">SIGN UP</a>
-                        <!-- ng-hide when client is selected -->
+                    <div class="row">
+                        <div class="col-xs-12 loginSignupButton">
+                            <a ui-sref="signup" class="loginSignup">SIGN UP</a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 loginButton">
-                        <button type="submit" name="login" class="login-button">LOGIN</button>
+                    <div class="row">
+                        <div class="col-xs-12 loginButton">
+                            <button type="submit" name="login" class="login-button">LOGIN</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
         <div class="row loginNavBottom">
