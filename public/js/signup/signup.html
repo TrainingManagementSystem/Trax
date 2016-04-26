@@ -13,45 +13,43 @@
 			</ul>
 		</div>
 	</header>
-	<div class="container">
-		<div class="row loginBox">
-			<div class="col-sm-12 signupContainer">
+	<div class="row signupBox">
+		<div class="col-sm-12 signupContainer">
+			<div class="row">
+				<div class="col-xs-12 signupLogoContainer">
+					<i class="fa fa-logo fa-3x fa-logo-signup"></i>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="signupText">SIGN UP</p>
+				</div>
+			</div>
+			<form action="" method="">
 				<div class="row">
-					<div class="col-xs-12 loginLogoContainer">
-						<i class="fa fa-logo fa-3x fa-logo-login"></i>
+					<div class="col-xs-12 inputBox">
+						<h2 class="signupHeaders">NAME</h2>
+						<input ng-model="user.fName" type="text" name="firstname" class="aboutInput" placeholder="first"/>
+						<input ng-model="user.lName" type="text" name="lastname" class="aboutInput" placeholder="last"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 inputBox">
+						<h2 class="signupHeaders">EMAIL</h2>
+						<input ng-model="user.email" type="email" name="email" class="aboutInput" placeholder="email"/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<p class="loginText">SIGN UP</p>
+						<h2 class="signupHeaders">SECURITY</h2>
+						<input ng-model="user.password1" type="password" name="password"class="aboutInput" placeholder="password"/>
+						<input ng-model="user.password2" type="password" name="verify" class="aboutInput" placeholder="verify password"/>
 					</div>
 				</div>
-				<form action="" method="">
-					<div class="row">
-						<div class="col-xs-12 inputBox">
-							<h2 class="signupHeaders">NAME</h2>
-							<input ng-model="user.fName" type="text" name="firstname" class="aboutInput" placeholder="first"/>
-							<input ng-model="user.lName" type="text" name="lastname" class="aboutInput" placeholder="last"/>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12 inputBox">
-							<h2 class="signupHeaders">EMAIL</h2>
-							<input ng-model="user.email" type="email" name="email" class="aboutInput" placeholder="email"/>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-							<h2 class="signupHeaders">SECURITY</h2>
-							<input ng-model="user.password1" type="password" name="password"class="aboutInput" placeholder="password"/>
-							<input ng-model="user.password2" type="password" name="verify" class="aboutInput" placeholder="verify password"/>
-						</div>
-					</div>
-					<div class="col-xs-12 signupButton">
-						<input type="submit" value="SIGNUP" class="signupButtonText"></input>
-					</div>
-				</form>
-			</div>
+				<div class="col-xs-12 signupButton">
+					<input type="submit" value="SIGNUP" class="signupButtonText"></input>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
