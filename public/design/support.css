@@ -32,6 +32,15 @@ li {
 	padding: 4em;
 }
 
+.supportNav li{
+	display: inline;
+}
+
+.contact-faded {
+	color: rgba(255, 255, 255, 0.5);
+	font-family: "proxima-nova";
+}
+
 .aboutHeader {
 	padding: 3em 0 1.8em 0;
 	background-image: url(../img/steps-bg.png);
