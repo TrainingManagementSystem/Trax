@@ -20,11 +20,11 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
       })
       .state('dashboard', {
         url: '/dashboard',
-        templateUrl: '/js/dashboard/dashboard.html'
+        templateUrl: '/js/dashboard/dashboard.html',
       })
       .state('nav', {
         url: '/nav',
-        templateUrl: '/js/directives/navDirective.html'
+        templateUrl: '/js/directives/navDirective.html',
       })
       .state('client', {
         url: '/client',
