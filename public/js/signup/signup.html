@@ -14,7 +14,7 @@
 		</div>
 	</header>
 	<div class="row signupBox">
-		<div class="col-sm-12 signupContainer">
+		<div class="col-sm-12">
 			<div class="row">
 				<div class="col-xs-12 signupLogoContainer">
 					<i class="fa fa-logo fa-3x fa-logo-signup"></i>
@@ -27,29 +27,29 @@
 			</div>
 			<form name="signup" ng-submit="signupForm()" novalidate>
 				<div class="row">
-					<div class="col-xs-12 inputBox">
-						<h2 class="signupHeaders">NAME</h2>
+					<div class="col-xs-12 signupHeaders">
+						<h2 class="signupHeaderText">NAME</h2>
 						<input ng-model="newUser.firstName" type="text" name="firstName" class="aboutInput" placeholder="first"/>
 						<input ng-model="newUser.lastName" type="text" name="lastName" class="aboutInput" placeholder="last"/>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-12 inputBox">
-						<h2 class="signupHeaders">EMAIL</h2>
+					<div class="col-xs-12 signupHeaders">
+						<h2 class="signupHeaderText">EMAIL</h2>
 						<input ng-model="newUser.email" type="email" name="email" class="aboutInput" placeholder="email"/>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-12">
-						<h2 class="signupHeaders">SECURITY</h2>
+					<div class="col-xs-12 signupHeaders">
+						<h2 class="signupHeaderText">SECURITY</h2>
 						<input ng-model="newUser.password" type="password" name="password" class="aboutInput" placeholder="password"/>
 						<input ng-model="newUser.verify" type="password" name="verify" class="aboutInput" placeholder="verify password"/>
 					</div>
 				</div>
-				<div class="col-xs-12 signupButton">
-					<input type="submit" value="SIGNUP" class="signupButtonText" />
-				</div>
 			</form>
+		</div>
+		<div class="col-xs-12 signupButton">
+			<input type="submit" value="SIGNUP" class="signupButtonText" />
 		</div>
 	</div>
 </div>
