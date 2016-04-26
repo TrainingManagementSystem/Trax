@@ -51,6 +51,7 @@ passport.use(new FitbitStrategy(fitbit,
         user: profile._json.user
       };
       req.user.fitbit = fitbit;
+      req.user.starting.weight = profile._json.user.weight;
       if(req.user.trainer) {
         Trainee.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
           if(err) return done(err);

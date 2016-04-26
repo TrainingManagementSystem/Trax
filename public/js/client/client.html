@@ -1,7 +1,7 @@
 <div class="client">
   <div class="client-header">
     <div class="client-header-section client-profileInfo">
-      <img src="img/users/user-five.jpg" alt="" class="client-profileImage"/>
+      <img src="{{user.fitbit.user.avatar}}" alt="Profile Image" class="client-profileImage"/>
       <div class="client-profileInfo-Name">
         <h1>{{user.firstName.toUpperCase()}} {{user.lastName.toUpperCase()}}</h1>
         <h2 ng-if="user.fitbit.authorized">{{user.fitbit.user.age}} {{user.fitbit.user.gender.charAt(0)}} | {{displayHeight}} | {{user.fitbit.user.weight}} LBS</h2>

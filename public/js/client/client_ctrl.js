@@ -16,7 +16,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
   }
   function getHeight(height){
     var feet = Math.floor(height/12),
-        inches = height%12;
+        inches = Math.floor(height%12);
     return feet + "\'" + inches + "\"";
   }
   $scope.authFitbit = function(){
