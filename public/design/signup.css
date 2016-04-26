@@ -175,21 +175,29 @@ body {
 }*/
 
 @media (max-width: 767px){
-	.login-header{
+
+	.signupBoxMargins{
+		padding: 0;
+	}
+	.signupBox {
+		margin: 0 auto;
+	}
+	.signupNav {
 		text-align: center;
-		padding: 1em 0 0 0;
+	}
+	.signupHeader {
+		text-align: center;
 	}
 
-	.login-nav {
-		display: none; 
-	}
-
-	.login-box{
+	.signupBox{
 		background-color: transparent !important;
 	}
 }
 
 @media (max-width: 480px){
+	.signupContainer {
+		padding: 0;
+	}
 	.login-header {
 		padding-bottom: 0 !important;
 	}
