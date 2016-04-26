@@ -8,22 +8,22 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
     LoginService.checkIfLogged().then(function( res, err ){
       if(res.data === "error") return $state.go("login");
       $scope.user = LoginService.user = res.data;
-      $scope.displayHeight = getHeight($scope.user.fitbit.height);
+      $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
     });
   } else {
     $scope.user = LoginService.user;
-    $scope.displayHeight = getHeight($scope.user.fitbit.height);
+    $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
   }
   function getHeight(height){
     var feet = Math.floor(height/12),
-        inches = height%12;
+        inches = Math.floor(height%12);
     return feet + "\'" + inches + "\"";
   }
   $scope.authFitbit = function(){
     LoginService.authFitbit().then(function( res, err ){
       console.log('inside the .then...');
       if(res.data === "error") console.log("Authorization attempt failed");
-      else {consonle.log("inside the 'else' statement"); $scope.user = LoginService.user = res.data;}
+      else {console.log("inside the 'else' statement"); $scope.user = LoginService.user = res.data;}
     });
   };
 ////////////////////////////////////////////////////////////////////////////////

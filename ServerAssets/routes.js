@@ -43,9 +43,9 @@ export default function (app) {
   );
   // Location Fitbit sends the user to after authorization
   app.get('/auth/fitbit/callback',
-    passport.authenticate( 'fitbit',
-    { successRedirect: '/loggedIn',
-      failureRedirect: '/logInFail'
+    passport.authenticate('fitbit',
+    { successRedirect: '/#/client',
+      failureRedirect: '/#/client'
     })
   );
 
