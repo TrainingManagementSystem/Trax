@@ -7,7 +7,7 @@ const Trainee = new mongoose.Schema({
       lastName: {type: String, required: true},
       email: {type: String, required: true, unique: true},
       password: {type: String, default: secret},
-      phone: {type: String, unique: true},
+      phone: String,
       trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
       active: {type: Boolean, default: true},
       schedule: [{
