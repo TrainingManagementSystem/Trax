@@ -29,10 +29,10 @@
                     <div class="row">
                         <div class="col-xs-12 login-inputSpacing">
                             <div class="row">
-                                <div class="col-sm-3 col-sm-offset-3 col-xs-6 pull-right login-whiteText" ng-click="getRole('trainer')" ng-class="{logTrainerButton : trainer}">
+                                <div class="col-sm-3 col-sm-offset-3 col-xs-6 pull-right login-whiteText" ng-click="getRole('trainer')" ng-class="{logTrainerButton : trainer, logClientButton: !trainer}">
                                     Trainer
                                 </div>
-                                <div class="col-sm-3 col-xs-6 pull-left login-whiteText logClientButton" ng-click="getRole('trainee') " ng-class="{logTrainerButton : !trainer}">
+                                <div class="col-sm-3 col-xs-6 pull-left login-whiteText" ng-click="getRole('trainee') " ng-class="{logTrainerButton : !trainer, logClientButton: trainer}">
                                     Client
                                 </div>
                             </div>
