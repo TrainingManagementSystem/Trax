@@ -220,12 +220,37 @@ display: flex;
 		margin-left: 0;
 }
 
-	.sessions-graph-container{
-
-	}
-
-	.container-trainer {
-	}
-
+	
 
 }
+
+
+@media (max-width: 50em) {
+
+
+.trainer-statBlock h1 {
+		display: block;
+		margin-left: 0;
+	}
+
+	.trainer-statBlock span {
+		width: 100%;
+		text-align: center;
+		padding: 0 5px;
+	}
+
+}
+
+/* Smaller Font Size for Stat Detail*/
+@media (max-width: 45em) { .trainer-statBlock span { width: 100%; font-size: .85em; text-align: center; padding: 0 5px; } }
+
+/* Smaller Font Size for Stat Number*/
+@media (max-width: 40em) { .trainer-statBlock h1 { font-size: 2em; } .trainer-statBlock span { margin-top: 5%;
+	} }
+
+
+
+
+
+
+
