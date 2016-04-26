@@ -32,6 +32,11 @@ const Trainee = new mongoose.Schema({
         calories: Number,
         steps: Number
       },
+      starting: {
+        weight: Number,
+        bf: Number,
+        bmi: Number
+      },
       fitbit: {
         authorized: {type: Boolean, default: false},
         accessToken: String,

@@ -1,21 +1,47 @@
 var app = angular.module('traxApp');
-app.controller('client_ctrl', function($scope, $rootScope){
+app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService){
   $rootScope.currentState = 'clientList';
+
+//////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
+  // Check for valid login session and assign logged in user to scope //////////
+  if(!LoginService.user){
+    LoginService.checkIfLogged().then(function( res, err ){
+      if(res.data === "error") return $state.go("login");
+      $scope.user = LoginService.user = res.data;
+      $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
+    });
+  } else {
+    $scope.user = LoginService.user;
+    $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
+  }
+  function getHeight(height){
+    var feet = Math.floor(height/12),
+        inches = Math.floor(height%12);
+    return feet + "\'" + inches + "\"";
+  }
+  $scope.authFitbit = function(){
+    LoginService.authFitbit().then(function( res, err ){
+      console.log('inside the .then...');
+      if(res.data === "error") console.log("Authorization attempt failed");
+      else {console.log("inside the 'else' statement"); $scope.user = LoginService.user = res.data;}
+    });
+  };
+////////////////////////////////////////////////////////////////////////////////
 
   $scope.calGoalLabelVisable = false;
   $scope.showCalGoalLabel = function(){
     $scope.calGoalLabelVisable = true;
-  }
+  };
   $scope.hideCalGoalLabel = function(){
     $scope.calGoalLabelVisable = false;
-  }
+  };
   $scope.stepGoalLabelVisable = false;
   $scope.showStepGoalLabel = function(){
     $scope.stepGoalLabelVisable = true;
-  }
+  };
   $scope.hideStepGoalLabel = function(){
     $scope.stepGoalLabelVisable = false;
-  }
+  };
 
   $scope.editingCalGoal = false;
   $scope.calEditText = 'EDIT';
@@ -29,7 +55,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
       $scope.calEditText = 'SAVE';
       $scope.calEditIcon = 'save';
     }
-  }
+  };
 
   $scope.editingStepGoal = false;
   $scope.stepEditText = 'EDIT';
@@ -43,7 +69,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
       $scope.stepEditText = 'SAVE';
       $scope.stepEditIcon = 'save';
     }
-  }
+  };
 
   $scope.editingNeck = false;
   $scope.neckEditIcon = 'plus';
@@ -54,7 +80,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.neckEditIcon = 'plus';
     }
-  }
+  };
 
   $scope.editingChest = false;
   $scope.chestEditIcon = 'plus';
@@ -65,7 +91,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.chestEditIcon = 'plus';
     }
-  }
+  };
 
   $scope.editingWaist = false;
   $scope.waistEditIcon = 'plus';
@@ -76,7 +102,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.waistEditIcon = 'plus';
     }
-  }
+  };
 
   $scope.editingHips = false;
   $scope.hipsEditIcon = 'plus';
@@ -87,7 +113,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.hipsEditIcon = 'plus';
     }
-  }
+  };
 
   $scope.editingThigh = false;
   $scope.thighEditIcon = 'plus';
@@ -98,7 +124,7 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.thighEditIcon = 'plus';
     }
-  }
+  };
 
   $scope.editingCalf = false;
   $scope.calfEditIcon = 'plus';
@@ -109,5 +135,5 @@ app.controller('client_ctrl', function($scope, $rootScope){
     }else{
       $scope.calfEditIcon = 'plus';
     }
-  }
+  };
 });
