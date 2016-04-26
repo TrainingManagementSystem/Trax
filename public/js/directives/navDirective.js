@@ -8,7 +8,6 @@ angular.module('traxApp').directive('dashboard', function() {
     // Date & Time on Nav Aside 
 
     $scope.currentDate = moment().format('dddd [,] MMMM D');
-
     
     function displayTime() {
       var time = moment().format('h:mm a');
@@ -22,11 +21,8 @@ angular.module('traxApp').directive('dashboard', function() {
 
 
     //  Good Morning/Afternoon/Evening Section on Nav Aside
-
     var currenthour = timeOfDay.currenthour
     $scope.testingService = timeOfDay.findTime(currenthour);
-
-
 
 
 
