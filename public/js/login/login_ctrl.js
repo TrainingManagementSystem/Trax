@@ -28,8 +28,7 @@ app.controller('LoginControl', ['$scope', '$state', 'LoginService', 'moment', fu
 
   $scope.signupForm = function (){
       LoginService.signup($scope.newUser).then(function( res, err ){
-        if(err) return console.log("Signin attempt failed, please try again");
-        console.log("res.data: ", res.data);
+        if(err) return console.log("Sign-up attempt failed, please try again...\n", err);
         LoginService.user = res.data;
         $state.go("trainer");
       });
