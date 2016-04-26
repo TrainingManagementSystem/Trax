@@ -119,17 +119,13 @@ body {
 	font-size: 3em;
 }
 
-.login-buttons {
-	padding: 0;
-}
-
-.login-trainerButton {
+.logTrainerButton {
 	background-color: #91d000;
 	border: none;
 	padding: .6em 0;
 }
 
-.login-clientButton {
+.logClientButton {
 	background-color: transparent;
 	border: 3px solid #f2f2ea;
 	padding: .4em 0;

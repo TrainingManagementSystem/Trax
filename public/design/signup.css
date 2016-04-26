@@ -38,13 +38,13 @@ body {
 	font-family: "Dharma-ExLight", helvetica;
 }
 
-.login-container ul li{
+.signupContainer ul li{
 	margin: 0;
 	padding: 0;
 	display: inline;
 }
 
-.login-container input {
+.signupContainer input {
 	text-align: center;
 	font-family: "proxima-nova";
 	width: 100%;
@@ -52,12 +52,12 @@ body {
 }
 
 
-.login-fadedText {
+.signupFadedText {
 	color: rgba(255, 255, 255, 0.5);
 	font-family: "proxima-nova";
 }
 
-.login-whiteText {
+.signupWhiteText {
 	color: #f2f2ea;
 	font-family: "proxima-nova";
 }
@@ -99,7 +99,7 @@ body {
 	height: 100vh;
 }
 
-.login-nav {
+.signupNav {
 	text-align: right;
 }
 
