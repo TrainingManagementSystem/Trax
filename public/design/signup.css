@@ -181,6 +181,11 @@ body {
 	background-color: #91d000;
 }
 
+.login-center {
+	text-align: center;
+	padding: .5em;
+}
+
 /*=======================*/
 
 /*Media Queries*/
