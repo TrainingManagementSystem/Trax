@@ -20,6 +20,7 @@ app.controller('LoginControl', ['$scope', '$state', 'LoginService', 'moment', fu
 
   //////// END POINTS ////////
   $scope.loginForm = function (){
+      // if(!$scope.trainer && !$scope.user.password) $scope.user.password = ' ';
       LoginService.login($scope.user).then(function( res, err ){
         if(res.data === "error") return console.log("Login attempt failed, please try again");
         LoginService.user = res.data;
