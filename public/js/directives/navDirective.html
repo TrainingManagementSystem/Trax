@@ -10,7 +10,7 @@
 		<div class="dashboard-nav-links-container">
 			<ul>
 				<li ng-click="goToState('trainer')" ng-class="{activeLink: currentState === 'trainer'}" ng-if="user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
-            <li ng-click="goToState('client')" ng-class="{activeLink: currentState === 'clientList'}" ng-if"!user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
+            <li ng-click="goToState('client')" ng-class="{activeLink: currentState === 'clientList'}" ng-hide="user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
 				<li ng-click="goToState('clientList')" ng-class="{activeLink: currentState === 'clientList'}" ng-if="user.trainees"><i class="fa fa-clients fa-lg"></i>Clients</li>
 				<li><i class="fa fa-calendar fa-lg"></i>Schedule</li>
 				<li ng-click="goToState('settings')" ng-class="{activeLink: currentState === 'settings'}"><i class="fa fa-settings-outline fa-lg"></i>Settings</li>
