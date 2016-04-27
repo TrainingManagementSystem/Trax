@@ -13,4 +13,6 @@ export default function( app ){
       .get(requireAuth, ctrl.getTrainer)
       .put(requireAuth, ctrl.updateTrainer)
       .delete(requireAuth, ctrl.deleteTrainer);
+  app.route('/api/trainer/:id/password')
+      .put(requireAuth, ctrl.updatePassword);
 }
