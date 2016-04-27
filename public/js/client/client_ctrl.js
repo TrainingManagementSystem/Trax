@@ -2,36 +2,38 @@ var app = angular.module('traxApp');
 app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService){
   $rootScope.currentState = 'clientList';
 
-
 //////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
   if(!LoginService.user){
     LoginService.checkIfLogged().then(function( res, err ){
       if(res.data === "error") return $state.go("login");
       $scope.user = LoginService.user = res.data;
-      $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
       if($scope.user.trainees){
         if($rootScope.currentClient){
           $scope.currentClient = $rootScope.currentClient;
+          $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
         }else{
           $state.go('trainer');
         }
       }else{
         $scope.currentClient = $scope.user;
+        $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
       }
     });
   } else {
     $scope.user = LoginService.user;
-    $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
     if($scope.user.trainees){
       $scope.currentClient = $rootScope.currentClient;
+      $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
     }else{
       $scope.currentClient = $scope.user;
+      $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
     }
   }
   function getHeight(height){
-    var feet = Math.floor(height/12),
-        inches = Math.floor(height%12);
+    var heightIn = height/2.54,
+        feet = Math.floor(heightIn/12),
+        inches = Math.floor(heightIn%12);
     return feet + "\'" + inches + "\"";
   }
   $scope.authFitbit = function(){
