@@ -11,7 +11,11 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
       $scope.user = LoginService.user = res.data;
       $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
       if($scope.user.trainees){
-        $scope.currentClient = $rootScope.currentClient;
+        if($rootScope.currentClient){
+          $scope.currentClient = $rootScope.currentClient;
+        }else{
+          $state.go('trainer');
+        }
       }else{
         $scope.currentClient = $scope.user;
       }
