@@ -19,7 +19,7 @@ export default {
     Trainer.findById(req.params.id, cb(res)).populate('trainees');
   },
   updateTrainer( req, res ){
-    Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}, cb(res));
+    Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees').exec(cb(res));
   },
   deleteTrainer( req, res ){
     Trainer.findByIdAndRemove(req.params.id, cb(res));
