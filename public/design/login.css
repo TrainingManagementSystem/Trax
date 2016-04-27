@@ -24,37 +24,23 @@
 
 /* Animation */
 
-.animate-enter, 
-.animate-leave { 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
-} 
- 
-.animate-leave.animate-leave-active,
-.animate-enter {
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    transform: scaleY(0);
-    height: 0px;
-    opacity: 0;
+ng.enter {
+	transition: 1s; all
+	opacity: 0;
 }
- 
-.animate-enter.animate-enter-active,
-.animate-leave {
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    transform: scaleY(1);
-    height: 30px;
-    opacity: 1;
+
+ng.enter.active {
+	opacity: 1;
+}
+
+ng.leave {
+	opacity: 1;
+
+}
+
+ng.leave.active{
+	opacity: 0;
+
 }
 /*=======================*/
 
@@ -69,6 +55,14 @@
 
 body {
 	font-family: "Dharma-ExLight", helvetica;
+}
+
+.tall {
+	height: 27.5em;
+}
+
+.short {
+	height: 26em;
 }
 
 .login-container ul li{

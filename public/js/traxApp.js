@@ -1,4 +1,4 @@
-angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
+angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnimate'])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
