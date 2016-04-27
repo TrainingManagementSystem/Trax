@@ -9,10 +9,11 @@
 	<div class="dashboard-nav-links">
 		<div class="dashboard-nav-links-container">
 			<ul>
-				<li ng-click="goToState('trainer')" ng-class="{activeLink: currentState === 'trainer'}"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
-				<li ng-click="goToState('clientList')" ng-class="{activeLink: currentState === 'clientList'}"><i class="fa fa-clients fa-lg"></i>Clients</li>
+				<li ng-click="goToState('trainer')" ng-class="{activeLink: currentState === 'trainer'}" ng-if="user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
+            <li ng-click="goToState('client')" ng-class="{activeLink: currentState === 'clientList'}" ng-if"!user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
+				<li ng-click="goToState('clientList')" ng-class="{activeLink: currentState === 'clientList'}" ng-if="user.trainees"><i class="fa fa-clients fa-lg"></i>Clients</li>
 				<li><i class="fa fa-calendar fa-lg"></i>Schedule</li>
-				<li ng-click="goToState('settings')" ng-class="{activeLink: currentState === 'settings'}"><i class="fa fa-settings fa-lg"></i>Settings</li>
+				<li ng-click="goToState('settings')" ng-class="{activeLink: currentState === 'settings'}"><i class="fa fa-settings-outline fa-lg"></i>Settings</li>
 			</ul>
 		</div>
 	</div>
@@ -32,7 +33,7 @@
 		<div class="toggle-container">
 			<i class="fa fa-menu fa-2x dashboard-toggle toggle-nav"></i>
 		</div>
-	<button class="dashboard-navbutton" ng-click="open()" ng-show="{{currentState == 'clientList' || currentState == 'trainer'}}" >Add A New Client</button>
+	<button class="dashboard-navbutton" ng-click="open()" ng-if="user.trainees" >Add A New Client</button>
 </div>
 
 

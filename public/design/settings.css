@@ -7,6 +7,11 @@
 .settings-header-profile{
   position: relative;
 }
+
+.settings-header-profile img {
+  border-radius: 50%;
+  width: 90px;
+}
 .settings-gearIcon{
   position: absolute;
   z-index: 100;
