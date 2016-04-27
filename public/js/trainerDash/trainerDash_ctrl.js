@@ -52,4 +52,9 @@ $scope.user = {fitbit:{user:{avatar:"../img/users/user-seven.jpg"}}};
   };
 
 
+  $scope.goToClient = function(selectedClient){
+    $rootScope.currentClient = selectedClient;
+    $state.go('client');
+  }
+
 });
