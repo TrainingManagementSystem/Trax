@@ -1,8 +1,8 @@
 <div class="dashboard-aside active">
 	<div class="dashboard-image-container">
 		<div class="dashboard-aside-container">
-			<h5>{{currentDate}}<span id ="clock"></span><h5>
-			<h2>Good {{testingService}} Josephine</h2>
+			<h5>{{currentDate}}<h5>
+			<h2>{{greeting}} {{user.firstName}}</h2>
 			<h3>You have 3 sessions today</h3>
 		</div>
 	</div>
@@ -18,8 +18,8 @@
 	</div>
 	<div class="logout">
 
-		<img src="../img/users/user-seven.jpg">
-		<span>Josephine Luna<p><a ui-sref="marketing">Logout</a></p></span>
+		<img src={{user.fitbit.user.avatar}} alt="Profile Image">
+		<span>{{user.firstName}} {{user.lastName}}<p><a ui-sref="marketing">Logout</a></p></span>
 	</div>
 
 </div>
@@ -32,7 +32,7 @@
 		<div class="toggle-container">
 			<i class="fa fa-menu fa-2x dashboard-toggle toggle-nav"></i>
 		</div>
-	<button class="dashboard-navbutton" ng-click="open()">Add A New Client</button>
+	<button class="dashboard-navbutton" ng-click="open()" ng-show="{{currentState == 'clientList' || currentState == 'trainer'}}" >Add A New Client</button>
 </div>
 
 

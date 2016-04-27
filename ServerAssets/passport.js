@@ -20,7 +20,7 @@ passport.use(new LocalStrategy(
           return done(null, false, { message: 'Incorrect password.' });
         }
         return done(null, user);
-      });
+      }).populate('trainees');
     }
     else if (req.body.role === 'trainee') {
       Trainee.findOne({ email: email }, function (err, user) {
@@ -30,7 +30,7 @@ passport.use(new LocalStrategy(
           return done(null, user);
         }
         return done(null, false, { message: 'Incorrect password.' });
-      });
+      }).populate('trainer');
     }
     else return done(null, false, { message: 'How did you even get here?' });
   }

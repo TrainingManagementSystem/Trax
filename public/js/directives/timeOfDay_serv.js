@@ -7,15 +7,15 @@ app.service('timeOfDay', function(){
 	this.currenthour = moment().format('HH');
 
 	this.findTime = function(hour) {
-	
+
 	if (hour < 12) {
-		return "Morning"
+		return "Morning";
 	} else if (hour >= 12 && hour < 18) {
-		return "Afternoon"
+		return "Afternoon";
 	} else {
-		return "Evening"
+		return "Evening";
 	}
-	
-}
+
+};
 
 });

@@ -2,12 +2,15 @@
 import Trainee from './Trainee';
 
 const cb = res => function (error, response) {
+        console.log('error: ', error);
+        console.log('response: ', response);
         if(error) res.status(500).json(error);
         else res.status(200).json(response);
       };
 
 export default {
   newTrainee( req, res ){
+    console.log("inside the backend: ", req.body);
     Trainee.create(req.body, cb(res));
   },
   getTrainees( req, res ){
