@@ -22,7 +22,7 @@
                 </div>
               </div>
               <!--  Start Client List Repeats -->
-              <div ng-repeat="client in user.trainees" class="clientList-row trainer-clientlist-row" ng-click="goToState('client')">
+              <div ng-repeat="client in user.trainees" class="clientList-row trainer-clientlist-row" ng-click="goToClient(client)">
                 <div class="clientList-s1 trainerclientlist-detail-s1">
                   <img src={{client.fitbit.user.avatar}} alt="profile pic" class="clientList-profileImage"/>
                   {{client.firstName}} {{client.lastName}}
