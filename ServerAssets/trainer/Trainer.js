@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 const Trainer = new mongoose.Schema({
       firstName: {type: String, required: true},
       lastName: {type: String, required: true},
-      email: {type: String, required: true, unique: true},
+      email: {type: String, required: true, lowercase: true, unique: true},
       password: {type: String, required: true},
       phone: String,
       trainees: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trainee'}],

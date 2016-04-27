@@ -13,4 +13,6 @@ export default function( app ){
      .get(requireAuth, ctrl.getTrainee)
      .put(requireAuth, ctrl.updateTrainee)
      .delete(requireAuth, ctrl.deleteTrainee);
+ app.route('/api/trainee/:id/password')
+     .put(requireAuth, ctrl.updatePassword);
 }
