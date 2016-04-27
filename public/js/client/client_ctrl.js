@@ -9,10 +9,24 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
       if(res.data === "error") return $state.go("login");
       $scope.user = LoginService.user = res.data;
       $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
+      if($scope.user.trainees){
+        if($rootScope.currentClient){
+          $scope.currentClient = $rootScope.currentClient;
+        }else{
+          $state.go('trainer');
+        }
+      }else{
+        $scope.currentClient = $scope.user;
+      }
     });
   } else {
     $scope.user = LoginService.user;
     $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
+    if($scope.user.trainees){
+      $scope.currentClient = $rootScope.currentClient;
+    }else{
+      $scope.currentClient = $scope.user;
+    }
   }
   function getHeight(height){
     var feet = Math.floor(height/12),
