@@ -7,10 +7,12 @@ app.controller('settings_ctrl', function($scope, $rootScope, LoginService, $stat
     LoginService.checkIfLogged().then(function( res, err ){
       if(res.data === "error") return $state.go("login");
       $scope.user = LoginService.user = res.data;
+      $scope.phone = $scope.user.phone;
       $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
     });
   } else {
     $scope.user = LoginService.user;
+    $scope.phone = $scope.user.phone;
     $scope.displayHeight = getHeight($scope.user.fitbit.user.height);
   }
   function getHeight(height){
@@ -38,8 +40,22 @@ app.controller('settings_ctrl', function($scope, $rootScope, LoginService, $stat
   $scope.editProfile = function(){
     if($scope.editingProfile === true){
       if($scope.user.trainees){
-        LoginService.updateTrainer()
+        var phoneNumber = '';
+        for(var i = 0; i < $scope.phone.length; i++){
+          if(!isNaN($scope.phone.charAt(i))){
+            phoneNumber += $scope.phone.charAt(i);
+          }
+        }
+        $scope.user.phone = phoneNumber;
+        LoginService.updateTrainer();
       }else{
+        var phoneNumber = '';
+        for(var i = 0; i < $scope.phone.length; i++){
+          if(!isNaN($scope.phone.charAt(i))){
+            phoneNumber += $scope.phone.charAt(i);
+          }
+        }
+        $scope.user.phone = phoneNumber;
         LoginService.updateTrainee();
       }
     }
