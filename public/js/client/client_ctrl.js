@@ -12,12 +12,14 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
         if($rootScope.currentClient){
           $scope.currentClient = $rootScope.currentClient;
           $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+          $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
         }else{
           $state.go('trainer');
         }
       }else{
         $scope.currentClient = $scope.user;
         $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+        $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
       }
     });
   } else {
@@ -25,9 +27,11 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
     if($scope.user.trainees){
       $scope.currentClient = $rootScope.currentClient;
       $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
     }else{
       $scope.currentClient = $scope.user;
       $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
     }
   }
   function getHeight(height){
@@ -35,6 +39,11 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
         feet = Math.floor(heightIn/12),
         inches = Math.floor(heightIn%12);
     return feet + "\'" + inches + "\"";
+  }
+  function getWeight(weight){
+    var kg = weight,
+        lbs = Math.round(kg * 2.2046);
+    return lbs;
   }
   $scope.authFitbit = function(){
     LoginService.authFitbit().then(function( res, err ){
