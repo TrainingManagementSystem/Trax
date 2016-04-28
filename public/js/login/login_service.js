@@ -19,25 +19,25 @@ app.service('LoginService', function($http, $timeout){
     this.resetTrainerPassword = function(newPassword){
       var url = '/api/trainer/'+ self.user._id +'/password';
       return $http.put(url, newPassword);
-    }
+    };
 
     //Reset trainee password
     this.resetTraineePassword = function(newPassword){
       var url = '/api/trainee/'+ self.user._id +'/password';
       return $http.put(url, newPassword);
-    }
+    };
 
     //Update Trainer Profile
     this.updateTrainer = function(){
       var url = '/api/trainer/' + self.user._id;
       return $http.put(url, self.user);
-    }
+    };
 
     //Update Trainee Profile
     this.updateTrainee = function(){
       var url = '/api/trainee/' + self.user._id;
       return $http.put(url, self.user);
-    }
+    };
 
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
@@ -50,13 +50,6 @@ app.service('LoginService', function($http, $timeout){
         console.log("inside the service: ", trainee);
         return $http.post("/api/trainees", trainee);
     };
-
-    // Updates a trainer after changes have been made
-    this.updateTrainer = function() {
-        var url = "/api/trainer/" + self.user._id;
-        return $http.put(url, self.user);
-    };
-
 
 /////////////////////////////  FITBIT API CALLS  ///////////////////////////////
     this.updateData = function() {
@@ -95,6 +88,7 @@ app.service('LoginService', function($http, $timeout){
               $http.get(apiReqUrl+"/activities/date/"+today+".json", { headers: apiReqHeader } ).then(
                 function( steps ){
                     console.log("Aquired steps activity: ", steps.data);
+                    self.user.fitbit.steps = self.user.fitbit.steps || {};
                     self.user.fitbit.steps.daily = steps.data.summary.steps;
                     self.user.fitbit.steps.goal = steps.data.goals.steps;
                 },
@@ -114,6 +108,7 @@ app.service('LoginService', function($http, $timeout){
               $http.get(apiReqUrl+"/activities.json", { headers: apiReqHeader } ).then(
                 function( lifetime ){
                     console.log("Aquired lifetime activity data: ", lifetime.data);
+                    self.user.fitbit.steps = self.user.fitbit.steps || {};
                     self.user.fitbit.steps.lifetime = lifetime.data.lifetime.total.steps;
                 },
                 function( error ){
@@ -123,14 +118,9 @@ app.service('LoginService', function($http, $timeout){
               $http.get(apiReqUrl+"/foods/log/date/"+today+".json", { headers: apiReqHeader } ).then(
                 function( nutrition ){
                     console.log("Aquired nutrition data: ", nutrition.data);
-                    self.user.fitbit.nutrition.goals = nutrition.data.goals.calories;
-                    self.user.fitbit.nutrition.daily.calories = nutrition.data.summary.calories;
-                    self.user.fitbit.nutrition.daily.carbs = nutrition.data.summary.carbs;
-                    self.user.fitbit.nutrition.daily.fat = nutrition.data.summary.fat;
-                    self.user.fitbit.nutrition.daily.fiber = nutrition.data.summary.fiber;
-                    self.user.fitbit.nutrition.daily.protein = nutrition.data.summary.protein;
-                    self.user.fitbit.nutrition.daily.sodium = nutrition.data.summary.sodium;
-                    self.user.fitbit.nutrition.daily.water = nutrition.data.summary.water;
+                    self.user.fitbit.nutrition = self.user.fitbit.nutrition || {};
+                    self.user.fitbit.nutrition.goals = nutrition.data.goals;
+                    self.user.fitbit.nutrition.daily = nutrition.data.summary;
                 },
                 function( error ){
                     console.log("Failed to aquire nutrition data: ", error.data);
@@ -148,7 +138,7 @@ app.service('LoginService', function($http, $timeout){
               $timeout($http.put("/api/trainer/"+self.user._id, self.user).then(
                 function(response){console.log("User saved: ", response);},
                 function(error){console.log("Failed to save user: ", error);}),
-                15000);
+                30000);
           },
           // OR: If accessToken fails to renew...
           function(error){
