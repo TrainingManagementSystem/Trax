@@ -27,6 +27,7 @@ export default {
   updatePassword( req, res ){
     Trainer.findById(req.params.id, function( err, trainer ){
       if(err) res.status(500).json(error);
+      if(req.user) req.user.password = req.body.password;
       trainer.password = req.body.password;
       trainer.save(cb(res));
     }).populate('trainees');

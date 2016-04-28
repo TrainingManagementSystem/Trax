@@ -28,14 +28,17 @@ const Trainee = new mongoose.Schema({
         calf: Number,
         chest: Number
       },
-      goals: {
-        calories: Number,
-        steps: Number
-      },
+      // goals: {
+      //   caloriesOut: Number,
+      //   steps: Number,
+      //   distance: Number,
+      //   floors: Number
+      // },
       starting: {
         weight: Number,
         bf: Number,
-        bmi: Number
+        bmi: Number,
+        steps: Number
       },
       fitbit: {
         authorized: {type: Boolean, default: false},
@@ -44,6 +47,35 @@ const Trainee = new mongoose.Schema({
         provider: String, // "fitbit"
         id: String, // "4HN4XH",
         displayName: String, // "Liz",
+        steps: {
+          daily: Number,
+          goal: Number,
+          lifetime: Number
+        },
+        stepLog: [{
+          dateTime: String,
+          value: Number
+        }],
+        nutrition: {
+          daily: {
+            calories: Number,
+            carbs: Number,
+            fat: Number,
+            fiber: Number,
+            protein: Number,
+            sodium: Number,
+            water: Number
+          },
+          goals: {
+            calories: Number,
+            estimatedCaloriesOut: Number
+          }
+        },
+        bodyMeasurements: {
+          weight: Number,
+          bmi: Number,
+          fat: Number
+        },
         user: {
           age: Number, // 24,
           avatar: String, // "https://static0.fitbit.com/images/profile/defaultProfile_100_female.gif",
