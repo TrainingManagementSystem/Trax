@@ -26,6 +26,19 @@ app.service('LoginService', function($http){
       var url = '/api/trainee/'+ self.user._id +'/password';
       return $http.put(url, newPassword);
     }
+
+    //Update Trainer Profile
+    this.updateTrainer = function(){
+      var url = '/api/trainer/' + self.user._id;
+      return $http.put(url, self.user);
+    }
+
+    //Update Trainee Profile
+    this.updateTrainee = function(){
+      var url = '/api/trainee/' + self.user._id;
+      return $http.put(url, self.user);
+    }
+
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
     this.signup = function(newUser) {

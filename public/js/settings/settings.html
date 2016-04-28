@@ -23,8 +23,8 @@
         <i ng-show="editingBilling" class="fa fa-card editIcon"></i>
         <h1 ng-show="editingBilling" class="editH1">BILLING INFO</h1>
         <form class="editForm" ng-show="editingBilling" ng-submit="editBilling()">
-          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="">
-          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="">
+          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="" ng-model="user.firstName">
+          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="" ng-model="user.lastName">
           <label for="firstAddress">Billing Address</label><input type="textfield" name="firstAddress" value=""><br>
           <input type="textfield" name="secondAddress" value=""><br>
           <label for="city">City</label><input type="textfield" name="city" value=""><br>
@@ -42,11 +42,11 @@
         <i ng-show="editingProfile" class="fa fa-userupdate editIcon"></i>
         <h1 ng-show="editingProfile" class="editH1">YOUR PROFILE</h1>
         <form class="editForm" ng-show="editingProfile" ng-submit="editProfile()">
-          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="">
-          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="">
-          <label for="email">Email</label><input type="textfield" name="email" value=""><br>
-          <label for="password">Password</label><input type="password" name="password" value=""><br>
-          <label for="phone">Phone Number</label><input type="textfield" name="phone" value="">
+          <label for="firstName">First Name</label><input type="textfield" name="firstName" value="" ng-model="user.firstName">
+          <label for="lastName">Last Name</label><input type="textfield" name="lastName" value="" ng-model="user.lastName">
+          <label for="email">Email</label><input type="textfield" name="email" value="" ng-model="user.email">
+          <label for="password">Password</label><button type="button" name="password" class="passwordButton" value="" ng-click="openResetPassword()">*******</button>
+          <label for="phone">Phone Number</label><input type="textfield" name="phone" value="" ng-model="user.phone">
           <button type="submit" name="button">SAVE UPDATED PROFILE</button>
           <button type="button" name="button" class="deleteButton">CANCEL ACCOUNT</button>
         </form>
