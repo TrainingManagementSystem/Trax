@@ -3,6 +3,9 @@ app.controller('resetPasswordModal', function ($scope, $uibModalInstance, LoginS
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
+  $scope.newPassword = {};
+  $scope.newPassword.passwordOne = '';
+  $scope.newPassword.passwordTwo = '';
   $scope.resetPassword = function(){
     var newPassword = {
       password : $scope.newPassword.passwordOne
