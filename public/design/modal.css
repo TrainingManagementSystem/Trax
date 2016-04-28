@@ -45,6 +45,11 @@
 
 }
 
+.modalButton:disabled{
+	background-color: rgb(179, 179, 179);
+	color: black;
+}
+
 .clientAddForm:focus {
 	outline: none;
 	border: 2px solid #91d000;

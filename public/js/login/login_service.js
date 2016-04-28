@@ -15,6 +15,17 @@ app.service('LoginService', function($http){
         return $http.get("/auth/fitbit");
     };
 
+    //Reset trainer password
+    this.resetTrainerPassword = function(newPassword){
+      var url = '/api/trainer/'+ self.user._id +'/password';
+      return $http.put(url, newPassword);
+    }
+
+    //Reset trainee password
+    this.resetTraineePassword = function(newPassword){
+      var url = '/api/trainee/'+ self.user._id +'/password';
+      return $http.put(url, newPassword);
+    }
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
     this.signup = function(newUser) {
