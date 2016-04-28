@@ -1,6 +1,26 @@
 var app = angular.module('traxApp');
-app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService){
+app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService, $uibModal){
   $rootScope.currentState = 'clientList';
+
+  $scope.openResetPassword = function (size) {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: '/js/modal/resetPasswordModal.html',
+      controller: 'resetPasswordModal',
+      size: size,
+      resolve: {
+        client: function () {
+          return $scope.user;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      // $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
 
 //////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
@@ -8,26 +28,36 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
     LoginService.checkIfLogged().then(function( res, err ){
       if(res.data === "error") return $state.go("login");
       $scope.user = LoginService.user = res.data;
+      if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
+        $scope.openResetPassword();
+      }
       if($scope.user.trainees){
         if($rootScope.currentClient){
           $scope.currentClient = $rootScope.currentClient;
           $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+          $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
         }else{
           $state.go('trainer');
         }
       }else{
         $scope.currentClient = $scope.user;
         $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+        $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
       }
     });
   } else {
     $scope.user = LoginService.user;
+    if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
+      $scope.openResetPassword();
+    }
     if($scope.user.trainees){
       $scope.currentClient = $rootScope.currentClient;
       $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
     }else{
       $scope.currentClient = $scope.user;
       $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
     }
   }
   function getHeight(height){
@@ -35,6 +65,11 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService)
         feet = Math.floor(heightIn/12),
         inches = Math.floor(heightIn%12);
     return feet + "\'" + inches + "\"";
+  }
+  function getWeight(weight){
+    var kg = weight,
+        lbs = Math.round(kg * 2.2046);
+    return lbs;
   }
   $scope.authFitbit = function(){
     LoginService.authFitbit().then(function( res, err ){
