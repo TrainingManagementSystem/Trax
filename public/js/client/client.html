@@ -1,10 +1,10 @@
 <div class="client">
   <div class="client-header">
     <div class="client-header-section client-profileInfo">
-      <img src="{{user.fitbit.user.avatar}}" alt="Profile Image" class="client-profileImage"/>
+      <img src="{{currentClient.fitbit.user.avatar}}" alt="Profile Image" class="client-profileImage"/>
       <div class="client-profileInfo-Name">
-        <h1>{{user.firstName.toUpperCase()}} {{user.lastName.toUpperCase()}}</h1>
-        <h2 ng-if="user.fitbit.authorized">{{user.fitbit.user.age}} {{user.fitbit.user.gender.charAt(0)}} | {{displayHeight}} | {{user.fitbit.user.weight}} LBS</h2>
+        <h1>{{currentClient.firstName.toUpperCase()}} {{currentClient.lastName.toUpperCase()}}</h1>
+        <h2 ng-if="currentClient.fitbit.authorized">{{currentClient.fitbit.user.age}} {{currentClient.fitbit.user.gender.charAt(0)}} | {{displayHeight}} | {{displayWeight}} LBS</h2>
       </div>
     </div>
     <div class="client-header-section client-profileStats">
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="client-info" ng-show="user.fitbit.authorized">
+  <div class="client-info" ng-show="currentClient.fitbit.authorized || user.trainees">
     <div class="client-info-section">
       <div class="info-cal-header">
         <div class="info-header-content">
@@ -103,7 +103,7 @@
       </div>
     </div>
   </div>
-  <div class="noAuth" ng-hide="user.fitbit.authorized">
+  <div class="noAuth" ng-hide="currentClient.fitbit.authorized || user.trainees">
     <div class="noAuth-container">
       <div class="noAuth-img-container">
         <img src="/img/fitbit-outline.png">

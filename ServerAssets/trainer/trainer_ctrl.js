@@ -23,5 +23,12 @@ export default {
   },
   deleteTrainer( req, res ){
     Trainer.findByIdAndRemove(req.params.id, cb(res));
+  },
+  updatePassword( req, res ){
+    Trainer.findById(req.params.id, function( err, trainer ){
+      if(err) res.status(500).json(error);
+      trainer.password = req.body.password;
+      trainer.save(cb(res));
+    }).populate('trainees');
   }
 };

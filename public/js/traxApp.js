@@ -4,10 +4,10 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnim
 
     $stateProvider
       //home SCREEN
-      .state('home', {
-        url: '/',
-        templateUrl: '/js/home/home.html'
-      })
+      // .state('home', {
+      //   url: '/',
+      //   templateUrl: '/js/home/home.html'
+      // })
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',
@@ -47,7 +47,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnim
         templateUrl: '/js/support/support.html'
       })
       .state('marketing', {
-        url:'/marketing',
+        url:'/',
         templateUrl: '/js/marketing/marketing.html'
       });
 });

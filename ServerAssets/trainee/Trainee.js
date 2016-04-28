@@ -5,7 +5,7 @@ import { secret } from '../../config/session';
 const Trainee = new mongoose.Schema({
       firstName: {type: String, required: true},
       lastName: {type: String, required: true},
-      email: {type: String, required: true, unique: true},
+      email: {type: String, required: true, lowercase: true, unique: true},
       password: {type: String, default: secret},
       phone: String,
       trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
