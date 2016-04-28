@@ -6,12 +6,193 @@
           </div>
           <div class="newClientFormContainer">
               <form class="editForm addClientForm" ng-submit="addNewTrainee()">
+                <div class="halfFieldContainer">
                   <label for="firstName">First Name</label>
                   <input type="textfield" class="clientAddForm formHalf" name="firstName" ng-model="newTrainee.firstName"/>
+                </div>
+                <div class="halfFieldContainer">
                   <label for="lastName">Last Name</label>
                   <input type="textfield" class="clientAddForm formHalf" name="lastName" ng-model="newTrainee.lastName"/>
+                </div>
                   <label for="email">Email</label>
                   <input type="textfield" class="clientAddForm" name="email" ng-model="newTrainee.email"/>
+                  <label for="frequency">Workout Frequency</label>
+                  <select name="frequency" id="frequency" class="workoutFrequency" onchange="showHide(this.value)">
+                    <option value="select">Select</option>
+                    <option value="one">Once Weekly</option>
+                    <option value="two">Twice Weekly</option>
+                    <option value="three">Three Times A Week</option>
+                    <option value="four">Four Times A Week</option>
+                  </select>
+                <div class="workoutScheduleDetails animated" id="onetimeWeekly">
+                  <div class="dayScheduleLabel"><p>DAY 1</p></div>
+                  <div class="thirdFieldContainer">
+                    <label for="day">Day:</label>
+                    <select name="day" class="workoutDay">
+                      <option value="sun">Sunday</option>
+                      <option value="mon">Monday</option>
+                      <option value="tue">Tuesday</option>
+                      <option value="wed">Wednesday</option>
+                      <option value="thu">Thursday</option>
+                      <option value="fri">Friday</option>
+                      <option value="sat">Saturday</option>
+                    </select>
+                  </div>
+                  <div class="thirdFieldContainer">
+                  <label for="day">Time:</label>
+                    <select name="day" class="workoutTime">
+                      <option value="fiveam">5:00am</option>
+                      <option value="sixam">6:00am</option>
+                      <option value="sevenam">7:00am</option>
+                      <option value="eightam">8:00am</option>
+                      <option value="nineam">9:00am</option>
+                      <option value="tenam">10:00am</option>
+                      <option value="elevenam">11:00am</option>
+                      <option value="noon">12:00pm</option>
+                      <option value="onepm">1:00pm</option>
+                      <option value="twopm">2:00pm</option>
+                      <option value="threepm">3:00pm</option>
+                      <option value="fourpm">4:00pm</option>
+                      <option value="fivepm">5:00pm</option>
+                      <option value="sixpm">6:00pm</option>
+                      <option value="sevenpm">7:00pm</option>
+                      <option value="eightpm">8:00pm</option>
+                    </select>
+                  </div>
+
+                   <div class="thirdFieldContainer">
+                  <label for="day">Location:</label>
+                   <input type="text" placeholder="Enter Location" />
+                  </div>
+                </div>
+
+                <div class="workoutScheduleDetails" id="twoTimesWeekly">
+                  <div class="dayScheduleLabel"><p>DAY 2</p></div>
+                  <div class="thirdFieldContainer">
+                    <label for="day">Day:</label>
+                    <select name="day" class="workoutDay">
+                      <option value="sun">Sunday</option>
+                      <option value="mon">Monday</option>
+                      <option value="tue">Tuesday</option>
+                      <option value="wed">Wednesday</option>
+                      <option value="thu">Thursday</option>
+                      <option value="fri">Friday</option>
+                      <option value="sat">Saturday</option>
+                    </select>
+                  </div>
+                  <div class="thirdFieldContainer">
+                  <label for="day">Time:</label>
+                    <select name="day" class="workoutTime">
+                      <option value="fiveam">5:00am</option>
+                      <option value="sixam">6:00am</option>
+                      <option value="sevenam">7:00am</option>
+                      <option value="eightam">8:00am</option>
+                      <option value="nineam">9:00am</option>
+                      <option value="tenam">10:00am</option>
+                      <option value="elevenam">11:00am</option>
+                      <option value="noon">12:00pm</option>
+                      <option value="onepm">1:00pm</option>
+                      <option value="twopm">2:00pm</option>
+                      <option value="threepm">3:00pm</option>
+                      <option value="fourpm">4:00pm</option>
+                      <option value="fivepm">5:00pm</option>
+                      <option value="sixpm">6:00pm</option>
+                      <option value="sevenpm">7:00pm</option>
+                      <option value="eightpm">8:00pm</option>
+                    </select>
+                  </div>
+
+                   <div class="thirdFieldContainer">
+                  <label for="day">Location:</label>
+                    <input type="text" placeholder="Enter Location" />
+                  </div>
+                </div>
+
+                <div class="workoutScheduleDetails" id="threeTimesWeekly">
+                  <div class="dayScheduleLabel"><p>DAY 3</p></div>
+                  <div class="thirdFieldContainer">
+                    <label for="day">Day:</label>
+                    <select name="day" class="workoutDay">
+                      <option value="sun">Sunday</option>
+                      <option value="mon">Monday</option>
+                      <option value="tue">Tuesday</option>
+                      <option value="wed">Wednesday</option>
+                      <option value="thu">Thursday</option>
+                      <option value="fri">Friday</option>
+                      <option value="sat">Saturday</option>
+                    </select>
+                  </div>
+                  <div class="thirdFieldContainer">
+                  <label for="day">Time:</label>
+                    <select name="day" class="workoutTime">
+                      <option value="fiveam">5:00am</option>
+                      <option value="sixam">6:00am</option>
+                      <option value="sevenam">7:00am</option>
+                      <option value="eightam">8:00am</option>
+                      <option value="nineam">9:00am</option>
+                      <option value="tenam">10:00am</option>
+                      <option value="elevenam">11:00am</option>
+                      <option value="noon">12:00pm</option>
+                      <option value="onepm">1:00pm</option>
+                      <option value="twopm">2:00pm</option>
+                      <option value="threepm">3:00pm</option>
+                      <option value="fourpm">4:00pm</option>
+                      <option value="fivepm">5:00pm</option>
+                      <option value="sixpm">6:00pm</option>
+                      <option value="sevenpm">7:00pm</option>
+                      <option value="eightpm">8:00pm</option>
+                    </select>
+                  </div>
+
+                   <div class="thirdFieldContainer">
+                  <label for="day">Location:</label>
+                    <input type="text" placeholder="Enter Location" />
+                  </div>
+                </div>
+
+                <div class="workoutScheduleDetails" id="fourTimesWeekly">
+                  <div class="dayScheduleLabel"><p>DAY 4</p></div>
+                  <div class="thirdFieldContainer">
+                    <label for="day">Day:</label>
+                    <select name="day" class="workoutDay">
+                      <option value="sun">Sunday</option>
+                      <option value="mon">Monday</option>
+                      <option value="tue">Tuesday</option>
+                      <option value="wed">Wednesday</option>
+                      <option value="thu">Thursday</option>
+                      <option value="fri">Friday</option>
+                      <option value="sat">Saturday</option>
+                    </select>
+                  </div>
+                  <div class="thirdFieldContainer">
+                  <label for="day">Time:</label>
+                    <select name="day" class="workoutTime">
+                      <option value="fiveam">5:00am</option>
+                      <option value="sixam">6:00am</option>
+                      <option value="sevenam">7:00am</option>
+                      <option value="eightam">8:00am</option>
+                      <option value="nineam">9:00am</option>
+                      <option value="tenam">10:00am</option>
+                      <option value="elevenam">11:00am</option>
+                      <option value="noon">12:00pm</option>
+                      <option value="onepm">1:00pm</option>
+                      <option value="twopm">2:00pm</option>
+                      <option value="threepm">3:00pm</option>
+                      <option value="fourpm">4:00pm</option>
+                      <option value="fivepm">5:00pm</option>
+                      <option value="sixpm">6:00pm</option>
+                      <option value="sevenpm">7:00pm</option>
+                      <option value="eightpm">8:00pm</option>
+                    </select>
+                  </div>
+
+                   <div class="thirdFieldContainer">
+                  <label for="day">Location:</label>
+                    <input type="text" placeholder="Enter Location" />
+                  </div>
+                </div>
+
+
                   <label for="message">Email Message</label>
                   <textarea name="message" class="clientAddForm" ng-model="newTrainee.message"></textarea>
                   <button type="submit" class="modalButton">Send Activation Email</button>
@@ -19,3 +200,40 @@
           </div>
 
     </div>
+
+    <script>
+      
+      function showHide(value) {
+      if (value =='one') {
+        document.getElementById('onetimeWeekly').style.display = 'flex';
+        document.getElementById('twoTimesWeekly').style.display = 'none';
+        document.getElementById('threeTimesWeekly').style.display = 'none';
+        document.getElementById('fourTimesWeekly').style.display = 'none';
+      }
+      else if (value == 'two') {
+        document.getElementById('onetimeWeekly').style.display = 'flex';
+        document.getElementById('twoTimesWeekly').style.display = 'flex';
+        document.getElementById('threeTimesWeekly').style.display = 'none';
+        document.getElementById('fourTimesWeekly').style.display = 'none';
+      }
+      else if (value == 'three') {
+         document.getElementById('onetimeWeekly').style.display = 'flex';
+         document.getElementById('twoTimesWeekly').style.display = 'flex';
+         document.getElementById('threeTimesWeekly').style.display = 'flex';
+         document.getElementById('fourTimesWeekly').style.display = 'none';
+      }
+       else if (value == 'four') {
+         document.getElementById('onetimeWeekly').style.display = 'flex';
+         document.getElementById('twoTimesWeekly').style.display = 'flex';
+         document.getElementById('threeTimesWeekly').style.display = 'flex';
+         document.getElementById('fourTimesWeekly').style.display = 'flex';
+      } else {
+        document.getElementById('onetimeWeekly').style.display = 'none';
+         document.getElementById('twoTimesWeekly').style.display = 'none';
+         document.getElementById('threeTimesWeekly').style.display = 'none';
+         document.getElementById('fourTimesWeekly').style.display = 'none';
+      }
+
+  }
+
+    </script>
