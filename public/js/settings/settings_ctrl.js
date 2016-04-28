@@ -1,5 +1,5 @@
 var app = angular.module('traxApp');
-app.controller('settings_ctrl', function($scope, $rootScope, LoginService){
+app.controller('settings_ctrl', function($scope, $rootScope, LoginService, $state, $uibModal){
 
   //////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
@@ -36,6 +36,33 @@ app.controller('settings_ctrl', function($scope, $rootScope, LoginService){
 
   $scope.editingProfile = false;
   $scope.editProfile = function(){
+    if($scope.editingProfile === true){
+      if($scope.user.trainees){
+        LoginService.updateTrainer()
+      }else{
+        LoginService.updateTrainee();
+      }
+    }
     $scope.editingProfile = !$scope.editingProfile;
   }
+
+  $scope.openResetPassword = function (size) {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: '/js/modal/resetPasswordModal.html',
+      controller: 'resetPasswordModal',
+      size: size,
+      resolve: {
+        client: function () {
+          return $scope.user;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      // $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
 });
