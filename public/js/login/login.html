@@ -55,6 +55,11 @@
                             <a ng-if="trainer" ui-sref="signup" class="loginSignup">SIGN UP</a>
                         </div>
                     </div>
+                     <div class="row">
+                        <div class="col-xs-12 loginSignupNoButton">
+                            <div ng-if="!trainer" class=""></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xs-12 loginButton">
                             <button type="submit" name="login" class="login-button">LOGIN</button>
@@ -73,3 +78,5 @@
         </div>
     </div>
 </div>
+
+

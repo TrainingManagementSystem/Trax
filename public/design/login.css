@@ -24,23 +24,22 @@
 
 /* Animation */
 
-ng.enter {
-	transition: 1s; all
+.ng-enter {
+	transition: .1s;
 	opacity: 0;
 }
 
-ng.enter.active {
+.ng-enter.ng-enter-active {
 	opacity: 1;
 }
 
-ng.leave {
+.ng-leave {
+	transition: .1s;
 	opacity: 1;
-
 }
 
-ng.leave.active{
+.ng-leave-active{
 	opacity: 0;
-
 }
 /*=======================*/
 
@@ -55,14 +54,6 @@ ng.leave.active{
 
 body {
 	font-family: "Dharma-ExLight", helvetica;
-}
-
-.tall {
-	height: 27.5em;
-}
-
-.short {
-	height: 26em;
 }
 
 .login-container ul li{
@@ -175,6 +166,7 @@ body {
 }
 
 .loginSignupButton {
+	height: 1em;
 	margin: 1em 0; 
 }
 
