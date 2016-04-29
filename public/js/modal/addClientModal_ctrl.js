@@ -6,8 +6,30 @@ app.controller('addClientModal', function ($scope, $uibModalInstance, LoginServi
   $scope.newTrainee.message = 'Thank you for using FlexTrax. To activate your '+
                            'account, please visit us at www.flextrax.com/login.';
 
+  $scope.scheduleDayOne = {};
+  $scope.scheduleDayTwo = {};
+  $scope.scheduleDayThree = {};
+  $scope.scheduleDayFour = {};
+
   $scope.addNewTrainee = function(){
       console.log("newTrainee: ", $scope.newTrainee);
+      var schedule = [];
+      if($scope.scheduleDayOne){
+        console.log($scope.scheduleDayOne);
+        schedule.push($scope.scheduleDayOne);
+        console.log(schedule);
+      }
+      if($scope.scheduleDayTwo){
+        schedule.push($scope.scheduleDayTwo);
+      }
+      if($scope.scheduleDayThree){
+        schedule.push($scope.scheduleDayThree);
+      }
+      if($scope.scheduleDayFour){
+        schedule.push($scope.scheduleDayFour);
+      }
+      $scope.newTrainee.schedule = schedule;
+      console.log($scope.newTrainee);
       LoginService.addNewTrainee($scope.newTrainee).then(
         function( trainee ){
             console.log("Created trainee, attempting to add to trainer...", trainee);
@@ -24,7 +46,7 @@ app.controller('addClientModal', function ($scope, $uibModalInstance, LoginServi
             );
         },
         function( error ){
-            console.log("Failed to create trainee, please review and try again...\n", err);
+            console.log("Failed to create trainee, please review and try again...\n", error);
             alert("Failed to create trainee, please review and try again...");
         }
       );

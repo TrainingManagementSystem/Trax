@@ -28,41 +28,41 @@
                   <div class="dayScheduleLabel"><p>DAY 1</p></div>
                   <div class="thirdFieldContainer">
                     <label for="day">Day:</label>
-                    <select name="day" class="workoutDay">
-                      <option value="sun">Sunday</option>
-                      <option value="mon">Monday</option>
-                      <option value="tue">Tuesday</option>
-                      <option value="wed">Wednesday</option>
-                      <option value="thu">Thursday</option>
-                      <option value="fri">Friday</option>
-                      <option value="sat">Saturday</option>
+                    <select name="day" class="workoutDay" ng-model="scheduleDayOne.dayOfWeek">
+                      <option value="0">Sunday</option>
+                      <option value="1">Monday</option>
+                      <option value="2">Tuesday</option>
+                      <option value="3">Wednesday</option>
+                      <option value="4">Thursday</option>
+                      <option value="5">Friday</option>
+                      <option value="6">Saturday</option>
                     </select>
                   </div>
                   <div class="thirdFieldContainer">
                   <label for="day">Time:</label>
-                    <select name="day" class="workoutTime">
-                      <option value="fiveam">5:00am</option>
-                      <option value="sixam">6:00am</option>
-                      <option value="sevenam">7:00am</option>
-                      <option value="eightam">8:00am</option>
-                      <option value="nineam">9:00am</option>
-                      <option value="tenam">10:00am</option>
-                      <option value="elevenam">11:00am</option>
-                      <option value="noon">12:00pm</option>
-                      <option value="onepm">1:00pm</option>
-                      <option value="twopm">2:00pm</option>
-                      <option value="threepm">3:00pm</option>
-                      <option value="fourpm">4:00pm</option>
-                      <option value="fivepm">5:00pm</option>
-                      <option value="sixpm">6:00pm</option>
-                      <option value="sevenpm">7:00pm</option>
-                      <option value="eightpm">8:00pm</option>
+                    <select name="day" class="workoutTime" ng-model="scheduleDayOne.time">
+                      <option value="5:00am">5:00am</option>
+                      <option value="6:00am">6:00am</option>
+                      <option value="7:00am">7:00am</option>
+                      <option value="8:00am">8:00am</option>
+                      <option value="9:00am">9:00am</option>
+                      <option value="10:00am">10:00am</option>
+                      <option value="11:00am">11:00am</option>
+                      <option value="12:00pm">12:00pm</option>
+                      <option value="1:00pm">1:00pm</option>
+                      <option value="2:00pm">2:00pm</option>
+                      <option value="3:00pm">3:00pm</option>
+                      <option value="4:00pm">4:00pm</option>
+                      <option value="5:00pm">5:00pm</option>
+                      <option value="6:00pm">6:00pm</option>
+                      <option value="7:00pm">7:00pm</option>
+                      <option value="8:00pm">8:00pm</option>
                     </select>
                   </div>
 
                    <div class="thirdFieldContainer">
                   <label for="day">Location:</label>
-                   <input type="text" placeholder="Enter Location" />
+                   <input type="text" placeholder="Enter Location"  ng-model="scheduleDayOne.location"/>
                   </div>
                 </div>
 
@@ -202,7 +202,7 @@
     </div>
 
     <script>
-      
+
       function showHide(value) {
       if (value =='one') {
         document.getElementById('onetimeWeekly').style.display = 'flex';
