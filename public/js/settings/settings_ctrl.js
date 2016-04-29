@@ -83,8 +83,11 @@ app.controller('settings_ctrl', function($scope, $rootScope, LoginService, $stat
   };
 
   $scope.cancelAccount = function(){
+    console.log('clicked cancel account');
     LoginService.cancel().then(function(){
+      console.log('canceld account');
       LoginService.logout().then(function(){
+        console.log('loggingout');
         LoginService.user = "";
         $state.go('login');
       })

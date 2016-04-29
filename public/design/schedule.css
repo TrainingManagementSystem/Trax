@@ -53,13 +53,17 @@
 }
 
 .schedule-container .dayRow:nth-child(2n) .singleDay {
-	background-color: #ededed;
+	background-color: #fff;
 }
 .schedule-container .dayRow:nth-child(2n+1) .singleDay {
-	background-color: #fff;
+	background-color: #ededed;
 }
 
 .schedule-container .dayRow:nth-child(2n) .monthTitle {
+	background-color: #fff;
+}
+
+.schedule-container .dayRow:nth-child(2n+1) .dayLabel {
 	background-color: #ededed;
 }
 
@@ -76,7 +80,7 @@
 
 .dayLabel-active {
 	color: #fff;
-	background-color: #1b2224;
+	background-color: #1b2224 !important;
 }
 
 .timeline {
@@ -86,16 +90,29 @@
 	color: rgba(255, 255, 255, 0.3);
 	opacity: 1;
     background-color: #1b2224;
-    padding: 4px 20px 3px 20px;
+    padding: 4px 9px 3px 20px;
     margin-top: 50px;
 }
 
+.timeline p {
+	margin: 0;
+	padding: 0;
+	width: 70px;
+	text-align: center;
+	margin-left: -10px;
+	margin-right: 10px;
+}
 
 .dottedLine {
 	height: 1px;
 	border-bottom: 2px;
-	width: 95%;
+	width: 88%;
 	border-bottom-style: dotted;
 	border-bottom-color: rgba(255, 255, 255, 0.3);
 	margin-top: 10px;
 }
+
+
+
+
+
