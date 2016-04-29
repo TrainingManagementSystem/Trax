@@ -45,6 +45,15 @@ app.service('LoginService', function($http, $timeout){
       return $http.get('/logout');
     }
 
+    //cancel
+    this.cancel = function(){
+      if(self.user.trainees){
+        return $http.delete('/api/trainer' + self.user._id);
+      }else{
+        return $http.delete('/api/trainee' + self.user._id);
+      }
+    }
+
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
     this.signup = function(newUser) {
