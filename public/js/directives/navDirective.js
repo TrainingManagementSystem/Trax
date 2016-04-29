@@ -32,6 +32,13 @@ angular.module('traxApp').directive('dashboard', function() {
           $state.go(state);
         };
 
+        //Logout function
+        $scope.logout = function(){
+          LoginService.logout().then(function(){
+            $state.go('login');
+          });
+        }
+
         ////////////// Logic for the 'Add a new client' modal //////////////////
         $scope.open = function (size) {
           var modalInstance = $uibModal.open({

@@ -39,6 +39,12 @@ app.service('LoginService', function($http, $timeout){
       return $http.put(url, self.user);
     };
 
+    //Logout
+    this.logout = function(){
+      self.user = "";
+      return $http.get('/logout');
+    }
+
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
     this.signup = function(newUser) {
