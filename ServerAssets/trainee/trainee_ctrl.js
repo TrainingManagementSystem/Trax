@@ -1,5 +1,6 @@
 // import mongoose from 'mongoose';
 import Trainee from './Trainee';
+import Trainer from '../trainer/Trainer';
 
 const cb = res => function (error, response) {
         console.log('error: ', error);
@@ -20,14 +21,28 @@ export default {
     Trainee.findById(req.params.id, cb(res)).populate('trainer');
   },
   updateTrainee( req, res ){
-    Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}, cb(res));
+    Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainer')
+    .exec(function (error, updatedTrainee) {
+            if(error){
+              console.log('error: ', error);
+              return res.status(500).json(error);
+            }
+            console.log('response: ', updatedTrainee);
+            if(req.user._id == updatedTrainee._id){
+              console.log("session updated");
+              req.user = updatedTrainee;
+            }
+            res.status(200).json(updatedTrainee);
+          });
   },
   deleteTrainee( req, res ){
+    // Trainer.findById()
     Trainee.findByIdAndRemove(req.params.id, cb(res));
   },
   updatePassword( req, res ){
     Trainee.findById(req.params.id, function( err, trainee ){
       if(err) res.status(500).json(error);
+      if(req.user) req.user.password = req.body.password;
       trainee.password = req.body.password;
       trainee.save(cb(res));
     }).populate('trainer');

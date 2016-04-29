@@ -22,61 +22,36 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     });
   };
 
-//////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
+////////////////////////////  ESTABLISH USER  //////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
-  if(!LoginService.user){
-    LoginService.checkIfLogged().then(function( res, err ){
-      if(res.data === "error") return $state.go("login");
-      $scope.user = LoginService.user = res.data;
-      if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
-        $scope.openResetPassword();
-      }
-      if($scope.user.trainees){
-        if($rootScope.currentClient){
-          $scope.currentClient = $rootScope.currentClient;
-          $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
-          $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
-        }else{
-          $state.go('trainer');
-        }
-      }else{
-        $scope.currentClient = $scope.user;
-        $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
-        $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
-      }
-    });
-  } else {
-    $scope.user = LoginService.user;
-    if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
-      $scope.openResetPassword();
-    }
-    if($scope.user.trainees){
-      $scope.currentClient = $rootScope.currentClient;
-      $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
-      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
-    }else{
-      $scope.currentClient = $scope.user;
-      $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
-      $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
-    }
+  $scope.user = LoginService.user;
+  if(LoginService.user.trainer) $scope.currentClient = LoginService.user;
+  else if(!$rootScope.currentClient) $state.go('clientList');
+  else $scope.currentClient = $rootScope.currentClient;
+  $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
+  $scope.displayWeight = getWeight($scope.currentClient.fitbit.user.weight);
+  if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
+    $scope.openResetPassword();
   }
+
   function getHeight(height){
-    var heightIn = height/2.54,
-        feet = Math.floor(heightIn/12),
-        inches = Math.floor(heightIn%12);
+    // height /= 2.54;  // If using metric units
+    var feet = Math.floor(height/12),
+        inches = Math.floor(height%12);
     return feet + "\'" + inches + "\"";
   }
   function getWeight(weight){
-    var kg = weight,
-        lbs = Math.round(kg * 2.2046);
-    return lbs;
+    // If using metric units
+    // var kg = weight,
+    //     lbs = Math.round(kg * 2.2046);
+    // return lbs;
+    return weight;
   }
   $scope.authFitbit = function(){
-    LoginService.authFitbit().then(function( res, err ){
-      console.log('inside the .then...');
-      if(res.data === "error") console.log("Authorization attempt failed");
-      else {console.log("inside the 'else' statement"); $scope.user = LoginService.user = res.data;}
-    });
+    LoginService.authFitbit().then(
+      function( result ){ console.log("Authorization successful"); $scope.user = LoginService.user = result.data; },
+      function( error ){ console.log("Authorization attempt failed: ", error); }
+    );
   };
 ////////////////////////////////////////////////////////////////////////////////
 

@@ -2,7 +2,7 @@ import ctrl from './trainer_ctrl';
 
 const requireAuth = function(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.status(403).end();
+  res.status(401).end();
 };
 
 export default function( app ){

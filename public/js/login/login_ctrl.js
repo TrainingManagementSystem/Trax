@@ -20,20 +20,29 @@ app.controller('LoginControl', ['$scope', '$state', 'LoginService', 'moment', fu
 
   //////// END POINTS ////////
   $scope.loginForm = function (){
-      // if(!$scope.trainer && !$scope.user.password) $scope.user.password = ' ';
-      LoginService.login($scope.user).then(function( res, err ){
-        if(res.data === "error") return console.log("Login attempt failed, please try again");
-        LoginService.user = res.data;
-        if(LoginService.user.trainer) $state.go("client");
-        else $state.go("trainer");
-      });
+      if(!$scope.trainer && !$scope.user.password) $scope.user.password = ' ';
+      LoginService.login($scope.user).then(
+        function( success ){
+            LoginService.user = success.data;
+            LoginService.updateData();
+            if(LoginService.user.trainer) $state.go("client");
+            else $state.go("trainer");
+        },
+        function( fail ){
+            console.log(fail);
+            alert("Login attempt failed, please try again");
+        });
   };
   $scope.signupForm = function (){
-      LoginService.signup($scope.newUser).then(function( res, err ){
-        if(err) return console.log("Sign-up attempt failed, please try again...\n", err);
-        LoginService.user = res.data;
-        $state.go("trainer");
-      });
+      LoginService.signup($scope.newUser).then(
+        function( success ){
+            LoginService.user = success.data;
+            $state.go("trainer");
+        },
+        function( fail ){
+            console.log(fail);
+            alert("Sign-up attempt failed, please try again...");
+        });
   };
 
 }]);
