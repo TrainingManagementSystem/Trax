@@ -34,6 +34,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
       $scope.openResetPassword();
     }
+    console.log($scope.currentClient);
   }
 
   function getHeight(height){

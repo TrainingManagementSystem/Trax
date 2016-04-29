@@ -1,7 +1,8 @@
 // import mongoose from 'mongoose';
 import Trainer from './Trainer';
+import Trainee from '../trainee/Trainee';
 
-const cb = res => function (error, response) {
+const cb = res => (error, response) => {
         console.log('error: ', error);
         console.log('response: ', response);
         if(error) res.status(500).json(error);
@@ -20,18 +21,23 @@ export default {
   },
   updateTrainer( req, res ){
     Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees')
-    .exec(function (error, updatedTrainer) {
+    .exec((error, updatedTrainer)=>{
             if(error) return res.status(500).json(error);
             req.user = updatedTrainer;
             res.status(200).json(updatedTrainer);
           });
   },
   deleteTrainer( req, res ){
-    Trainer.findByIdAndRemove(req.params.id, cb(res));
+    Trainer.findById(req.params.id, (err, trainer)=>{
+      Trainee.remove({_id: {$in: trainer.trainees}}, error => console.log(error));
+      trainer.remove().then(
+        result => res.status(200).json(result),
+        error => res.status(500).json(error));
+    });
   },
   updatePassword( req, res ){
-    Trainer.findById(req.params.id, function( err, trainer ){
-      if(err) res.status(500).json(error);
+    Trainer.findById(req.params.id, (err, trainer)=>{
+      if(err) return res.status(500).json(error);
       if(req.user) req.user.password = req.body.password;
       trainer.password = req.body.password;
       trainer.save(cb(res));
