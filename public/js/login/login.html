@@ -13,7 +13,7 @@
     </header>
     <div class="container">
         <div class="row login-box">
-            <div class="col-xs-12">
+            <div class="col-xs-12 tall">
                 <div class="row">
                     <div class="col-xs-12 loginLogoContainer">
                         <i class="fa fa-logo fa-3x fa-logo-login"></i>
@@ -51,7 +51,12 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 loginSignupButton">
-                            <a ui-sref="signup" class="loginSignup">SIGN UP</a>
+                            <a ng-if="trainer" ui-sref="signup" class="loginSignup">SIGN UP</a>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-xs-12 loginSignupNoButton">
+                            <div ng-if="!trainer" class=""></div>
                         </div>
                     </div>
                     <div class="row">
@@ -72,3 +77,5 @@
         </div>
     </div>
 </div>
+
+
