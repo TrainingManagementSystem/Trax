@@ -2,7 +2,7 @@
 import Trainee from './Trainee';
 import Trainer from '../trainer/Trainer';
 
-const cb = res => function (error, response) {
+const cb = res => (error, response) => {
         console.log('error: ', error);
         console.log('response: ', response);
         if(error) res.status(500).json(error);
@@ -11,7 +11,6 @@ const cb = res => function (error, response) {
 
 export default {
   newTrainee( req, res ){
-    console.log("inside the backend: ", req.body);
     Trainee.create(req.body, cb(res));
   },
   getTrainees( req, res ){
@@ -22,7 +21,7 @@ export default {
   },
   updateTrainee( req, res ){
     Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainer')
-    .exec(function (error, updatedTrainee) {
+    .exec(( error, updatedTrainee )=>{
             if(error) return res.status(500).json(error);
             if(req.user._id == updatedTrainee._id){
               console.log("session updated");
@@ -32,16 +31,26 @@ export default {
           });
   },
   deleteTrainee( req, res ){
-    // Trainee.findById(req.params.id, function( err, trainee ){
-    //   if(err) return res.status(500).json(err);
-    //   if(req.user) req.user.password = req.body.password;
-    //   trainee.password = req.body.password;
-    //   trainee.save(cb(res));
-    // }).populate('trainer');
+    Trainee.findById(req.params.id, (error, trainee)=>{
+      if(error) return res.status(500).json(error);
+      Trainer.findById(trainee.trainer, (error, trainer)=>{
+        if(error) return res.status(500).json(error);
+        console.log("Before: ", trainer);
+        trainer.trainees.splice(trainer.trainees.indexOf(trainee._id), 1);
+        console.log("After: ", trainer);
+        trainer.save((err, resp)=>{
+          if(error) return res.status(500).json(error);
+          console.log("Trainer Saved: ", resp);
+          trainee.remove().then(
+            trainee => res.status(200).json(trainee),
+            error => res.status(500).json(error));
+        });
+      });
+    });
   },
   updatePassword( req, res ){
-    Trainee.findById(req.params.id, function( err, trainee ){
-      if(err) res.status(500).json(err);
+    Trainee.findById(req.params.id, (err, trainee)=>{
+      if(err) return res.status(500).json(err);
       if(req.user) req.user.password = req.body.password;
       trainee.password = req.body.password;
       trainee.save(cb(res));
