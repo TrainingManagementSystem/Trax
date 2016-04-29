@@ -20,14 +20,14 @@
 	<div class="logout">
 
 		<img src={{user.fitbit.user.avatar}}>
-		<span>{{user.firstName}} {{user.lastName}}<p><a ui-sref="marketing">Logout</a></p></span>
+		<span>{{user.firstName}} {{user.lastName}}<p><a class="pointer" ng-click="logout()">Logout</a></p></span>
 	</div>
 
 </div>
 <div class="dashboard-nav">
 	<div class="nav-logout">
 		<img src="../img/users/user-seven.jpg">
-		<p><a href="#">Logout</a></p>
+		<p class="pointer"><a href="#">Logout</a></p>
 	</div>
 	<i class="fa fa-logo fa-2x dashboard-logo"></i>
 		<div class="toggle-container">
