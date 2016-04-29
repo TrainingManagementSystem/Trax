@@ -1,5 +1,5 @@
 var app = angular.module('traxApp');
-app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService, $uibModal){
+app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService, $uibModal, moment){
   $rootScope.currentState = 'clientList';
 
   $scope.openResetPassword = function (size) {
@@ -22,6 +22,11 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     });
   };
 
+  $scope.formatDate = function(date){
+    return moment(date, 'YYYY-MM-DD').format('MMMM DD').toUpperCase();
+  }
+
+
 ////////////////////////////  ESTABLISH USER  //////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
   $scope.user = LoginService.user;
@@ -35,6 +40,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.openResetPassword();
     }
     console.log($scope.currentClient);
+    console.log(moment($scope.currentClient.fitbit.stepLog[0].dateTime, 'YYYY-MM-DD').format('MMM DD'));
   }
 
   function getHeight(height){
