@@ -182,11 +182,12 @@ body {
 
 .loginSignup {
 	color: #91d000;
-	border: 2px solid #91d000;
+	/*border: 2px solid #91d000;*/
 	font-family: "proxima-nova";
 	font-weight: 100;
 	font-size: 1em;
-	padding: .3em 2em;  
+	/*padding: .3em 2em; */
+	 
 }
 
 .loginButton {
