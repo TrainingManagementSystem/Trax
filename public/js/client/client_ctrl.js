@@ -24,7 +24,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
 
   $scope.formatDate = function(date){
     return moment(date, 'YYYY-MM-DD').format('MMMM DD').toUpperCase();
-  }
+  };
 
 
 ////////////////////////////  ESTABLISH USER  //////////////////////////////////
@@ -40,7 +40,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.openResetPassword();
     }
     console.log($scope.currentClient);
-    console.log(moment($scope.currentClient.fitbit.stepLog[0].dateTime, 'YYYY-MM-DD').format('MMM DD'));
+    // console.log(moment($scope.currentClient.fitbit.stepLog[0].dateTime, 'YYYY-MM-DD').format('MMM DD'));
   }
 
   function getHeight(height){
