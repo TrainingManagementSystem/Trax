@@ -81,4 +81,13 @@ app.controller('settings_ctrl', function($scope, $rootScope, LoginService, $stat
       // $log.info('Modal dismissed at: ' + new Date());
     });
   };
+
+  $scope.cancelAccount = function(){
+    LoginService.cancel().then(function(){
+      LoginService.logout().then(function(){
+        LoginService.user = "";
+        $state.go('login');
+      })
+    })
+  }
 });
