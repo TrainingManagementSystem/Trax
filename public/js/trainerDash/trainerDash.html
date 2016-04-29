@@ -24,7 +24,7 @@
               <!--  Start Client List Repeats -->
               <div ng-repeat="client in user.trainees" class="clientList-row trainer-clientlist-row" ng-click="goToClient(client)">
                 <div class="clientList-s1 trainerclientlist-detail-s1">
-                  <img src={{client.fitbit.user.avatar}} alt="profile pic" class="clientList-profileImage"/>
+                  <img ng-src="{{client.fitbit.user.avatar || '/img/user-default.png'}}" alt="profile pic" class="clientList-profileImage"/>
                   {{client.firstName}} {{client.lastName}}
                 </div>
                 <div class="clientList-s2 trainerclientlist-detail-s2">

@@ -2,26 +2,7 @@ var app = angular.module('traxApp');
 app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $state, LoginService){
   $rootScope.currentState = 'trainer';
 
-//////////////////////// PRIOR AUTHORIZATION CONTROLS ////////////////////////////////
-  // Check for valid login session and assign logged in user to scope //////////
-  // if(LoginService.user){
-  //   $scope.user = LoginService.user;
-  // } else {
-  //   LoginService.checkIfLogged().then(function( res, err ){
-  //     if(res.data === "error") return $state.go("login");
-  //     LoginService.user = res.data;
-  //     $scope.user = LoginService.user;
-  //   });
-  // }
-  // $scope.authFitbit = function(){
-  //   LoginService.authFitbit().then(function( res, err ){
-  //     if(res.data === "error") console.log("Authorization attempt failed");
-  //     else $scope.user = LoginService.user = res.data;
-  //   });
-  // };
-////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////// TESTING NEW AUTHORIZATION CONTROLS ////////////////////////////////
+//////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
   $scope.user = LoginService.user;
   $scope.authFitbit = function(){
