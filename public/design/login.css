@@ -15,6 +15,16 @@
 #f2f2ea white
 #0e1112 black*/
 
+/* hover */
+
+.login-container a :hover {
+   transition: .25s all ease;
+   color: black;
+}
+
+.login-container a {
+	text-decoration: none;
+}
 
 /* Fonts */
 @font-face { font-family: "Dharma-ExLight-I"; src: url(../fonts/DharmaGothicE_ExLight_I.otf);}
