@@ -10,7 +10,9 @@ div#preload { display: none; }
 
 /* NAVIGATION */
 
-
+.pointer{
+	cursor: pointer;
+}
 
 .dashboard-nav {
 	height: 65px;
