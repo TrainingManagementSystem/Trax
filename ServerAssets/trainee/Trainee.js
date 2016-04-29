@@ -11,12 +11,9 @@ const Trainee = new mongoose.Schema({
       trainer: {type: mongoose.Schema.Types.ObjectId, ref: 'Trainer', required: true},
       active: {type: Boolean, default: true},
       schedule: [{
-        lastInstance: String,
         dayOfWeek: Number,
-        confirmed: Boolean,
-        time: Number,
-        location: String,
-        Duration: Number
+        time: String,
+        location: String
       }],
       measurements: {
         neck: Number,

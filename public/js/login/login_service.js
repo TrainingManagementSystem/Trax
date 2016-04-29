@@ -47,10 +47,13 @@ app.service('LoginService', function($http, $timeout){
 
     //cancel
     this.cancel = function(){
+      console.log('cancel function');
       if(self.user.trainees){
-        return $http.delete('/api/trainer' + self.user._id);
+        console.log('cancel trainer');
+        return $http.delete('/api/trainer/' + self.user._id);
       }else{
-        return $http.delete('/api/trainee' + self.user._id);
+        console.log('cancel trainee');
+        return $http.delete('/api/trainee/' + self.user._id);
       }
     }
 
