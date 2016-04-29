@@ -1,14 +1,20 @@
 angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
   .config(function($stateProvider, $urlRouterProvider) {
     /// Authentication protocals  ///
-    function authenticate($state, LoginService){
+    function authenticate($state, $rootScope, LoginService){
       if(!LoginService.user)
-        LoginService.checkIfLogged().then(function( res, err ){
-            if(res.data === "error") return $state.go("login");
-            LoginService.user = res.data;
+        LoginService.checkIfLogged().then(
+          function(approved){
+            LoginService.user = approved.data;
             LoginService.updateData();
-        });
+          },
+          function(rejected){ $state.go("login"); }
+        );
     }
+    // Denies a trainer access to a client page unless he has the client selected
+    // function reroute($state, $rootScope, LoginService){
+    //   if($scope.user.trainees && !$rootScope.currentClient) $state.go('clientList');
+    // }
     // States //
     $urlRouterProvider.otherwise('/');
     $stateProvider
@@ -33,6 +39,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
         controller: "client_ctrl",
         resolve: {
           Authenticate: authenticate
+          // Reroute: reroute
         }
       })
       .state('about', {

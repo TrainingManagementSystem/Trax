@@ -47,7 +47,6 @@ app.service('LoginService', function($http, $timeout){
 
     // Adds a new trainee to a trainer via the addNewTrainee modal on the navbar
     this.addNewTrainee = function(trainee) {
-        console.log("inside the service: ", trainee);
         return $http.post("/api/trainees", trainee);
     };
 
@@ -59,7 +58,7 @@ app.service('LoginService', function($http, $timeout){
             refreshTokenHeader = {
               "Authorization":    "Basic " + window.btoa("227Q97:8823c6632233f540fb78fcdcecb6637b"), // <client_id>:<client_secret> (encoded in Base64 format)
               "Content-Type":     "application/x-www-form-urlencoded",
-              "Content-Language": "en-US"
+              "Accept-Language": "en_US"
             };
 
         // REFRESH THE FITBIT ACCESS TOKEN
@@ -72,14 +71,14 @@ app.service('LoginService', function($http, $timeout){
               var apiReqUrl = "https://api.fitbit.com/1/user/"+self.user.fitbit.id,
                   apiReqHeader = {
                     "Authorization": "Bearer " + self.user.fitbit.accessToken,
-                    "Accept-Language": "en-US"
+                    "Accept-Language": "en_US"
                   },
                   today = moment().format('YYYY-MM-DD');
               // GET updated profile
               $http.get(apiReqUrl+"/profile.json", { headers: apiReqHeader } ).then(
                 function( profile ){
                     console.log("Aquired profile: ", profile.data);
-                    self.user.fitbit.user = profile.data;
+                    self.user.fitbit.user = profile.data.user;
                 },
                 function( error ){
                     console.log("Failed to aquire profile: ", error.data);
@@ -99,7 +98,7 @@ app.service('LoginService', function($http, $timeout){
               $http.get(apiReqUrl+"/activities/steps/date/today/1w.json", { headers: apiReqHeader } ).then(
                 function( stepLog ){
                     console.log("Aquired step log: ", stepLog.data);
-                    self.user.fitbit.stepLog = stepLog.data["activities-log-step"];
+                    self.user.fitbit.stepLog = stepLog.data["activities-steps"];
                 },
                 function( error ){
                     console.log("Failed to aquire step log: ", error.data);
@@ -128,17 +127,21 @@ app.service('LoginService', function($http, $timeout){
               // GET body measurements
               $http.get(apiReqUrl+"/body/date/"+today+".json", { headers: apiReqHeader } ).then(
                 function( measurement ){
-                    console.log("Aquired measurement data: ", measurement.data);
-                    self.user.fitbit.bodyMeasurements = measurement.data;
+                    console.log("Aquired measurement data: ", measurement.data.body);
+                    self.user.fitbit.bodyMeasurements = measurement.data.body;
                 },
                 function( error ){
                     console.log("Failed to aquire measurement goals: ", error.data);
                 });
               // Wait 15 seconds (giving time for the promises to resolve) and then save User
-              $timeout($http.put("/api/trainer/"+self.user._id, self.user).then(
-                function(response){console.log("User saved: ", response);},
-                function(error){console.log("Failed to save user: ", error);}),
-                30000);
+              $timeout(function(){
+                  console.log("inside the timeout: ", self.user);
+                  var role = self.user.trainer ? "trainee/" : "trainer/";
+                  $http.put("/api/"+role+self.user._id, self.user).then(
+                      function(response){console.log("User saved: ", response);},
+                      function(error){console.log("Failed to save user: ", error);});},
+              5000);
+              console.log("after the timeout");
           },
           // OR: If accessToken fails to renew...
           function(error){

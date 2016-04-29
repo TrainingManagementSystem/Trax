@@ -21,7 +21,19 @@ export default {
     Trainee.findById(req.params.id, cb(res)).populate('trainer');
   },
   updateTrainee( req, res ){
-    Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees').exec(cb(res));
+    Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainer')
+    .exec(function (error, updatedTrainee) {
+            if(error){
+              console.log('error: ', error);
+              return res.status(500).json(error);
+            }
+            console.log('response: ', updatedTrainee);
+            if(req.user._id == updatedTrainee._id){
+              console.log("session updated");
+              req.user = updatedTrainee;
+            }
+            res.status(200).json(updatedTrainee);
+          });
   },
   deleteTrainee( req, res ){
     // Trainer.findById()

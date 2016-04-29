@@ -28,12 +28,6 @@ const Trainee = new mongoose.Schema({
         calf: Number,
         chest: Number
       },
-      // goals: {
-      //   caloriesOut: Number,
-      //   steps: Number,
-      //   distance: Number,
-      //   floors: Number
-      // },
       starting: {
         weight: Number,
         bf: Number,
