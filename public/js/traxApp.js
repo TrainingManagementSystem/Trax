@@ -1,15 +1,19 @@
 angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
   .config(function($stateProvider, $urlRouterProvider) {
     /// Authentication protocals  ///
-    function authenticate($state, $rootScope, LoginService){
+    function authenticate($state, $rootScope, $q, LoginService){
+      var deferred = $q.defer();
       if(!LoginService.user)
         LoginService.checkIfLogged().then(
           function(approved){
             LoginService.user = approved.data;
             LoginService.updateData();
+            deferred.resolve("Authorized");
           },
-          function(rejected){ $state.go("login"); }
+          function(rejected){ alert("Please log in first"); deferred.reject("Unauthorized"); $state.go("login");}
         );
+      else deferred.resolve("Authorized");
+      return deferred.promise;
     }
     // Denies a trainer access to a client page unless he has the client selected
     // function reroute($state, $rootScope, LoginService){
@@ -18,11 +22,6 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap'])
     // States //
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      // home SCREEN
-      // .state('home', {
-      //   url: '/home',
-      //   templateUrl: '/js/home/home.html',
-      // })
       .state('login', {
         url: '/login',
         templateUrl: '/js/login/login.html',

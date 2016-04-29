@@ -21,11 +21,7 @@ export default {
   updateTrainer( req, res ){
     Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees')
     .exec(function (error, updatedTrainer) {
-            if(error){
-              console.log('error: ', error);
-              return res.status(500).json(error);
-            }
-            console.log('response: ', updatedTrainer);
+            if(error) return res.status(500).json(error);
             req.user = updatedTrainer;
             res.status(200).json(updatedTrainer);
           });
