@@ -19,7 +19,16 @@ export default {
     Trainer.findById(req.params.id, cb(res)).populate('trainees');
   },
   updateTrainer( req, res ){
-    Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees').exec(cb(res));
+    Trainer.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainees')
+    .exec(function (error, updatedTrainer) {
+            if(error){
+              console.log('error: ', error);
+              return res.status(500).json(error);
+            }
+            console.log('response: ', updatedTrainer);
+            req.user = updatedTrainer;
+            res.status(200).json(updatedTrainer);
+          });
   },
   deleteTrainer( req, res ){
     Trainer.findByIdAndRemove(req.params.id, cb(res));
@@ -27,6 +36,7 @@ export default {
   updatePassword( req, res ){
     Trainer.findById(req.params.id, function( err, trainer ){
       if(err) res.status(500).json(error);
+      if(req.user) req.user.password = req.body.password;
       trainer.password = req.body.password;
       trainer.save(cb(res));
     }).populate('trainees');
