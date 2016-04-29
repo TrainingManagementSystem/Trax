@@ -77,5 +77,9 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnim
       .state('marketing', {
         url:'/',
         templateUrl: '/js/marketing/marketing.html'
+      })
+      .state('schedule', {
+        url: '/schedule',
+        templateUrl: '/js/schedule/schedule.html'
       });
 });
