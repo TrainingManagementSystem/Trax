@@ -12,7 +12,7 @@
 				<li ng-click="goToState('trainer')" ng-class="{activeLink: currentState === 'trainer'}" ng-if="user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
             <li ng-click="goToState('client')" ng-class="{activeLink: currentState === 'clientList'}" ng-hide="user.trainees"><i class="fa fa-dashboard fa-lg"></i>Dashboard</li>
 				<li ng-click="goToState('clientList')" ng-class="{activeLink: currentState === 'clientList'}" ng-if="user.trainees"><i class="fa fa-clients fa-lg"></i>Clients</li>
-				<li><i class="fa fa-calendar fa-lg"></i>Schedule</li>
+				<li ng-click="goToState('schedule')" ng-class="{activeLink: currentState === 'schedule'}"><i class="fa fa-calendar fa-lg"></i>Schedule</li>
 				<li ng-click="goToState('settings')" ng-class="{activeLink: currentState === 'settings'}"><i class="fa fa-settings-outline fa-lg"></i>Settings</li>
 			</ul>
 		</div>
@@ -20,14 +20,14 @@
 	<div class="logout">
 
 		<img src={{user.fitbit.user.avatar}}>
-		<span>{{user.firstName}} {{user.lastName}}<p><a ui-sref="marketing">Logout</a></p></span>
+		<span>{{user.firstName}} {{user.lastName}}<p><a class="pointer" ng-click="logout()">Logout</a></p></span>
 	</div>
 
 </div>
 <div class="dashboard-nav">
 	<div class="nav-logout">
 		<img src="../img/users/user-seven.jpg">
-		<p><a href="#">Logout</a></p>
+		<p class="pointer"><a href="#">Logout</a></p>
 	</div>
 	<i class="fa fa-logo fa-2x dashboard-logo"></i>
 		<div class="toggle-container">

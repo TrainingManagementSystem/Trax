@@ -41,7 +41,15 @@
 	align-items: center;
 	text-align: center;
 	text-transform: uppercase;
-	color: rgba(0, 0, 0, .2);
+	color: rgba(0, 0, 0, .1);
+	transition: .25s all ease;
+
+}
+
+.singleDay:hover {
+	color: darkgray;
+	transition: .25s all ease;
+	cursor: default;
 }
 
 .schedule-container .dayRow:nth-child(2n) .singleDay {
@@ -58,4 +66,36 @@
 .singleDayActive {
 	background-color: #91d000 !important;
 	color: #fff !important;
+	cursor: pointer !important;
+}
+
+.dayLabel {
+	font-size: 3em;
+	padding-left: 15px;
+}
+
+.dayLabel-active {
+	color: #fff;
+	background-color: #1b2224;
+}
+
+.timeline {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	color: rgba(255, 255, 255, 0.3);
+	opacity: 1;
+    background-color: #1b2224;
+    padding: 4px 20px 3px 20px;
+    margin-top: 50px;
+}
+
+
+.dottedLine {
+	height: 1px;
+	border-bottom: 2px;
+	width: 95%;
+	border-bottom-style: dotted;
+	border-bottom-color: rgba(255, 255, 255, 0.3);
+	margin-top: 10px;
 }
