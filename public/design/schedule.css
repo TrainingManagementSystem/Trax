@@ -33,7 +33,7 @@
 .singleDay {
 	height: 70px;
 	width: 6.5%;
-	border-right: 1px solid #EDEDED;
+	border-right: 1px solid #F2F2EA;
 	display: flex;
 	font-family: 'proxima nova', 'helvetica neue', sans-serif;
 	font-size: .65em;
@@ -60,12 +60,23 @@
 	color: #fff !important;
 }
 
-.dayLabel {
-	font-size: 3em;
-	padding-left: 20px;
+.timeline {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	color: #c7c7c1;
+	opacity: 1;
+    background-color: #1b2224;
+    padding: 4px 20px 3px 20px;
+    margin-top: 50px;
 }
 
-.currentDay {
-	background-color: #1b2224;
-	color: #fff;
+
+.dottedLine {
+	height: 1px;
+	border-bottom: 2px;
+	width: 95%;
+	border-bottom-style: dotted;
+	border-bottom-color: #c7c7c1;
+	margin-top: 10px;
 }
