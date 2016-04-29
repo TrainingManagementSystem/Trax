@@ -8,6 +8,8 @@
                 <li><a ui-sref="about" class="login-fadedText">ABOUT </a></li>
                 <li class="login-fadedText"> | </li>
                 <li><a ui-sref="support" class="login-fadedText"> CONTACT</a></li>
+                <li ng-if="trainer" class="login-fadedText"> | </li>
+                <li<a ng-if="trainer" ui-sref="signup" class="loginSignup">SIGN UP</a></li>
             </ul>
         </div>
     </header>
@@ -47,11 +49,6 @@
                     <div class="row">
                         <div class="col-xs-12 loginResetPassword">
                             <a href="#" class="login-fadedText">reset password</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 loginSignupButton">
-                            <a ng-if="trainer" ui-sref="signup" class="loginSignup">SIGN UP</a>
                         </div>
                     </div>
                      <div class="row">
