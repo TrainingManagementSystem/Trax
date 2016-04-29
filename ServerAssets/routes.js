@@ -19,13 +19,12 @@ export default function (app) {
   app.get('/loggedIn',
    function(req, res) {
      if(req.user) res.status(200).json(req.user);
-     else res.send('error');
+     else res.status(401).json('error');
   });
   /// LOCAL : If Local Auth FAILS ///
   app.get('/logInFail',
    function(req, res) {
-    //  res.status(401).json('Invalid Login Attempt');
-     res.send('error');
+     res.status(401).json('Invalid Login Attempt');
   });
   /// LOCAL : LOGOUT ///
   app.get('/logout',
