@@ -43,7 +43,7 @@ body{
 img.client-profileImage{
   width: 90px;
   border-radius: 100%;
-  background-image: url(../img/);
+  background-image: url(../img/user-default.png);
 }
 .client-profileInfo-Name h1{
   font-size: 2.5rem;
