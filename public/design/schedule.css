@@ -33,7 +33,7 @@
 .singleDay {
 	height: 70px;
 	width: 6.5%;
-	border-right: 1px solid #F2F2EA;
+	border-right: 1px solid #EDEDED;
 	display: flex;
 	font-family: 'proxima nova', 'helvetica neue', sans-serif;
 	font-size: .65em;
@@ -58,4 +58,14 @@
 .singleDayActive {
 	background-color: #91d000 !important;
 	color: #fff !important;
+}
+
+.dayLabel {
+	font-size: 3em;
+	padding-left: 20px;
+}
+
+.currentDay {
+	background-color: #1b2224;
+	color: #fff;
 }
