@@ -200,37 +200,38 @@ app.service('LoginService', function($http, $timeout, $rootScope){
                     console.log("Failed to aquire measurement goals: ", error.data);
                 });
 
-              // If this is the first data pull, save the starting values
-              if(self.user.starting.weight === 0)
-                 self.user.starting.weight = self.user.fitbit.bodyMeasurements.weight ||
-                                             self.user.fitbit.user.weight;
-              if(self.user.starting.fat === 0)
-                 self.user.starting.fat = self.user.fitbit.bodyMeasurements.fat || 0;
-              if(self.user.starting.bmi === 0)
-                 self.user.starting.bmi = self.user.fitbit.bodyMeasurements.bmi || 0;
-              if(self.user.starting.steps === 0)
-                 self.user.starting.steps = self.user.fitbit.steps.lifetime || 0;
-              // If this is the first data pull, set the initial measurements values
-              var measure = self.user.bodyMeasurements;
-              if(measure.neck)
-                 measure.neck = self.user.fitbit.bodyMeasurements.neck || 0;
-              if(measure.chest)
-                 measure.chest = self.user.fitbit.bodyMeasurements.chest || 0;
-              if(measure.waist)
-                 measure.waist = self.user.fitbit.bodyMeasurements.waist || 0;
-              if(measure.hips)
-                 measure.hips = self.user.fitbit.bodyMeasurements.hips || 0;
-              if(measure.thigh)
-                 measure.thigh = self.user.fitbit.bodyMeasurements.thigh || 0;
-              if(measure.calf)
-                 measure.calf = self.user.fitbit.bodyMeasurements.calf || 0;
-              if(measure.bicep)
-                 measure.bicep = self.user.fitbit.bodyMeasurements.bicep || 0;
-              if(measure.forearm)
-                 measure.forearm = self.user.fitbit.bodyMeasurements.forearm || 0;
 
               // Wait 5 seconds (giving time for the promises to resolve) and then save User
               $timeout(function(){
+                  // If this is the first data pull, save the starting values
+                  if(self.user.starting.weight === 0)
+                     self.user.starting.weight = self.user.fitbit.bodyMeasurements.weight ||
+                                                 self.user.fitbit.user.weight;
+                  if(self.user.starting.fat === 0)
+                     self.user.starting.fat = self.user.fitbit.bodyMeasurements.fat || 0;
+                  if(self.user.starting.bmi === 0)
+                     self.user.starting.bmi = self.user.fitbit.bodyMeasurements.bmi || 0;
+                  if(self.user.starting.steps === 0)
+                     self.user.starting.steps = self.user.fitbit.steps.lifetime || 0;
+                  // If this is the first data pull, set the initial measurements values
+                  var measure = self.user.bodyMeasurements;
+                  if(measure.neck)
+                     measure.neck = self.user.fitbit.bodyMeasurements.neck || 0;
+                  if(measure.chest)
+                     measure.chest = self.user.fitbit.bodyMeasurements.chest || 0;
+                  if(measure.waist)
+                     measure.waist = self.user.fitbit.bodyMeasurements.waist || 0;
+                  if(measure.hips)
+                     measure.hips = self.user.fitbit.bodyMeasurements.hips || 0;
+                  if(measure.thigh)
+                     measure.thigh = self.user.fitbit.bodyMeasurements.thigh || 0;
+                  if(measure.calf)
+                     measure.calf = self.user.fitbit.bodyMeasurements.calf || 0;
+                  if(measure.bicep)
+                     measure.bicep = self.user.fitbit.bodyMeasurements.bicep || 0;
+                  if(measure.forearm)
+                     measure.forearm = self.user.fitbit.bodyMeasurements.forearm || 0;
+
                   console.log("inside the timeout: ", self.user);
                   var role = self.user.trainer ? "trainee/" : "trainer/";
                   $http.put("/api/"+role+self.user._id, self.user).then(
