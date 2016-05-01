@@ -215,21 +215,21 @@ app.service('LoginService', function($http, $timeout, $rootScope){
                      self.user.starting.steps = self.user.fitbit.steps.lifetime || 0;
                   // If this is the first data pull, set the initial measurements values
                   var measure = self.user.bodyMeasurements;
-                  if(measure.neck)
+                  if(measure.neck === 0)
                      measure.neck = self.user.fitbit.bodyMeasurements.neck || 0;
-                  if(measure.chest)
+                  if(measure.chest === 0)
                      measure.chest = self.user.fitbit.bodyMeasurements.chest || 0;
-                  if(measure.waist)
+                  if(measure.waist === 0)
                      measure.waist = self.user.fitbit.bodyMeasurements.waist || 0;
-                  if(measure.hips)
+                  if(measure.hips === 0)
                      measure.hips = self.user.fitbit.bodyMeasurements.hips || 0;
-                  if(measure.thigh)
+                  if(measure.thigh === 0)
                      measure.thigh = self.user.fitbit.bodyMeasurements.thigh || 0;
-                  if(measure.calf)
+                  if(measure.calf === 0)
                      measure.calf = self.user.fitbit.bodyMeasurements.calf || 0;
-                  if(measure.bicep)
+                  if(measure.bicep === 0)
                      measure.bicep = self.user.fitbit.bodyMeasurements.bicep || 0;
-                  if(measure.forearm)
+                  if(measure.forearm === 0)
                      measure.forearm = self.user.fitbit.bodyMeasurements.forearm || 0;
 
                   console.log("inside the timeout: ", self.user);
