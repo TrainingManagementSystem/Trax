@@ -115,7 +115,7 @@ app.service('LoginService', function($http, $timeout, $rootScope){
         function(failure){console.log("Failed to post to Fitbit", failure);}
       );
     };
-    
+
   ////// GET //////
     this.updateData = function() {
       // Run function only if the user has an attached Fitbit account
@@ -202,7 +202,8 @@ app.service('LoginService', function($http, $timeout, $rootScope){
 
               // If this is the first data pull, save the starting values
               if(self.user.starting.weight === 0)
-                 self.user.starting.weight = self.user.fitbit.bodyMeasurements.weight || 0;
+                 self.user.starting.weight = self.user.fitbit.bodyMeasurements.weight ||
+                                             self.user.fitbit.user.weight;
               if(self.user.starting.fat === 0)
                  self.user.starting.fat = self.user.fitbit.bodyMeasurements.fat || 0;
               if(self.user.starting.bmi === 0)
@@ -236,7 +237,6 @@ app.service('LoginService', function($http, $timeout, $rootScope){
                       function(response){console.log("User saved: ", response);},
                       function(error){console.log("Failed to save user: ", error);});},
               5000);
-              console.log("after the timeout");
           },
           // OR: If accessToken fails to renew...
           function(error){
