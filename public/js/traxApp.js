@@ -7,6 +7,7 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnim
         LoginService.checkIfLogged().then(
           function(approved){
             LoginService.user = approved.data;
+            console.log("Session Restored: ", LoginService.user);
             LoginService.updateData();
             deferred.resolve("Authorized");
           },

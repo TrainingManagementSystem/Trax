@@ -35,9 +35,7 @@ export default {
       if(error) return res.status(500).json(error);
       Trainer.findById(trainee.trainer, (error, trainer)=>{
         if(error) return res.status(500).json(error);
-        console.log("Before: ", trainer);
         trainer.trainees.splice(trainer.trainees.indexOf(trainee._id), 1);
-        console.log("After: ", trainer);
         trainer.save((err, resp)=>{
           if(error) return res.status(500).json(error);
           console.log("Trainer Saved: ", resp);

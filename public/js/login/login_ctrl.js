@@ -24,11 +24,13 @@ app.controller('LoginControl', ['$scope', '$state', 'LoginService', 'moment', fu
       LoginService.login($scope.user).then(
         function( success ){
             LoginService.user = success.data;
+            console.log("Logged in: ", LoginService.user);
             LoginService.updateData();
             if(LoginService.user.trainer) $state.go("client");
             else $state.go("trainer");
         },
         function( fail ){
+            $scope.user.password = '';
             console.log(fail);
             alert("Login attempt failed, please try again");
         });

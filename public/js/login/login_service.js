@@ -1,4 +1,4 @@
-app.service('LoginService', function($http, $timeout){
+app.service('LoginService', function($http, $timeout, $rootScope){
     var self = this;
     // If Login is successful, the user object will be saved to the service
     this.login = function(user) {
@@ -12,7 +12,7 @@ app.service('LoginService', function($http, $timeout){
 
     // Authenticate the fitbit account
     this.authFitbit = function(){
-        return $http.get("/auth/fitbit");
+        return $http.get("/auth/fitbit",  { headers: {"Accept-Language": "en_US"} });
     };
 
     //Reset trainer password
@@ -35,15 +35,23 @@ app.service('LoginService', function($http, $timeout){
 
     //Update Trainee Profile
     this.updateTrainee = function(){
-      var url = '/api/trainee/' + self.user._id;
-      return $http.put(url, self.user);
+      var url;
+      if(self.user.trainer) {
+        url = '/api/trainee/' + self.user._id;
+        return $http.put(url, self.user);
+      }
+      else {
+        var user = $rootScope.currentClient;
+        url = '/api/trainee/' + user._id;
+        return $http.put(url, user);
+      }
     };
 
     //Logout
     this.logout = function(){
       self.user = "";
       return $http.get('/logout');
-    }
+    };
 
     //cancel
     this.cancel = function(){
@@ -55,7 +63,7 @@ app.service('LoginService', function($http, $timeout){
         console.log('cancel trainee');
         return $http.delete('/api/trainee/' + self.user._id);
       }
-    }
+    };
 
 //////////////////////////  TRAINER SPECIFIC ROUTES  ///////////////////////////
     // If signup is successful, the user object will be saved to the service
@@ -69,6 +77,46 @@ app.service('LoginService', function($http, $timeout){
     };
 
 /////////////////////////////  FITBIT API CALLS  ///////////////////////////////
+  ////// POST //////
+    // Update daily step goal on Fitbit.com
+    this.updateStepGoal = function(){
+      var user = self.user.trainer ? self.user : $rootScope.currentClient,
+          apiReqHeader = {
+            "Authorization": "Bearer " + user.fitbit.accessToken,
+            "Accept-Language": "en_US"
+          },
+          id = user.fitbit.id,
+          goal = Math.floor(user.fitbit.steps.goal),
+          url = "https://api.fitbit.com/1/user/"+id+"/activities/goals/daily.json"+
+                "?steps="+goal;
+
+      console.log("submitting POST req to URL: ", url);
+      $http.post(url, {/* Req.body */}, { headers: apiReqHeader }).then(
+        function(success){console.log("Successfully posted to Fitbit", success);},
+        function(failure){console.log("Failed to post to Fitbit", failure);}
+      );
+    };
+    // Update daily calories intake goal on Fitbit.com
+    this.updateCalGoal = function(){
+      var user = self.user.trainer ? self.user : $rootScope.currentClient,
+          apiReqHeader = {
+            "Authorization": "Bearer " + user.fitbit.accessToken,
+            "Accept-Language": "en_US"
+          },
+          id = user.fitbit.id;
+          console.log("user test: ", user);
+          var goal = Math.floor(user.fitbit.nutrition.goals.calories),
+          url = "https://api.fitbit.com/1/user/"+id+"/foods/log/goal.json"+
+                "?calories="+goal;
+
+      console.log("submitting POST req to URL: ", url);
+      $http.post(url, {/* Req.body */}, { headers: apiReqHeader }).then(
+        function(success){console.log("Successfully posted to Fitbit", success);},
+        function(failure){console.log("Failed to post to Fitbit", failure);}
+      );
+    };
+    
+  ////// GET //////
     this.updateData = function() {
       // Run function only if the user has an attached Fitbit account
       if(self.user.fitbit.authorized){
@@ -136,8 +184,8 @@ app.service('LoginService', function($http, $timeout){
                 function( nutrition ){
                     console.log("Aquired nutrition data: ", nutrition.data);
                     self.user.fitbit.nutrition = self.user.fitbit.nutrition || {};
-                    self.user.fitbit.nutrition.goals = nutrition.data.goals;
                     self.user.fitbit.nutrition.daily = nutrition.data.summary;
+                    self.user.fitbit.nutrition.goals = nutrition.data.goals || self.user.fitbit.nutrition.goals;
                 },
                 function( error ){
                     console.log("Failed to aquire nutrition data: ", error.data);
@@ -151,7 +199,36 @@ app.service('LoginService', function($http, $timeout){
                 function( error ){
                     console.log("Failed to aquire measurement goals: ", error.data);
                 });
-              // Wait 15 seconds (giving time for the promises to resolve) and then save User
+
+              // If this is the first data pull, save the starting values
+              if(self.user.starting.weight === 0)
+                 self.user.starting.weight = self.user.fitbit.bodyMeasurements.weight || 0;
+              if(self.user.starting.fat === 0)
+                 self.user.starting.fat = self.user.fitbit.bodyMeasurements.fat || 0;
+              if(self.user.starting.bmi === 0)
+                 self.user.starting.bmi = self.user.fitbit.bodyMeasurements.bmi || 0;
+              if(self.user.starting.steps === 0)
+                 self.user.starting.steps = self.user.fitbit.steps.lifetime || 0;
+              // If this is the first data pull, set the initial measurements values
+              var measure = self.user.bodyMeasurements;
+              if(measure.neck)
+                 measure.neck = self.user.fitbit.bodyMeasurements.neck || 0;
+              if(measure.chest)
+                 measure.chest = self.user.fitbit.bodyMeasurements.chest || 0;
+              if(measure.waist)
+                 measure.waist = self.user.fitbit.bodyMeasurements.waist || 0;
+              if(measure.hips)
+                 measure.hips = self.user.fitbit.bodyMeasurements.hips || 0;
+              if(measure.thigh)
+                 measure.thigh = self.user.fitbit.bodyMeasurements.thigh || 0;
+              if(measure.calf)
+                 measure.calf = self.user.fitbit.bodyMeasurements.calf || 0;
+              if(measure.bicep)
+                 measure.bicep = self.user.fitbit.bodyMeasurements.bicep || 0;
+              if(measure.forearm)
+                 measure.forearm = self.user.fitbit.bodyMeasurements.forearm || 0;
+
+              // Wait 5 seconds (giving time for the promises to resolve) and then save User
               $timeout(function(){
                   console.log("inside the timeout: ", self.user);
                   var role = self.user.trainer ? "trainee/" : "trainer/";

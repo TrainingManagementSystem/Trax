@@ -29,6 +29,7 @@ export default {
   },
   deleteTrainer( req, res ){
     Trainer.findById(req.params.id, (err, trainer)=>{
+      if(err) return res.status(500).json(error);
       Trainee.remove({_id: {$in: trainer.trainees}}, error => console.log(error));
       trainer.remove().then(
         result => res.status(200).json(result),

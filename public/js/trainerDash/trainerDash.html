@@ -2,8 +2,8 @@
   <div class="trainer-header">
     <div class="stats-container">
         <div class="trainer-statBlock"><h1>{{user.trainees.length}}</h1><span>current clients</span></div>
-        <div class="trainer-statBlock"><h1>194</h1><span>client pounds lost</span></div>
-        <div class="trainer-statBlock"><h1>109,480</h1><span>lifetime client steps</span></div>
+        <div class="trainer-statBlock"><h1>{{totalWeightLoss.toLocaleString()}}</h1><span>client pounds lost</span></div>
+        <div class="trainer-statBlock"><h1>{{totalSteps.toLocaleString()}}</h1><span>lifetime client steps</span></div>
         <div class="trainer-statBlock"><h1>34</h1><span>upcoming sessions</span></div>
     </div>
   </div>
@@ -28,10 +28,12 @@
                   {{client.firstName}} {{client.lastName}}
                 </div>
                 <div class="clientList-s2 trainerclientlist-detail-s2">
-                  952/1250 KCAL
+                  {{client.fitbit.nutrition.daily.calories || 0}}
+                  /{{client.fitbit.nutrition.goals.calories || 2000}} KCAL
                 </div>
                 <div class="clientList-s3 trainerclientlist-detail-s2">
-                  7325/10K STEPS
+                  {{client.fitbit.steps.daily || 0}}
+                  /{{(client.fitbit.steps.goal/1000) || 10}}k STEPS
                 </div>
              </div>
 

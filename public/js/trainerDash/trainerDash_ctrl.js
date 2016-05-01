@@ -13,6 +13,19 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
   };
 ////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////// DATA FORMATTING ////////////////////////////////////
+  $scope.totalWeightLoss = 0;
+  $scope.totalSteps = 0;
+  for (var i = 0; i < $scope.user.trainees.length; i++) {
+    if($scope.user.trainees[i].fitbit.authorized)
+      $scope.totalWeightLoss += $scope.user.trainees[i].fitbit.user.weight -
+                                $scope.user.trainees[i].starting.weight;
+    if($scope.user.trainees[i].fitbit.authorized)
+      $scope.totalSteps += $scope.user.trainees[i].fitbit.steps.lifetime -
+                           $scope.user.trainees[i].starting.steps;
+  }
+////////////////////////////////////////////////////////////////////////////////
+
   $scope.client = {
     fname: 'John',
     lname:'Doe',
