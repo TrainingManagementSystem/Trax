@@ -63,17 +63,17 @@ const Trainee = new mongoose.Schema({
           }
         },
         bodyMeasurements: {
-          bicep: Number,
-          bmi: Number,
-          calf: Number,
-          chest: Number,
-          fat: Number,
-          forearm: Number,
-          hips: Number,
-          neck: Number,
-          thigh: Number,
-          waist: Number,
-          weight: Number
+          neck: {type: Number, default: 0, min: 0},
+          chest: {type: Number, default: 0, min: 0},
+          waist: {type: Number, default: 0, min: 0},
+          hips: {type: Number, default: 0, min: 0},
+          thigh: {type: Number, default: 0, min: 0},
+          calf: {type: Number, default: 0, min: 0},
+          bicep: {type: Number, default: 0, min: 0},
+          forearm: {type: Number, default: 0, min: 0},
+          bmi: {type: Number, default: 0, min: 0},
+          fat: {type: Number, default: 0, min: 0},
+          weight: {type: Number, default: 0, min: 0}
         },
         user: {
           age: Number, // 24,
