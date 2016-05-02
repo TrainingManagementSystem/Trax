@@ -24,7 +24,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
 
   $scope.formatDate = function(date){
     return moment(date, 'YYYY-MM-DD').format('MMMM DD').toUpperCase();
-  }
+  };
 
 
 ////////////////////////////  ESTABLISH USER  //////////////////////////////////
@@ -39,12 +39,9 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
       $scope.openResetPassword();
     }
-    console.log($scope.currentClient);
-    console.log(moment($scope.currentClient.fitbit.stepLog[0].dateTime, 'YYYY-MM-DD').format('MMM DD'));
   }
 
   function getHeight(height){
-    // height /= 2.54;  // If using metric units
     var feet = Math.floor(height/12),
         inches = Math.floor(height%12);
     return feet + "\'" + inches + "\"";
@@ -81,6 +78,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     if($scope.calEditText === 'SAVE'){
       $scope.calEditText = 'EDIT';
       $scope.calEditIcon = 'settings';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result); LoginService.updateCalGoal();},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }else{
       $scope.calEditText = 'SAVE';
       $scope.calEditIcon = 'save';
@@ -95,6 +96,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     if($scope.stepEditText === 'SAVE'){
       $scope.stepEditText = 'EDIT';
       $scope.stepEditIcon = 'settings';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result); LoginService.updateStepGoal();},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }else{
       $scope.stepEditText = 'SAVE';
       $scope.stepEditIcon = 'save';
@@ -109,6 +114,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.neckEditIcon = 'save';
     }else{
       $scope.neckEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 
@@ -120,6 +129,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.chestEditIcon = 'save';
     }else{
       $scope.chestEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 
@@ -127,10 +140,13 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
   $scope.waistEditIcon = 'plus';
   $scope.editWaist = function(){
     $scope.editingWaist = !$scope.editingWaist;
-    if($scope.waistEditIcon === 'plus'){
-      $scope.waistEditIcon = 'save';
-    }else{
+    if($scope.waistEditIcon === 'plus') $scope.waistEditIcon = 'save';
+    else{
       $scope.waistEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 
@@ -142,6 +158,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.hipsEditIcon = 'save';
     }else{
       $scope.hipsEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 
@@ -153,6 +173,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.thighEditIcon = 'save';
     }else{
       $scope.thighEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 
@@ -164,6 +188,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       $scope.calfEditIcon = 'save';
     }else{
       $scope.calfEditIcon = 'plus';
+      LoginService.updateTrainee().then(
+        function(result){console.log("Trainee saved.", result);},
+        function(error){console.log("Failed to save trainee.", error);}
+      );
     }
   };
 });

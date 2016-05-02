@@ -1,13 +1,15 @@
-import trainee from './trainee/trainee_routes';
-import trainer from './trainer/trainer_routes';
+import TraineeRoutes from './trainee/trainee_routes';
+import TrainerRoutes from './trainer/trainer_routes';
+import Trainee from './trainee/Trainee';
+import Trainer from './trainer/Trainer';
 import passport from 'passport';
 
 export default function (app) {
   /// START OF EXPORT ///
 
   /// USER ROUTES ///
-  trainee(app);
-  trainer(app);
+  TraineeRoutes(app);
+  TrainerRoutes(app);
 
   ///// PASSPORT ROUTES /////
   /// LOCAL : LOGIN ///
@@ -18,8 +20,15 @@ export default function (app) {
   /// LOCAL : If Local Auth SUCCEEDS ///
   app.get('/loggedIn',
    function(req, res) {
-     if(req.user) res.status(200).json(req.user);
-     else res.status(401).json('error');
+     if(!req.user) return res.status(401).json('error');
+     if(req.user.trainer) Trainee.findById(req.user._id, (err, trainee)=>{
+       if(err) return res.status(500).json(error);
+       else res.status(200).json(trainee);
+     }).populate('trainer');
+     else Trainer.findById(req.user._id, (err, trainer)=>{
+       if(err) return res.status(500).json(error);
+       else res.status(200).json(trainer);
+     }).populate('trainees');
   });
   /// LOCAL : If Local Auth FAILS ///
   app.get('/logInFail',
