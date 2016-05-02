@@ -10,16 +10,30 @@ li {
 
 .aboutContainer {
 	text-align: center;
-	box-sizing: border-box;
-	padding: 0;
+}
+
+.aboutContainer .row {
+	margin: 0;
+}
+
+.aboutRow {
+	margin: 0 !important;
 }
 
 .aboutNav li{
 	display: inline;
 }
 
+.aboutHeaderText {
+	padding: 0;
+}
+
+.aboutNav {
+	text-align: right;
+} 
+
 .aboutHeader {
-	padding: 3em 0 1.8em 0;
+	padding: 3em 0 0 0;
 	background-image: url(../img/steps-bg.png);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -51,9 +65,14 @@ li {
 	font-size: 1.2em;
 	font-family: "proxima-nova";
 	border-radius: 5px;
-	padding: 0;
 	height: 100vh;
+	padding: 0;
 }
+
+/*.aboutNavContainer{
+	padding: 0;
+	margin-right: -15;
+}*/
 
 .aboutDescriptionText {
 	background-color: #1b2224;
@@ -83,7 +102,7 @@ li {
 
 .aboutWebsiteHeader {
 	color: #f2f2ea;
-	margin: 1em;
+	/*margin: 1em;*/
 	border-bottom: 5px solid #91d000;
 }
 

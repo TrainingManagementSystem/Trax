@@ -35,6 +35,10 @@ li {
 	text-align: right;
 }
 
+.supportNav {
+	text-align: right;
+}
+
 .contact-faded {
 	color: rgba(255, 255, 255, 0.5);
 	font-family: "proxima-nova";
