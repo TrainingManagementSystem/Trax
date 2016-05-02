@@ -14,18 +14,16 @@ app.controller('addClientModal', function ($scope, $uibModalInstance, LoginServi
   $scope.addNewTrainee = function(){
       console.log("newTrainee: ", $scope.newTrainee);
       var schedule = [];
-      if($scope.scheduleDayOne){
-        console.log($scope.scheduleDayOne);
+      if($scope.scheduleDayOne.dayOfWeek){
         schedule.push($scope.scheduleDayOne);
-        console.log(schedule);
       }
-      if($scope.scheduleDayTwo){
+      if($scope.scheduleDayTwo.dayOfWeek){
         schedule.push($scope.scheduleDayTwo);
       }
-      if($scope.scheduleDayThree){
+      if($scope.scheduleDayThree.dayOfWeek){
         schedule.push($scope.scheduleDayThree);
       }
-      if($scope.scheduleDayFour){
+      if($scope.scheduleDayFour.dayOfWeek){
         schedule.push($scope.scheduleDayFour);
       }
       $scope.newTrainee.schedule = schedule;
