@@ -38,11 +38,22 @@ angular.module('traxApp').directive('dashboard', function() {
             $state.go('login');
           });
         };
+
         if($rootScope.todaysSessions){
           $scope.numberOfSessions = $rootScope.todaysSessions.length;
         }else{
-          if($scope.user.trainer){
-            $scope.numberOfSessions = $scope.user.schedule.length;
+          console.log('hi there');
+          if(!$scope.user.trainees){
+            console.log('poop');
+            var todaysSessions = [];
+            for(var i = 0; i < $scope.user.schedule.length; i++){
+              console.log('hello');
+              if($scope.user.schedule[i].dayOfWeek === moment().weekday()){
+                todaysSessions.push($scope.user.schedule[i])
+              }
+              console.log('hello');
+            }
+            $scope.numberOfSessions = todaysSessions.length;
           }
         }
         ////////////// Logic for the 'Add a new client' modal //////////////////
