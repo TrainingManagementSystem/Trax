@@ -1,7 +1,7 @@
 <div class="client">
   <div class="client-header">
     <div class="client-header-section client-profileInfo">
-      <img ng-src="{{currentClient.fitbit.user.avatar || '/img/user-default.png'}}" alt="Profile Image" class="client-profileImage"/>
+      <img src="{{currentClient.fitbit.user.avatar || '/img/user-default.png'}}" alt="Profile Image" class="client-profileImage"/>
       <div class="client-profileInfo-Name">
         <h1>{{currentClient.firstName.toUpperCase()}} {{currentClient.lastName.toUpperCase()}}</h1>
         <h2 ng-if="currentClient.fitbit.authorized">{{currentClient.fitbit.user.age}} {{currentClient.fitbit.user.gender.charAt(0)}} | {{displayHeight}} | {{currentClient.fitbit.user.weight}} LBS</h2>
@@ -10,19 +10,19 @@
     <div class="client-header-section client-profileStats">
       <div class="client-statBlock">
         <i class="fa fa-scale"></i>
-        <h1>{{currentClient.fitbit.user.weight - currentClient.starting.weight}} lbs</h1>
+        <h1>-6.5 lbs</h1>
       </div>
       <div class="client-statBlock">
         <i class="fa fa-bodyfat"></i>
-        <h1>{{currentClient.fitbit.bodyMeasurements.fat - currentClient.starting.fat}}% bf</h1>
+        <h1>-4% bf</h1>
       </div>
       <div class="client-statBlock">
         <i class="fa fa-bmi"></i>
-        <h1>{{currentClient.fitbit.bodyMeasurements.bmi - currentClient.starting.bmi}} bmi</h1>
+        <h1>21.2 bmi</h1>
       </div>
     </div>
   </div>
-  <div class="client-info" ng-show="currentClient.fitbit.authorized || user.trainees">
+  <div class="client-info" ng-show="currentClient.fitbit.authorized">
     <div class="client-info-section">
       <div class="info-cal-header">
         <div class="info-header-content">
@@ -30,7 +30,7 @@
           <i class="fa fa-{{calEditIcon}} editGoal" ng-class="{editingIcon: editingCalGoal}" ng-mouseover="showCalGoalLabel()" ng-mouseleave="hideCalGoalLabel()" ng-click="editCalGoal()"></i>
           <i class="fa fa-apple"></i>
           <h2>TODAY'S CALORIE GOAL</h2>
-          <h1><span>{{currentClient.fitbit.nutrition.daily.calories}}</span> / </h1><h1 ng-hide="editingCalGoal">{{currentClient.fitbit.nutrition.goals.calories}}</h1><input ng-show="editingCalGoal" type="textfield" name="calGoalText" ng-model="currentClient.fitbit.nutrition.goals.calories">
+          <h1><span>{{currentClient.fitbit.nutrition.daily.calories}}</span> / </h1><h1 ng-hide="editingCalGoal">{{currentClient.fitbit.nutrition.goals.calories}}</h1><input ng-show="editingCalGoal" type="textfield" name="calGoalText" value="">
         </div>
       </div>
       <ul>
@@ -50,7 +50,7 @@
           <i class="fa fa-{{stepEditIcon}} editGoal" ng-class="{editingIcon: editingStepGoal}" ng-mouseover="showStepGoalLabel()" ng-mouseleave="hideStepGoalLabel()" ng-click="editStepGoal()"></i>
           <i class="fa fa-shoe"></i>
           <h2>TODAY'S STEP GOAL</h2>
-          <h1><span>{{currentClient.fitbit.steps.daily}}</span> / </h1><h1 ng-hide="editingStepGoal">{{currentClient.fitbit.steps.goal}}</h1><input ng-show="editingStepGoal" type="textfield" name="stepGoalText" ng-model="currentClient.fitbit.steps.goal">
+          <h1><span>{{currentClient.fitbit.steps.daily}}</span> / </h1><h1 ng-hide="editingStepGoal">{{currentClient.fitbit.steps.goal}}</h1><input ng-show="editingStepGoal" type="textfield" name="stepGoalText" value="">
         </div>
       </div>
       <ul>
@@ -87,12 +87,12 @@
       <div class="measurements">
         <h1 class="title">MEASUREMENTS</h1>
         <ul>
-          <li><h1><span>NECK: </span></h1><h1 ng-hide="editingNeck"> {{currentClient.bodyMeasurements.neck}}"<!-- / 40 cm--></h1><input ng-show="editingNeck" type="textfield" ng-model="currentClient.bodyMeasurements.neck" /><h1><span class="cal-list-percent status-good" ng-click="editNeck()"><i class="fa fa-{{neckEditIcon}} pointer"></i></span></h1></li>
-          <li><h1><span>CHEST: </span></h1><h1 ng-hide="editingChest"> {{currentClient.bodyMeasurements.chest}}"<!-- / 40 cm--></h1><input ng-show="editingChest" type="textfield" ng-model="currentClient.bodyMeasurements.chest" /><h1><span class="cal-list-percent status-good" ng-click="editChest()"><i class="fa fa-{{chestEditIcon}} pointer"></i></span></h1></li>
-          <li><h1><span>WAIST: </span></h1><h1 ng-hide="editingWaist"> {{currentClient.bodyMeasurements.waist}}"<!-- / 40 cm--></h1><input ng-show="editingWaist" type="textfield" ng-model="currentClient.bodyMeasurements.waist" /><h1><span class="cal-list-percent status-good" ng-click="editWaist()"><i class="fa fa-{{waistEditIcon}} pointer"></i></span></h1></li>
-          <li><h1><span>HIPS: </span></h1><h1 ng-hide="editingHips"> {{currentClient.bodyMeasurements.hips}}"<!-- / 40 cm--></h1><input ng-show="editingHips" type="textfield" ng-model="currentClient.bodyMeasurements.hips" /><h1><span class="cal-list-percent status-good" ng-click="editHips()"><i class="fa fa-{{hipsEditIcon}} pointer"></i></span></h1></li>
-          <li><h1><span>THIGH: </span></h1><h1 ng-hide="editingThigh"> {{currentClient.bodyMeasurements.thigh}}"<!-- / 40 cm--></h1><input ng-show="editingThigh" type="textfield" ng-model="currentClient.bodyMeasurements.thigh" /><h1><span class="cal-list-percent status-good" ng-click="editThigh()"><i class="fa fa-{{thighEditIcon}} pointer"></i></span></h1></li>
-          <li><h1><span>CALF: </span></h1><h1 ng-hide="editingCalf"> {{currentClient.bodyMeasurements.calf}}"<!-- / 40 cm--></h1><input ng-show="editingCalf" type="textfield" ng-model="currentClient.bodyMeasurements.calf" /><h1><span class="cal-list-percent status-good" ng-click="editCalf()"><i class="fa fa-{{calfEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>NECK: </span></h1><h1 ng-hide="editingNeck"> 18" / 40 cm</h1><input ng-show="editingNeck" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editNeck()"><i class="fa fa-{{neckEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>CHEST: </span></h1><h1 ng-hide="editingChest"> 18" / 40 cm</h1><input ng-show="editingChest" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editChest()"><i class="fa fa-{{chestEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>WAIST: </span></h1><h1 ng-hide="editingWaist"> 18" / 40 cm</h1><input ng-show="editingWaist" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editWaist()"><i class="fa fa-{{waistEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>HIPS: </span></h1><h1 ng-hide="editingHips"> 18" / 40 cm</h1><input ng-show="editingHips" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editHips()"><i class="fa fa-{{hipsEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>THIGH: </span></h1><h1 ng-hide="editingThigh"> 18" / 40 cm</h1><input ng-show="editingThigh" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editThigh()"><i class="fa fa-{{thighEditIcon}} pointer"></i></span></h1></li>
+          <li><h1><span>CALF: </span></h1><h1 ng-hide="editingCalf"> 18" / 40 cm</h1><input ng-show="editingCalf" type="textfield" /><h1><span class="cal-list-percent status-good" ng-click="editCalf()"><i class="fa fa-{{calfEditIcon}} pointer"></i></span></h1></li>
         </ul>
       </div>
     </div>
@@ -108,5 +108,20 @@
       </div>
     </div>
   </div>
+
+  <div class="noAuth" ng-hide="currentClient.fitbit.authorized || !user.trainees">
+    <div class="noAuth-container">
+      <div class="noAuth-img-container">
+        <img src="/img/fitbit-outline.png">
+      </div>
+      <div class="noAuth-text-container">
+        <h1>Client Data Not Available</h1>
+        <h2><a href="/auth/fitbit">Your Client is not yet connected to FlexTrax with their fitbit account.</a></h2>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+
 <dashboard></dashboard>
