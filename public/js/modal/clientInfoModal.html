@@ -1,19 +1,19 @@
 <div class="cleintInfoModal">
   <div class="clientInfoAside">
     <div class="infoAsideContent">
-      <img src="{{client.profImage}}" alt="" />
-      <h1>{{client.fname + ' ' + client.lname}}</h1>
-      <h2>{{client.agegen + ' | ' + client.height + ' | ' + client.weight}}</h2>
+      <img src="{{client.fitbit.user.avatar150}}" alt="" />
+      <h1>{{client.firstName + ' ' + client.lastName}}</h1>
+      <h2>{{client.fitbit.user.age + ' ' + client.fitbit.user.gender.charAt(0) + ' | ' + clientHeight + ' | ' + client.fitbit.user.weight + 'LBS'}}</h2>
     </div>
   </div>
   <div class="clientInfoStatus">
     <div class="clientInfoModalBackground"></div>
     <div class="clientInfoStatusContent">
       <div>
-        <h1>{{client.fname.toUpperCase() + '\'S'}} STATUS:</h1>
+        <h1>{{client.firstName.toUpperCase() + '\'S'}} STATUS:</h1>
         <h1><span class="{{client.status}}">{{client.status.toUpperCase()}}</span></h1>
         <br>
-        <a ui-sref="client" ng-click="cancel()">VIEW ACTIVITY &amp; FOOD LOG</a>
+        <a ui-sref="client" ng-click="goToClient()">VIEW ACTIVITY &amp; FOOD LOG</a>
       </div>
     </div>
   </div>

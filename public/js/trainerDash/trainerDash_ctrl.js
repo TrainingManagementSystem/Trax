@@ -2,6 +2,8 @@ var app = angular.module('traxApp');
 app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $state, LoginService){
   $rootScope.currentState = 'trainer';
 
+  $scope.currentDayOfWeek = moment().weekday();
+
 //////////////////////// PRIOR AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
   // if(LoginService.user){
@@ -32,6 +34,32 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
   };
 ////////////////////////////////////////////////////////////////////////////////
 
+  $scope.todaysSessions = [];
+  $scope.todaysSessionTimes = [];
+  for(var i =0; i < $scope.user.trainees.length; i++){
+    for(var j = 0; j < $scope.user.trainees[i].schedule.length; j++){
+      if($scope.user.trainees[i].schedule[j].dayOfWeek === $scope.currentDayOfWeek){
+        var sessionToPush = $scope.user.trainees[i].schedule[j];
+        sessionToPush.clientName = $scope.user.trainees[i].firstName + ' ' + $scope.user.trainees[i].lastName;
+        if(sessionToPush.time > 12){
+          sessionToPush.calcTime = sessionToPush.time;
+          sessionToPush.calcTime -= 12;
+          sessionToPush.calcTime += ':00';
+          sessionToPush.timeOfDay = 'PM'
+        }else{
+          sessionToPush.calcTime = sessionToPush.time;
+          sessionToPush.calcTime += ':00';
+          sessionToPush.timeOfDay = 'AM'
+        }
+        sessionToPush.client = $scope.user.trainees[i];
+        $scope.todaysSessions.push(sessionToPush);
+        $scope.todaysSessionTimes.push(sessionToPush.time);
+        console.log($scope.todaysSessionTimes);
+      }
+    }
+  }
+  $rootScope.todaysSessions = $scope.todaysSessions;
+
   $scope.client = {
     fname: 'John',
     lname:'Doe',
@@ -42,15 +70,15 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
     status: 'good'
   };
 
-  $scope.openInfo = function (size) {
+  $scope.openInfo = function (client) {
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: '/js/modal/clientInfoModal.html',
       controller: 'clientInfoModal',
-      size: size,
       resolve: {
         client: function () {
-          return $scope.client;
+          console.log( client );
+          return client;
         }
       }
     });
