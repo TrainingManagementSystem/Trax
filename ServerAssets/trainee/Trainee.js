@@ -15,21 +15,21 @@ const Trainee = new mongoose.Schema({
         time: String,
         location: String
       }],
-      measurements: {
-        neck: Number,
-        waist: Number,
-        thigh: Number,
-        bicep: Number,
-        forearm: Number,
-        shoulders: Number,
-        calf: Number,
-        chest: Number
+      bodyMeasurements: {
+        neck: {type: Number, default: 0, min: 0},
+        chest: {type: Number, default: 0, min: 0},
+        waist: {type: Number, default: 0, min: 0},
+        hips: {type: Number, default: 0, min: 0},
+        thigh: {type: Number, default: 0, min: 0},
+        calf: {type: Number, default: 0, min: 0},
+        bicep: {type: Number, default: 0, min: 0},
+        forearm: {type: Number, default: 0, min: 0}
       },
       starting: {
-        weight: Number,
-        bf: Number,
-        bmi: Number,
-        steps: Number
+        weight: { type: Number, default: 0},
+        fat: { type: Number, default: 0},
+        bmi: { type: Number, default: 0},
+        steps: { type: Number, default: 0}
       },
       fitbit: {
         authorized: {type: Boolean, default: false},
@@ -40,7 +40,7 @@ const Trainee = new mongoose.Schema({
         displayName: String, // "Liz",
         steps: {
           daily: Number,
-          goal: Number,
+          goal: {type: Number, default: 10000, min: 0},
           lifetime: Number
         },
         stepLog: [{
@@ -58,14 +58,22 @@ const Trainee = new mongoose.Schema({
             water: Number
           },
           goals: {
-            calories: Number,
+            calories: {type: Number, default: 2000, min: 0},
             estimatedCaloriesOut: Number
           }
         },
         bodyMeasurements: {
-          weight: Number,
-          bmi: Number,
-          fat: Number
+          neck: {type: Number, default: 0, min: 0},
+          chest: {type: Number, default: 0, min: 0},
+          waist: {type: Number, default: 0, min: 0},
+          hips: {type: Number, default: 0, min: 0},
+          thigh: {type: Number, default: 0, min: 0},
+          calf: {type: Number, default: 0, min: 0},
+          bicep: {type: Number, default: 0, min: 0},
+          forearm: {type: Number, default: 0, min: 0},
+          bmi: {type: Number, default: 0, min: 0},
+          fat: {type: Number, default: 0, min: 0},
+          weight: {type: Number, default: 0, min: 0}
         },
         user: {
           age: Number, // 24,

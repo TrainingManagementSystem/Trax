@@ -10,56 +10,28 @@
       ACTIVITY
     </div>
   </div>
-  <div class="clientList-row" ng-click="goToState('client')">
+  <div class="clientList-row" ng-repeat="client in user.trainees" ng-click="goToClient(client)">
     <div class="clientList-s1">
-      <img src="img/users/user-five.jpg" alt="" class="clientList-profileImage"/> TONYA CRUZ
+     <img ng-src="{{client.fitbit.user.avatar || '/img/user-default.png'}}" alt="profile pic" class="clientList-profileImage"/> {{client.firstName}} {{client.lastName}}
     </div>
     <div class="clientList-s2">
-      952/1250 KCAL
+       {{client.fitbit.nutrition.daily.calories || 0}}
+                  /{{client.fitbit.nutrition.goals.calories || 2000}} KCAL
     </div>
     <div class="clientList-s3">
-      7325/10K STEPS
+      {{client.fitbit.steps.daily || 0}}
+                  /{{(client.fitbit.steps.goal/1000) || 10}}k STEPS
     </div>
     <div class="clientList-s4">
-      <a ng-click="goToState('client')">VIEW MORE</a>
+      <a ng-click="goToClient(client)">VIEW MORE</a>
     </div>
     <div class="clientList-s5">
       <i class="fa fa-angle-right"></i>
     </div>
   </div>
-  <div class="clientList-row" ng-click="goToState('client')">
-    <div class="clientList-s1">
-      <img src="img/users/user-five.jpg" alt="" class="clientList-profileImage"/> TONYA CRUZ
-    </div>
-    <div class="clientList-s2">
-      952/1250 KCAL
-    </div>
-    <div class="clientList-s3">
-      7325/10K STEPS
-    </div>
-    <div class="clientList-s4">
-      <a ng-click="goToState('client')">VIEW MORE</a>
-    </div>
-    <div class="clientList-s5">
-      <i class="fa fa-angle-right"></i>
-    </div>
-  </div>
-  <div class="clientList-row" ng-click="goToState('client')">
-    <div class="clientList-s1">
-      <img src="img/users/user-five.jpg" alt="" class="clientList-profileImage"/> TONYA CRUZ
-    </div>
-    <div class="clientList-s2">
-      952/1250 KCAL
-    </div>
-    <div class="clientList-s3">
-      7325/10K STEPS
-    </div>
-    <div class="clientList-s4">
-      <a ng-click="goToState('client')">VIEW MORE</a>
-    </div>
-    <div class="clientList-s5">
-      <i class="fa fa-angle-right"></i>
-    </div>
-  </div>
+  
 </div>
 <dashboard></dashboard>
+
+
+

@@ -4,26 +4,8 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
 
   $scope.currentDayOfWeek = moment().weekday();
 
-//////////////////////// PRIOR AUTHORIZATION CONTROLS ////////////////////////////////
-  // Check for valid login session and assign logged in user to scope //////////
-  // if(LoginService.user){
-  //   $scope.user = LoginService.user;
-  // } else {
-  //   LoginService.checkIfLogged().then(function( res, err ){
-  //     if(res.data === "error") return $state.go("login");
-  //     LoginService.user = res.data;
-  //     $scope.user = LoginService.user;
-  //   });
-  // }
-  // $scope.authFitbit = function(){
-  //   LoginService.authFitbit().then(function( res, err ){
-  //     if(res.data === "error") console.log("Authorization attempt failed");
-  //     else $scope.user = LoginService.user = res.data;
-  //   });
-  // };
-////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////// TESTING NEW AUTHORIZATION CONTROLS ////////////////////////////////
+//////////////////////// AUTHORIZATION CONTROLS ////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
   $scope.user = LoginService.user;
   $scope.authFitbit = function(){
@@ -59,6 +41,19 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
     }
   }
   $rootScope.todaysSessions = $scope.todaysSessions;
+
+/////////////////////////// DATA FORMATTING ////////////////////////////////////
+  $scope.totalWeightLoss = 0;
+  $scope.totalSteps = 0;
+  for (var i = 0; i < $scope.user.trainees.length; i++) {
+    if($scope.user.trainees[i].fitbit.authorized)
+      $scope.totalWeightLoss += $scope.user.trainees[i].fitbit.user.weight -
+                                $scope.user.trainees[i].starting.weight;
+    if($scope.user.trainees[i].fitbit.authorized)
+      $scope.totalSteps += $scope.user.trainees[i].fitbit.steps.lifetime -
+                           $scope.user.trainees[i].starting.steps;
+  }
+////////////////////////////////////////////////////////////////////////////////
 
   $scope.client = {
     fname: 'John',

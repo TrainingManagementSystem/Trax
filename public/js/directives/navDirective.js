@@ -37,7 +37,7 @@ angular.module('traxApp').directive('dashboard', function() {
           LoginService.logout().then(function(){
             $state.go('login');
           });
-        }
+        };
 
         $scope.numberOfSessions = $rootScope.todaysSessions.length;
 
