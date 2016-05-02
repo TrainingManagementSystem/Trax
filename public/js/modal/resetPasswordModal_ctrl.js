@@ -11,17 +11,29 @@ app.controller('resetPasswordModal', function ($scope, $uibModalInstance, LoginS
       password : $scope.newPassword.passwordOne
     };
     if(LoginService.user.trainees){
-      LoginService.resetTrainerPassword(newPassword).then(function(){
-        $scope.cancel();
-        LoginService.user.password = $scope.newPassword.passwordOne;
-      });
+      LoginService.resetTrainerPassword(newPassword).then(
+        function(result){
+            console.log("response: ", result);
+            LoginService.user.password = result.password;
+            $scope.cancel();
+        },
+        function(error){
+            console.log("Failed to update Password: ", error);
+            alert("Failed to update Password");
+        });
     }else{
-      LoginService.resetTraineePassword(newPassword).then(function(){
-        $scope.cancel();
-        LoginService.user.password = $scope.newPassword.passwordOne;
-      });
+      LoginService.resetTraineePassword(newPassword).then(
+        function(result){
+            console.log("response: ", result);
+            LoginService.user.password = result.password;
+            $scope.cancel();
+        },
+        function(error){
+            console.log("Failed to update Password: ", error);
+            alert("Failed to update Password");
+        });
     }
 
-  }
+  };
 
 });

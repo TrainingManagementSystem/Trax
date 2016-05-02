@@ -11,7 +11,15 @@ const cb = res => (error, response) => {
 
 export default {
   newTrainer( req, res ){
-    Trainer.create(req.body, cb(res));
+    Trainer.create(req.body, (error, user) => {
+        console.log('error: ', error);
+        console.log('user: ', user);
+        if(error) return res.status(500).json(error);
+        else req.login(user, function (err) {
+                if ( ! err ) res.redirect('/loggedIn');
+                else res.redirect('/logInFail');
+             });
+    });
   },
   getTrainers( req, res ){
     Trainer.find(req.query, cb(res)).populate('trainees');
