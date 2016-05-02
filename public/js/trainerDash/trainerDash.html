@@ -45,76 +45,54 @@
         </div>
         <div class="sessions-graph">
             <div class="graph-container">
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph active-time"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph active-time"></div>
-              <div class="bargraph active-time"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
-              <div class="bargraph"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('5') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('6') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('7') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('8') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('9') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('10') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('11') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('12') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('13') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('14') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('15') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('16') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('17') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('18') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('19') != -1 ? 'active-time': ''"></div>
+              <div class="bargraph" ng-class="todaysSessionTimes.indexOf('20') != -1 ? 'active-time': ''"></div>
             </div>
             <div class="label-container">
-              <div class="bargraph-label">5</div>
-              <div class="bargraph-label">6</div>
-              <div class="bargraph-label">7</div>
-              <div class="bargraph-label active-label">8</div>
-              <div class="bargraph-label">9</div>
-              <div class="bargraph-label">10</div>
-              <div class="bargraph-label">11</div>
-              <div class="bargraph-label active-label">12</div>
-              <div class="bargraph-label active-label">1</div>
-              <div class="bargraph-label">2</div>
-              <div class="bargraph-label">3</div>
-              <div class="bargraph-label">4</div>
-              <div class="bargraph-label">5</div>
-              <div class="bargraph-label">6</div>
-              <div class="bargraph-label">7</div>
-              <div class="bargraph-label">8</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('5') != -1 ? 'active-label': ''">5</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('6') != -1 ? 'active-label': ''">6</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('7') != -1 ? 'active-label': ''">7</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('8') != -1 ? 'active-label': ''">8</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('9') != -1 ? 'active-label': ''">9</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('10') != -1 ? 'active-label': ''">10</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('11') != -1 ? 'active-label': ''">11</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('12') != -1 ? 'active-label': ''">12</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('13') != -1 ? 'active-label': ''">1</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('14') != -1 ? 'active-label': ''">2</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('15') != -1 ? 'active-label': ''">3</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('16') != -1 ? 'active-label': ''">4</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('17') != -1 ? 'active-label': ''">5</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('18') != -1 ? 'active-label': ''">6</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('19') != -1 ? 'active-label': ''">7</div>
+              <div class="bargraph-label" ng-class="todaysSessionTimes.indexOf('20') != -1 ? 'active-label': ''">8</div>
             </div>
         </div>
 
       <div class="trainer-upcoming-sessions">
         <ul>
-          <li class="trainer-upcoming-sessions-li">
+          <li class="trainer-upcoming-sessions-li" ng-repeat="session in todaysSessions | orderBy:'time'">
             <div class="trainer-dateBlock">
-              <h1>3:00<span class="trainer-dateBlock-tod">PM</span></h1>
+              <h1>{{session.calcTime}}<span class="trainer-dateBlock-tod">{{session.timeOfDay}}</span></h1>
             </div>
             <div class="trainer-session-info">
-              <h1>JOSEPHINE LUNA</h1>
-              <h2>Anytime Fitness</h2>
+              <h1>{{session.clientName}}</h1>
+              <h2>{{session.location}}</h2>
             </div>
-            <i class="fa fa-info-circle" ng-click="openInfo()"></i>
-          </li>
-
-          <li class="trainer-upcoming-sessions-li">
-            <div class="trainer-dateBlock">
-              <h1>3:00<span class="trainer-dateBlock-tod">PM</span></h1>
-            </div>
-            <div class="trainer-session-info">
-              <h1>JOSEPHINE LUNA</h1>
-              <h2>Anytime Fitness</h2>
-            </div>
-            <i class="fa fa-info-circle" ng-click="open()"></i>
-          </li>
-
-          <li class="trainer-upcoming-sessions-li">
-            <div class="trainer-dateBlock">
-              <h1>3:00<span class="trainer-dateBlock-tod">PM</span></h1>
-            </div>
-            <div class="trainer-session-info">
-              <h1>JOSEPHINE LUNA</h1>
-              <h2>Anytime Fitness</h2>
-            </div>
-            <i class="fa fa-info-circle" ng-click="open()"></i>
+            <i class="fa fa-info-circle" ng-click="openInfo(session.client)"></i>
           </li>
         </ul>
       </div>

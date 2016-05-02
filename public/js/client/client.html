@@ -59,27 +59,17 @@
     </div>
     <div class="client-info-section">
       <div class="upcoming-sessions">
-        <h1>UPCOMING SESSIONS</h1>
-        <h2>THIS WEEK | JUNE 19 - JUNE 24</h2>
+        <h1>TRAINING SCHEDULE</h1>
+        <h2>WEEKLY</h2>
         <ul>
-          <li class="upcoming-sessions-li">
+          <li class="upcoming-sessions-li" ng-repeat="session in clientsSessions">
             <div class="dateBlock">
-              <h2>TUESDAY</h2>
-              <h1>3:00<span class="dateBlock-tod">PM</span></h1>
+              <h2>{{getWeekday(session.dayOfWeek)}}</h2>
+              <h1>{{session.calcTime}}<span class="dateBlock-tod">{{session.timeOfDay}}</span></h1>
             </div>
             <div class="session-info">
-              <h1>JOSEPHINE LUNA</h1>
-              <h2>Anytime Fitness</h2>
-            </div>
-          </li>
-          <li class="upcoming-sessions-li">
-            <div class="dateBlock">
-              <h2>TUESDAY</h2>
-              <h1>9:30<span class="dateBlock-tod">AM</span></h1>
-            </div>
-            <div class="session-info">
-              <h1>JOSEPHINE LUNA</h1>
-              <h2>Gold's Gym</h2>
+              <h1>{{clientTrainer}}</h1>
+              <h2>{{session.location}}</h2>
             </div>
           </li>
         </ul>
@@ -108,5 +98,20 @@
       </div>
     </div>
   </div>
+
+  <div class="noAuth" ng-hide="currentClient.fitbit.authorized || !user.trainees">
+    <div class="noAuth-container">
+      <div class="noAuth-img-container">
+        <img src="/img/fitbit-outline.png">
+      </div>
+      <div class="noAuth-text-container">
+        <h1>Client Data Not Available</h1>
+        <h2><a href="/auth/fitbit">Your Client is not yet connected to FlexTrax with their fitbit account.</a></h2>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+
 <dashboard></dashboard>
