@@ -1,7 +1,7 @@
 <div class="cleintInfoModal">
   <div class="clientInfoAside">
     <div class="infoAsideContent">
-      <img src="{{client.profImage}}" alt="" />
+      <img ng-src="{{client.profImage || '/img/user-default.png'}}" alt="Profile Image" />
       <h1>{{client.fname + ' ' + client.lname}}</h1>
       <h2>{{client.agegen + ' | ' + client.height + ' | ' + client.weight}}</h2>
     </div>
