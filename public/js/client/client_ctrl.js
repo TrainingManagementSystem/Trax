@@ -26,6 +26,32 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     return moment(date, 'YYYY-MM-DD').format('MMMM DD').toUpperCase();
   };
 
+  $scope.getWeekday = function(date){
+    return moment(date, 'd').format('dddd').toUpperCase();
+  };
+
+
+  var getSessions = function(){
+    $scope.clientsSessions = [];
+    for(var j = 0; j < $scope.currentClient.schedule.length; j++){
+      var sessionToPush = $scope.currentClient.schedule[j];
+      sessionToPush.clientName = $scope.currentClient.firstName + ' ' + $scope.currentClient.lastName;
+      if(sessionToPush.time > 12){
+        sessionToPush.calcTime = sessionToPush.time;
+        sessionToPush.calcTime -= 12;
+        sessionToPush.calcTime += ':00';
+        sessionToPush.timeOfDay = 'PM'
+      }else{
+        sessionToPush.calcTime = sessionToPush.time;
+        sessionToPush.calcTime += ':00';
+        sessionToPush.timeOfDay = 'AM'
+      }
+      sessionToPush.client = $scope.currentClient;
+      $scope.clientsSessions.push(sessionToPush);
+    }
+  }
+
+
 
 ////////////////////////////  ESTABLISH USER  //////////////////////////////////
   // Check for valid login session and assign logged in user to scope //////////
@@ -35,11 +61,18 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
   else $scope.currentClient = $rootScope.currentClient;
 
   if($scope.currentClient){
+    getSessions();
+    if($scope.user.trainees){
+      $scope.clientTrainer = $scope.user.firstName + ' ' + $scope.user.lastName;
+    }else{
+      $scope.clientTrainer = $scope.user.trainer.firstName + ' ' + $scope.user.trainer.lastName;
+    }
     $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
     if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
       $scope.openResetPassword();
     }
   }
+
 
   function getHeight(height){
     var feet = Math.floor(height/12),
@@ -54,6 +87,8 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     );
   };
 ////////////////////////////////////////////////////////////////////////////////
+
+
 
   $scope.calGoalLabelVisable = false;
   $scope.showCalGoalLabel = function(){

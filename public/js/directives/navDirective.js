@@ -38,9 +38,13 @@ angular.module('traxApp').directive('dashboard', function() {
             $state.go('login');
           });
         };
-
-        $scope.numberOfSessions = $rootScope.todaysSessions.length;
-
+        if($rootScope.todaysSessions){
+          $scope.numberOfSessions = $rootScope.todaysSessions.length;
+        }else{
+          if($scope.user.trainer){
+            $scope.numberOfSessions = $scope.user.schedule.length;
+          }
+        }
         ////////////// Logic for the 'Add a new client' modal //////////////////
         $scope.open = function (size) {
           var modalInstance = $uibModal.open({
