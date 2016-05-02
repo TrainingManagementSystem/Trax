@@ -32,6 +32,7 @@ li {
 
 .supportNav li{
 	display: inline;
+	text-align: right;
 }
 
 .contact-faded {
