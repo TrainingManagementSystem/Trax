@@ -54,7 +54,7 @@
         </div>
       </div>
       <ul>
-        <li ng-repeat="stepLog in currentClient.fitbit.stepLog"><h1><span>{{formatDate(stepLog.dateTime)}}:</span> {{stepLog.value}} / {{currentClient.fitbit.steps.goal}} <span class="cal-list-percent status-bad"><i class="fa fa-primitive-dot"></i></span></h1></li>
+        <li ng-repeat="stepLog in currentClient.fitbit.stepLog | orderBy: '-dateTime'" ><h1><span>{{formatDate(stepLog.dateTime)}}:</span> {{stepLog.value}} / {{currentClient.fitbit.steps.goal}} <span class="cal-list-percent status-bad"><i class="fa fa-primitive-dot"></i></span></h1></li>
       </ul>
     </div>
     <div class="client-info-section">
