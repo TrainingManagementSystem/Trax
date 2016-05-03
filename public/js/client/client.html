@@ -10,15 +10,15 @@
     <div class="client-header-section client-profileStats">
       <div class="client-statBlock">
         <i class="fa fa-scale"></i>
-        <h1>{{currentClient.fitbit.user.weight - currentClient.starting.weight}} lbs</h1>
+        <h1>{{(currentClient.fitbit.user.weight - currentClient.starting.weight).toFixed(1)}} lbs</h1>
       </div>
       <div class="client-statBlock">
         <i class="fa fa-bodyfat"></i>
-        <h1>{{currentClient.fitbit.bodyMeasurements.fat - currentClient.starting.fat}}% bf</h1>
+        <h1>{{(currentClient.fitbit.bodyMeasurements.fat - currentClient.starting.fat).toFixed(1)}}% bf</h1>
       </div>
       <div class="client-statBlock">
         <i class="fa fa-bmi"></i>
-        <h1>{{currentClient.fitbit.bodyMeasurements.bmi - currentClient.starting.bmi}} bmi</h1>
+        <h1>{{(currentClient.fitbit.bodyMeasurements.bmi - currentClient.starting.bmi).toFixed(1)}} bmi</h1>
       </div>
     </div>
   </div>
