@@ -30,15 +30,14 @@ app.controller('addClientModal', function ($scope, $uibModalInstance, LoginServi
       console.log($scope.newTrainee);
       LoginService.addNewTrainee($scope.newTrainee).then(
         function( trainee ){
-            console.log("Created trainee, attempting to add to trainer...", trainee);
+            console.log("Created trainee, attempting to add to trainer...");
             LoginService.user.trainees.push(trainee.data);
             LoginService.updateTrainer().then(
               function( trainer ){
-                  console.log("Successfully saved to trainer: ", trainer);
+                  console.log("Successfully saved to trainer");
                   $uibModalInstance.close(trainer.data);
               },
               function( trainer ){
-                  console.log("second.then: ", trainer);
                   alert("Failed to save new client to the trainer");
               }
             );

@@ -14,7 +14,7 @@ app.controller('resetPasswordModal', function ($scope, $uibModalInstance, LoginS
       LoginService.resetTrainerPassword(newPassword).then(
         function(result){
             console.log("response: ", result);
-            LoginService.user.password = result.password;
+            LoginService.user.password = result.data.password;
             $scope.cancel();
         },
         function(error){
@@ -25,7 +25,7 @@ app.controller('resetPasswordModal', function ($scope, $uibModalInstance, LoginS
       LoginService.resetTraineePassword(newPassword).then(
         function(result){
             console.log("response: ", result);
-            LoginService.user.password = result.password;
+            LoginService.user.password = result.data.password;
             $scope.cancel();
         },
         function(error){
