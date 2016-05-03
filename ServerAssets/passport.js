@@ -5,6 +5,7 @@ import fitbit from '../config/fitbit';
 import Trainer from './trainer/Trainer';
 import Trainee from './trainee/Trainee';
 
+
 export default function (passport) {
   /// START OF EXPORT ///
 
@@ -50,18 +51,25 @@ passport.use(new FitbitStrategy(fitbit,
         displayName: profile.displayName,
         user: profile._json.user
       };
-      req.user.fitbit = fitbit;
       if(req.user.trainer) {
-        Trainee.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
+        Trainee.findById(req.user._id, (err, trainee)=>{
           if(err) return done(err);
-          else return done(null, user);
-        });
+          trainee.fitbit = fitbit;
+          trainee.save(function(err, user){
+              if(err) return done(err);
+              else return done(null, user);
+          });
+        }).populate('trainer');
       }
       else {
-        Trainer.findByIdAndUpdate(req.user._id, req.user, { new: true }, function(err, user){
+        Trainer.findById(req.user._id, (err, trainer)=>{
           if(err) return done(err);
-          else return done(null, user);
-        });
+          trainer.fitbit = fitbit;
+          trainer.save(function(err, user){
+              if(err) return done(err);
+              else return done(null, user);
+          });
+        }).populate('trainee');
       }
     }
     else done(null, false, { message: 'Please log in first.' });

@@ -23,10 +23,6 @@ export default {
     Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainer')
     .exec(( error, updatedTrainee )=>{
             if(error) return res.status(500).json(error);
-            if(req.user._id == updatedTrainee._id){
-              console.log("session updated");
-              req.user = updatedTrainee;
-            }
             res.status(200).json(updatedTrainee);
           });
   },
@@ -49,7 +45,6 @@ export default {
   updatePassword( req, res ){
     Trainee.findById(req.params.id, (err, trainee)=>{
       if(err) return res.status(500).json(err);
-      if(req.user) req.user.password = req.body.password;
       trainee.password = req.body.password;
       trainee.save(cb(res));
     }).populate('trainer');
