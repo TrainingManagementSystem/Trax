@@ -145,6 +145,9 @@ app.service('LoginService', function($http, $timeout, $rootScope){
                 function( profile ){
                     console.log("Aquired profile: ", profile.data);
                     self.user.fitbit.user = profile.data.user;
+                    var height = self.user.fitbit.user.height;
+                    self.user.displayHeight = Math.floor(height/12) + "\'" +
+                                              Math.floor(height%12) + "\"";
                 },
                 function( error ){
                     console.log("Failed to aquire profile: ", error.data);

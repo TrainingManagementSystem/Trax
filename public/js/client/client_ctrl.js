@@ -67,17 +67,9 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
     }else{
       $scope.clientTrainer = $scope.user.trainer.firstName + ' ' + $scope.user.trainer.lastName;
     }
-    $scope.displayHeight = getHeight($scope.currentClient.fitbit.user.height);
     if($scope.user.password === "$2a$08$LMiBqE2cCxaDmzkP9zdLgub4GVIoj4TTo3az4/7ckVtZgm5RNrSyG"){
       $scope.openResetPassword();
     }
-  }
-
-
-  function getHeight(height){
-    var feet = Math.floor(height/12),
-        inches = Math.floor(height%12);
-    return feet + "\'" + inches + "\"";
   }
 
   $scope.authFitbit = function(){

@@ -4,7 +4,7 @@
       <img ng-src="{{currentClient.fitbit.user.avatar || '/img/user-default.png'}}" alt="Profile Image" class="client-profileImage"/>
       <div class="client-profileInfo-Name">
         <h1>{{currentClient.firstName.toUpperCase()}} {{currentClient.lastName.toUpperCase()}}</h1>
-        <h2 ng-if="currentClient.fitbit.authorized">{{currentClient.fitbit.user.age}} {{currentClient.fitbit.user.gender.charAt(0)}} | {{displayHeight}} | {{currentClient.fitbit.user.weight}} LBS</h2>
+        <h2 ng-if="currentClient.fitbit.authorized">{{currentClient.fitbit.user.age}} {{currentClient.fitbit.user.gender.charAt(0)}} | {{currentClient.displayHeight}} | {{currentClient.fitbit.user.weight}} LBS</h2>
       </div>
     </div>
     <div class="client-header-section client-profileStats">
