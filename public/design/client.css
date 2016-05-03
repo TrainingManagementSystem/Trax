@@ -8,6 +8,9 @@
 body{
   background-color: #1b2224;
 }
+.greenDotParty{
+  color: #91d000;
+}
 .client{
   background-color: #f2f2ea;
   min-height: calc(100vh - 65px);

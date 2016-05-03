@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="client-info" ng-show="currentClient.fitbit.authorized || user.trainees">
+  <div class="client-info" ng-show="currentClient.fitbit.authorized">
     <div class="client-info-section">
       <div class="info-cal-header">
         <div class="info-header-content">
@@ -54,7 +54,7 @@
         </div>
       </div>
       <ul>
-        <li ng-repeat="stepLog in currentClient.fitbit.stepLog | orderBy: '-dateTime'" ><h1><span>{{formatDate(stepLog.dateTime)}}:</span> {{stepLog.value}} / {{currentClient.fitbit.steps.goal}} <span class="cal-list-percent status-bad"><i class="fa fa-primitive-dot"></i></span></h1></li>
+        <li ng-repeat="stepLog in currentClient.fitbit.stepLog | orderBy: '-dateTime'" ><h1><span>{{formatDate(stepLog.dateTime)}}:</span> {{stepLog.value}} / {{currentClient.fitbit.steps.goal}} <span class="cal-list-percent status-bad"><i ng-class="{greenDotParty: stepLog.value >= currentClient.fitbit.steps.goal}" class="fa fa-primitive-dot"></i></span></h1></li>
       </ul>
     </div>
     <div class="client-info-section">
@@ -106,7 +106,7 @@
       </div>
       <div class="noAuth-text-container">
         <h1>Client Data Not Available</h1>
-        <h2><a href="/auth/fitbit">Your Client is not yet connected to FlexTrax with their fitbit account.</a></h2>
+        <h2>Your Client is not yet connected to FlexTrax with their fitbit account.</h2>
       </div>
     </div>
   </div>
