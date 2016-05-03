@@ -40,16 +40,16 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
         sessionToPush.calcTime = sessionToPush.time;
         sessionToPush.calcTime -= 12;
         sessionToPush.calcTime += ':00';
-        sessionToPush.timeOfDay = 'PM'
+        sessionToPush.timeOfDay = 'PM';
       }else{
         sessionToPush.calcTime = sessionToPush.time;
         sessionToPush.calcTime += ':00';
-        sessionToPush.timeOfDay = 'AM'
+        sessionToPush.timeOfDay = 'AM';
       }
-      sessionToPush.client = $scope.currentClient;
+      // sessionToPush.client = $scope.currentClient;
       $scope.clientsSessions.push(sessionToPush);
     }
-  }
+  };
 
 
 
