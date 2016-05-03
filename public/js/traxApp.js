@@ -16,6 +16,34 @@ angular.module('traxApp', ['ui.router', 'angularMoment', 'ui.bootstrap', 'ngAnim
       else deferred.resolve("Authorized");
       return deferred.promise;
     }
+
+
+    ////////////////////// TESTING
+    // function authenticate($state, $rootScope, $q, LoginService){
+    //   var deferred = $q.defer();
+    //   if(!LoginService.user)
+    //     LoginService.checkIfLogged().then(
+    //       function(approved){
+    //         if(approved.data.trainee){
+    //           for (var i = 0; i < approved.data.trainee.length; i++) {
+    //             LoginService.user = approved.data.trainee[i];
+    //             LoginService.updateData();
+    //           }
+    //           var trainer = LoginService.user;
+    //         }
+    //         LoginService.user = approved.data;
+    //         console.log("Session Restored: ", LoginService.user);
+    //         LoginService.updateData();
+    //         deferred.resolve("Authorized");
+    //       },
+    //       function(rejected){ alert("Please log in first"); deferred.reject("Unauthorized"); $state.go("login");}
+    //     );
+    //   else deferred.resolve("Authorized");
+    //   return deferred.promise;
+    // }
+    ///////////////////// TESTING
+
+
     // Denies a trainer access to a client page unless he has the client selected
     // function reroute($state, $rootScope, LoginService){
     //   if($scope.user.trainees && !$rootScope.currentClient) $state.go('clientList');
