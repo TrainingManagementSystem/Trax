@@ -59,7 +59,7 @@ passport.use(new FitbitStrategy(fitbit,
               if(err) return done(err);
               else return done(null, user);
           });
-        }).populate('trainer');
+        });
       }
       else {
         Trainer.findById(req.user._id, (err, trainer)=>{
@@ -69,7 +69,7 @@ passport.use(new FitbitStrategy(fitbit,
               if(err) return done(err);
               else return done(null, user);
           });
-        }).populate('trainee');
+        });
       }
     }
     else done(null, false, { message: 'Please log in first.' });
