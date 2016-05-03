@@ -164,7 +164,7 @@ body {
 }
 
 .aboutInput {
-	height: 2em;
+	height: 3em;
 	width: 100%
 	font-size: 1.2em;
 }
@@ -187,7 +187,7 @@ body {
 	font-weight: 100;
 	font-size: 1em;
 	/*padding: .3em 2em; */
-	 
+
 }
 
 .loginButton {
