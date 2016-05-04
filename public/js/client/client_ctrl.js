@@ -34,7 +34,10 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
   var getSessions = function(){
     $scope.clientsSessions = [];
     for(var j = 0; j < $scope.currentClient.schedule.length; j++){
-      var sessionToPush = $scope.currentClient.schedule[j];
+      var sessionToPush = {};
+      for(var key in $scope.currentClient.schedule[j])
+        sessionToPush[key] = $scope.currentClient.schedule[j][key];
+        
       sessionToPush.clientName = $scope.currentClient.firstName + ' ' + $scope.currentClient.lastName;
       if(sessionToPush.time > 12){
         sessionToPush.calcTime = sessionToPush.time;
@@ -46,7 +49,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
         sessionToPush.calcTime += ':00';
         sessionToPush.timeOfDay = 'AM';
       }
-      // sessionToPush.client = $scope.currentClient;
+      sessionToPush.client = $scope.currentClient; ////////<-------------
       $scope.clientsSessions.push(sessionToPush);
     }
   };

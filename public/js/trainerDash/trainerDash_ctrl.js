@@ -21,7 +21,10 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
   for(var i =0; i < $scope.user.trainees.length; i++){
     for(var j = 0; j < $scope.user.trainees[i].schedule.length; j++){
       if($scope.user.trainees[i].schedule[j].dayOfWeek === $scope.currentDayOfWeek){
-        var sessionToPush = $scope.user.trainees[i].schedule[j];
+        var sessionToPush = {};
+        for(var key in $scope.user.trainees[i].schedule[j])
+          sessionToPush[key] = $scope.user.trainees[i].schedule[j][key];
+
         sessionToPush.clientName = $scope.user.trainees[i].firstName + ' ' + $scope.user.trainees[i].lastName;
         if(sessionToPush.time > 12){
           sessionToPush.calcTime = sessionToPush.time;
@@ -33,7 +36,7 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
           sessionToPush.calcTime += ':00';
           sessionToPush.timeOfDay = 'AM';
         }
-        // sessionToPush.client = $scope.user.trainees[i];
+        sessionToPush.client = $scope.user.trainees[i];
         $scope.todaysSessions.push(sessionToPush);
         $scope.todaysSessionTimes.push(sessionToPush.time);
         console.log($scope.todaysSessionTimes);
