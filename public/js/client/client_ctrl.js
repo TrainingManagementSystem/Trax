@@ -37,7 +37,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
       var sessionToPush = {};
       for(var key in $scope.currentClient.schedule[j])
         sessionToPush[key] = $scope.currentClient.schedule[j][key];
-        
+
       sessionToPush.clientName = $scope.currentClient.firstName + ' ' + $scope.currentClient.lastName;
       if(sessionToPush.time > 12){
         sessionToPush.calcTime = sessionToPush.time;
@@ -49,7 +49,7 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
         sessionToPush.calcTime += ':00';
         sessionToPush.timeOfDay = 'AM';
       }
-      sessionToPush.client = $scope.currentClient; ////////<-------------
+      sessionToPush.client = $scope.currentClient;
       $scope.clientsSessions.push(sessionToPush);
     }
   };
@@ -65,6 +65,9 @@ app.controller('client_ctrl', function($scope, $rootScope, $state, LoginService,
 
   if($scope.currentClient){
     getSessions();
+    var height = $scope.currentClient.fitbit.user.height;
+    $scope.currentClient.displayHeight = Math.floor(height/12) + "\'" +
+                              Math.floor(height%12) + "\"";
     if($scope.user.trainees){
       $scope.clientTrainer = $scope.user.firstName + ' ' + $scope.user.lastName;
     }else{
