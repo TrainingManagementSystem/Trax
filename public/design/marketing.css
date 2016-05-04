@@ -275,6 +275,7 @@
 	color: #91d000;
 	font-size: 5em;
 	margin-bottom: 0;
+	line-height: .9;
 }
 
 .callToActionSection h2{
@@ -330,9 +331,14 @@
 		margin-bottom: 10px;
 	}
 
+	.marketingHeaderTextContainer h1 {
+		font-size: 4em;
+		margin-top: 150px;
+		text-align: center;
+	}
 	.marketingAboutText {
 		position: absolute;
-		margin-top: 0;
+		margin-top: -60px;
 		left: 0;
 		text-align: center;
 		margin-left: 0;
@@ -342,10 +348,82 @@
 		margin-right: auto;
 
 	}
+	.pricingBox h1 {
+		padding: 10px 0;
+	}
+
+	.pricingBox::after {
+		transform: none;
+		display: none;
+	}
+
+	.pricingBox {
+		margin-bottom: 20px;
+	}
 
 	.marketingAboutContainer::after {
-		margin-top: 0;
+		margin-top: -40px;
+	}
+	
+	.pricingContainer {
+		padding: 320px 0 20px 0;
+	}
+	.callToActionSection {
+		padding: 100px 30px;
+	}
+
+	.marketingAboutText p {
+		margin-bottom: 30px;
 	}
 
 
+}
+
+
+@media (min-width: 35em) and (max-width: 50em) {
+		.marketingHeaderTextContainer h1 {
+			font-size: 6em;
+			margin-top: 90px;
+		}
+
+		..marketingAboutText {
+			margin-top: 0px;
+		}
+}
+
+
+@media (min-width: 50em) and (max-width: 60em) {
+
+	.marketingHeaderTextContainer h1 {
+			margin-top: 95px;
+		}
+
+		.marketingAboutText h2 {
+			font-size: 2em;
+			margin-top: -30px;
+		}
+
+		.macbook img {
+			margin-top: 30px;
+		}
+}
+
+@media (max-width: 800px) and (min-width: 767px) {
+
+	.marketingAboutContainer::after {
+		margin-top: -60px;
+	}
+	.marketingAboutText h2 {
+		margin-top: 275px;
+	}
+	.macbook img {
+		margin-left: 35%;
+	}
+}
+
+
+@media (max-width: 400px) {
+	.marketingAboutText h2 {
+		margin-top: -100px;
+	}
 }
