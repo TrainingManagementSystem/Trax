@@ -182,16 +182,24 @@ app.service('LoginService', function($http, $timeout, $rootScope){
                 function( error ){
                     console.log("Failed to aquire lifetime activity data: ", error.data);
                 });
-              // GET nutrition data (daily calorie intake and goal)
+              // GET nutrition data (daily calorie intake)
               $http.get(apiReqUrl+"/foods/log/date/"+today+".json", { headers: apiReqHeader } ).then(
                 function( nutrition ){
                     console.log("Aquired nutrition data: ", nutrition.data);
                     self.user.fitbit.nutrition = self.user.fitbit.nutrition || {};
                     self.user.fitbit.nutrition.daily = nutrition.data.summary;
-                    self.user.fitbit.nutrition.goals = nutrition.data.goals || self.user.fitbit.nutrition.goals;
                 },
                 function( error ){
                     console.log("Failed to aquire nutrition data: ", error.data);
+                });
+              // GET nutrition goal (daily calorie goal)
+              $http.get(apiReqUrl+"/foods/log/goal.json", { headers: apiReqHeader } ).then(
+                function( calGoal ){
+                    console.log("Aquired nutrition goals: ", calGoal.data);
+                    self.user.fitbit.nutrition.goals = calGoal.data.goals || self.user.fitbit.nutrition.goals;
+                },
+                function( error ){
+                    console.log("Failed to aquire nutrition goals: ", error.data);
                 });
               // GET body measurements
               $http.get(apiReqUrl+"/body/date/"+today+".json", { headers: apiReqHeader } ).then(

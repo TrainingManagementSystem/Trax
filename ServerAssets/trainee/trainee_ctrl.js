@@ -22,7 +22,8 @@ export default {
   updateTrainee( req, res ){
     Trainee.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('trainer')
     .exec(( error, updatedTrainee )=>{
-            if(error) return res.status(500).json(error);
+            console.log("Inside the backend: ", error, updatedTrainee);
+            if(error) {console.log(error); return res.status(500).json(error);}
             res.status(200).json(updatedTrainee);
           });
   },

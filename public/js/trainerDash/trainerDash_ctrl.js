@@ -27,11 +27,11 @@ app.controller('trainerDash_ctrl', function($scope, $rootScope, $uibModal, $stat
           sessionToPush.calcTime = sessionToPush.time;
           sessionToPush.calcTime -= 12;
           sessionToPush.calcTime += ':00';
-          sessionToPush.timeOfDay = 'PM'
+          sessionToPush.timeOfDay = 'PM';
         }else{
           sessionToPush.calcTime = sessionToPush.time;
           sessionToPush.calcTime += ':00';
-          sessionToPush.timeOfDay = 'AM'
+          sessionToPush.timeOfDay = 'AM';
         }
         sessionToPush.client = $scope.user.trainees[i];
         $scope.todaysSessions.push(sessionToPush);
